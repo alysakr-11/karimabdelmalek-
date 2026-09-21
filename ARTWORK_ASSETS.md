@@ -17,17 +17,36 @@ entry to the manifest switches every surface — home, `/works`, the arc strip,
 the hero panel, `/works/[slug]`, the sitemap — over to real content. No
 component needs editing.
 
+## The short version
+
+```bash
+# 1. put the image files in public/works/
+node scripts/import-works.mjs scan     # -> content/works.csv, dimensions filled in
+#    open content/works.csv, add a title and alt text for each row
+node scripts/import-works.mjs build    # -> src/content/works.ts
+npm run build
+```
+
+That is the whole job. The reserved slots disappear on their own, the "not yet
+supplied" notes stop rendering, and the artwork detail pages start generating.
+
 ## Step 1 — drop the files in
 
-Put the images in `public/works/`. Any web format works; `.jpg` for
-photographic reproductions, `.png` where you need transparency.
+Put the images in `public/works/`. JPEG, PNG, WebP, GIF and AVIF are all fine.
 
 ```
 public/works/
   wesal-01.jpg
-  wesal-01-detail.jpg      # optional, shown on hover
+  wesal-01-detail.jpg      # optional — shown on hover
   zat-03.jpg
 ```
+
+Two naming conventions the importer understands, both optional:
+
+- A file ending **`-detail`** or **`-hover`** is attached to the work of the
+  same base name as its hover image, instead of becoming a work of its own.
+- A filename starting with a **collection slug** (`wesal`, `zat`,
+  `the-third-eye`, `sakan`, `horra`) pre-fills that work's collection.
 
 Guidance for reproductions:
 
@@ -36,53 +55,66 @@ Guidance for reproductions:
 - **Do not crop, straighten or colour-correct** beyond what the artist or the
   gallery approves. Cards use `object-contain`, so the full work is always
   visible at its true proportion and nothing is cropped by the layout.
-- **Keep the file's real pixel dimensions** — you need them in step 2.
 
-## Step 2 — describe them
-
-Edit `src/content/works.ts` and fill the `works` array:
-
-```ts
-export const works: Work[] = [
-  {
-    slug: 'wesal-01',                    // URL segment; must be unique
-    title: 'The work's own title',       // never a description invented for it
-    year: '2025',
-    medium: 'Mixed media on canvas',
-    dimensions: '150 × 120 cm',
-    collection: 'wesal',                 // a slug from src/content/collections.ts
-    image: '/works/wesal-01.jpg',
-    hoverImage: '/works/wesal-01-detail.jpg',  // optional
-    width: 1600,                         // the file's real pixel width
-    height: 2000,                        // the file's real pixel height
-    alt: 'A seated figure in ochre and umber, branches rising through the torso.',
-  },
-];
-```
-
-`width` and `height` must be the file's true pixel dimensions. They drive the
-masonry packing and reserve the correct box before the image loads, which is
-what keeps the grid from jumping as it fills in.
-
-`alt` should describe the work for someone who cannot see it. Do not write
-"painting by Karim Abdel Malak" — the surrounding markup already says that.
-
-### Only fill in what you know
-
-Every field except `slug`, `title`, `image`, `width`, `height` and `alt` is
-optional, and the UI omits any it does not get. A work with no recorded
-dimensions simply shows no dimensions line. **Leave a field out rather than
-guess at it.**
-
-## Step 3 — check it
+## Step 2 — scan
 
 ```bash
-npm run build     # typechecks the manifest and prerenders every work page
-npm run dev       # then look at /works
+node scripts/import-works.mjs scan
 ```
 
-The reserved slots disappear on their own, the "artwork files not yet supplied"
-notes stop rendering, and the footer's content-status list shrinks.
+This writes `content/works.csv`, one row per work, with the columns it can fill
+in from the files themselves — the path and the true pixel dimensions, read
+straight from each file's header. Everything a person has to supply is left
+blank.
+
+Re-running `scan` is safe: anything already typed into the CSV is preserved,
+and only the file-derived columns are refreshed. Run it again whenever you add
+more images.
+
+## Step 3 — fill in the CSV
+
+| column | required | notes |
+| --- | --- | --- |
+| `file` | yes | filled in by `scan` |
+| `title` | **yes** | the artwork's own title — never a description invented for it |
+| `alt` | **yes** | describes the work for someone who cannot see it |
+| `year` | no | |
+| `medium` | no | e.g. `Mixed media on canvas` |
+| `dimensions` | no | e.g. `150 × 120 cm` |
+| `collection` | no | a slug from `src/content/collections.ts` |
+| `width` / `height` | yes | filled in by `scan` — do not edit |
+
+**Leave a field blank rather than guess at it.** The UI omits any optional
+field it does not get: a work with no recorded dimensions simply shows no
+dimensions line.
+
+For `alt`, describe what is in the picture. Don't write "painting by Karim
+Abdel Malak" — the surrounding markup already says that.
+
+## Step 4 — build
+
+```bash
+node scripts/import-works.mjs build
+```
+
+This writes `src/content/works.ts`. It **refuses to run** while any row is
+missing a title or alt text, and tells you which rows, so the manifest can
+never be completed by guesswork:
+
+```
+Not writing the manifest — 2 thing(s) need a human:
+
+  - row 4: zat-03.jpg has no title
+  - row 4: zat-03.jpg has no alt text
+```
+
+It also checks every `file` actually exists and every `collection` is a real
+slug. Then:
+
+```bash
+npm run build     # typechecks the manifest and prerenders every artwork page
+npm run dev       # then look at /works
+```
 
 ## Still outstanding
 
@@ -92,7 +124,7 @@ Remove each entry as you satisfy it.
 
 | Item | Where it goes |
 | --- | --- |
-| Artwork files and metadata | `public/works/` + `src/content/works.ts` |
+| Artwork files and metadata | `public/works/` + `scripts/import-works.mjs` |
 | Portrait of the artist | `public/` + wire into `src/components/sections/AboutPreview.tsx` |
 | The artist's own biography wording | `artist.statement` in `src/content/artist.ts` |
 | Enquiry email address | set `NEXT_PUBLIC_ENQUIRY_ENDPOINT` (see below) |
