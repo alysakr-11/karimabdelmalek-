@@ -10,3 +10,4 @@ npm-debug.log*
 qa.local.mjs
 interact.local.mjs
 hover.local.mjs
+out/
