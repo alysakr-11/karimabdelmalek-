@@ -1,0 +1,12 @@
+node_modules/
+.next/
+out/
+build/
+.env*
+!.env.example
+*.tsbuildinfo
+.DS_Store
+npm-debug.log*
+qa.local.mjs
+interact.local.mjs
+hover.local.mjs
