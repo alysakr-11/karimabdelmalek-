@@ -1,0 +1,165 @@
+{
+  "name": "Karim Abd Elmalak",
+  "name_variants": [
+    "Karim Abdelmalak",
+    "karimabdelmalak"
+  ],
+  "roles": [
+    "Painter",
+    "Illustrator",
+    "Sculptor"
+  ],
+  "portrait": {
+    "original_url": "https://static.wixstatic.com/media/fdc35e_7f3ba1e815d144498eef8ebfb483b4af~mv2.jpg",
+    "local_path": "media/site/about-portrait.jpg"
+  },
+  "education": [
+    {
+      "institution": "Faculty of Fine Arts, Minia University",
+      "department": "Graphics"
+    }
+  ],
+  "career": [
+    "Illustrator for Sabah El Kheir & Rosalyoussef, Egyptian local magazines.",
+    "Sculptor.",
+    "Considerable body of artwork shown at the Egyptian Presidential Palace and the Modern Art Museum (Ministry of Culture, Cairo).",
+    "Roundabout monument commissioned by Palm Hills Developments.",
+    "150 years anniversary project for Nestle East FZE – Dubai."
+  ],
+  "awards": [
+    {
+      "year": 1993,
+      "title": "Silver medal",
+      "event": "International Competition of SHANKERS World Association",
+      "location": "India"
+    }
+  ],
+  "workshops": [
+    {
+      "year": 2003,
+      "title": "1st Child's Biennale workshop “Fantasia 1”",
+      "location": "Cairo"
+    }
+  ],
+  "exhibition_history": [
+    {
+      "year": 2001,
+      "title": "Private Art Works Exhibition",
+      "venue": "Cairo Gallery",
+      "type": "solo"
+    },
+    {
+      "year": 2001,
+      "title": "Public Exhibition",
+      "venue": "Ahmed Shawky Museum",
+      "city": "Cairo",
+      "type": "group"
+    },
+    {
+      "year": 2002,
+      "title": "Public Exhibition",
+      "venue": "Mahmoud Said Museum",
+      "city": "Alexandria",
+      "type": "group"
+    },
+    {
+      "year": null,
+      "title": "The Sixth Salon of the art work small sector",
+      "type": "group"
+    },
+    {
+      "year": null,
+      "title": "The Exhibition of the Newspapers Paintings, “The 1st Foundation Cycle”",
+      "type": "group"
+    },
+    {
+      "year": 2004,
+      "title": "Black & White Exhibition",
+      "city": "Cairo",
+      "type": "group"
+    },
+    {
+      "year": "2004–2005",
+      "title": "Private Art Works Exhibitions",
+      "venue": "Gallery Grant",
+      "city": "Cairo",
+      "type": "solo"
+    },
+    {
+      "year": "2007–2008",
+      "title": "Public Exhibition",
+      "venue": "Ebdaa Art Gallery",
+      "city": "Cairo",
+      "type": "group"
+    },
+    {
+      "year": 2013,
+      "title": "Caravan Festival for arts",
+      "city": "Cairo – London",
+      "type": "festival",
+      "gallery_slug": "caravan-arts"
+    },
+    {
+      "year": 2014,
+      "title": "Caravan Festival for arts",
+      "city": "Cairo – Washington",
+      "type": "festival",
+      "gallery_slug": "caravan-arts"
+    },
+    {
+      "year": 2014,
+      "title": "The 25th Youth Salon",
+      "type": "group"
+    },
+    {
+      "year": 2015,
+      "title": "Caravan Festival for arts",
+      "city": "Cairo – Paris",
+      "type": "festival",
+      "gallery_slug": "caravan-arts"
+    },
+    {
+      "year": 2016,
+      "title": "Soul",
+      "venue": "Safarkhan Art Gallery",
+      "type": "solo",
+      "gallery_slug": "soul-2016"
+    },
+    {
+      "year": 2017,
+      "title": "Horra",
+      "venue": "Safarkhan Art Gallery",
+      "type": "solo",
+      "gallery_slug": "horra-2017"
+    },
+    {
+      "year": 2019,
+      "title": "Sakan",
+      "venue": "Safarkhan Art Gallery",
+      "type": "solo",
+      "gallery_slug": "sakan-2019"
+    },
+    {
+      "year": 2021,
+      "title": "The Third Eye",
+      "venue": "Safarkhan Art Gallery",
+      "type": "solo",
+      "gallery_slug": "the-third-eye-2021"
+    },
+    {
+      "year": 2023,
+      "title": "Zat",
+      "venue": "Safarkhan Art Gallery",
+      "type": "solo",
+      "gallery_slug": "zat-2023"
+    },
+    {
+      "year": 2025,
+      "title": "Wsal",
+      "venue": "Safarkhan Art Gallery",
+      "type": "solo",
+      "gallery_slug": "wsal-2025"
+    }
+  ],
+  "original_text_note": "career[2] was lightly edited for grammar; the site reads 'Considered amount of Art Work shown at...'. Everything else is verbatim or split into fields."
+}

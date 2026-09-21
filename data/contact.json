@@ -1,0 +1,38 @@
+{
+  "phone_display": "+20 128 999 33 95",
+  "phone_e164": "+201289993395",
+  "email": null,
+  "contact_form": {
+    "present": true,
+    "success_message": "Success! Message received.",
+    "submit_label": "Send",
+    "fields": "not captured (rendered by JavaScript)"
+  },
+  "heading": "GET IN TOUCH",
+  "image": {
+    "original_url": "https://static.wixstatic.com/media/fdc35e_875147298cb845bb91364f4a043bff02~mv2.jpg",
+    "local_path": "media/site/contact.jpg"
+  },
+  "socials": [
+    {
+      "platform": "Instagram",
+      "handle": "@karimabdelmalak",
+      "url": "https://www.instagram.com/karimabdelmalak/"
+    },
+    {
+      "platform": "Facebook",
+      "handle": "Group 248401451888273",
+      "url": "https://www.facebook.com/groups/248401451888273/"
+    },
+    {
+      "platform": "YouTube",
+      "handle": "UCd4YBZAFoPRqx8nQaRQO0_w",
+      "url": "https://www.youtube.com/channel/UCd4YBZAFoPRqx8nQaRQO0_w"
+    },
+    {
+      "platform": "X / Twitter",
+      "handle": "@karimabdelmalak",
+      "url": "https://twitter.com/karimabdelmalak"
+    }
+  ]
+}

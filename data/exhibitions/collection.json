@@ -1,0 +1,264 @@
+{
+  "slug": "collection",
+  "title": "Collection",
+  "year": null,
+  "type": "collection",
+  "venue": null,
+  "old_url": "https://www.karimabdelmalak.com/4th-gallery",
+  "page_heading": "collection",
+  "images": [
+    {
+      "id": "fdc35e_402f2255799e44cdadf87af753a361c8",
+      "order": 1,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_402f2255799e44cdadf87af753a361c8~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-01.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_5c6f828e02bb465c8b95f98455fa5994",
+      "order": 2,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_5c6f828e02bb465c8b95f98455fa5994~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-02.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_c3640f6bcab144ada09278ed6a423f5d",
+      "order": 3,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_c3640f6bcab144ada09278ed6a423f5d~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-03.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_05388b1bb2504d10bec8178158fb834c",
+      "order": 4,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_05388b1bb2504d10bec8178158fb834c~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-04.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_4431780d9c5e42b99e3c919eb09e0c9e",
+      "order": 5,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_4431780d9c5e42b99e3c919eb09e0c9e~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-05.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_7b6fbd396be749bfb0ef6d4710887b08",
+      "order": 6,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_7b6fbd396be749bfb0ef6d4710887b08~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-06.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_7b27e073d77a4ea182d6b03da2b8e9a3",
+      "order": 7,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_7b27e073d77a4ea182d6b03da2b8e9a3~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-07.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_31a9e2cdb6ed47069a4e037ebb3c6c1f",
+      "order": 8,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_31a9e2cdb6ed47069a4e037ebb3c6c1f~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-08.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_89b228bd91104c1289b233d773530350",
+      "order": 9,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_89b228bd91104c1289b233d773530350~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-09.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_d25a25a7022f4ab79388f288d4acdf98",
+      "order": 10,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_d25a25a7022f4ab79388f288d4acdf98~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-10.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_094b684813294a2aa2eb7dc75aa2f603",
+      "order": 11,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_094b684813294a2aa2eb7dc75aa2f603~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-11.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_75d06ee5b1004f4a90fd0dfaadd91563",
+      "order": 12,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_75d06ee5b1004f4a90fd0dfaadd91563~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-12.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_e47f2ec76b6f4037add434605e89d00a",
+      "order": 13,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_e47f2ec76b6f4037add434605e89d00a~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-13.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_d658a1082989435b99d632500bc868a0",
+      "order": 14,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_d658a1082989435b99d632500bc868a0~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-14.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_2c71a401603e446fa0779a09aed2d318",
+      "order": 15,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_2c71a401603e446fa0779a09aed2d318~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-15.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_18b1383bfcc84592925baa7ae17a6b6c",
+      "order": 16,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_18b1383bfcc84592925baa7ae17a6b6c~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-16.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_c0d38064237543eeb3bd863dc000502f",
+      "order": 17,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_c0d38064237543eeb3bd863dc000502f~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-17.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_2e281c3a54c741b28210449b6b5bdd76",
+      "order": 18,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_2e281c3a54c741b28210449b6b5bdd76~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-18.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_0ab06e942293490491b6440c3e1b0e2b",
+      "order": 19,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_0ab06e942293490491b6440c3e1b0e2b~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-19.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_4ecb0febb24f4a0ea9def63ef9a8ce16",
+      "order": 20,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_4ecb0febb24f4a0ea9def63ef9a8ce16~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-20.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_10cb696a7b244c0abdaa1ff47eec514d",
+      "order": 21,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_10cb696a7b244c0abdaa1ff47eec514d~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-21.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_fb82cfd3e3af454580eb40b9326a31ab",
+      "order": 22,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_fb82cfd3e3af454580eb40b9326a31ab~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-22.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_f836cd5c9fe64ebb825c8f48891cbdea",
+      "order": 23,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_f836cd5c9fe64ebb825c8f48891cbdea~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-23.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_d324a6a47d76416184dc3614d811f470",
+      "order": 24,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_d324a6a47d76416184dc3614d811f470~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-24.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_2b57c1a6915f47b4b45296b2543f302e",
+      "order": 25,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_2b57c1a6915f47b4b45296b2543f302e~mv2.jpg",
+      "local_path": "media/exhibitions/collection/collection-25.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    }
+  ],
+  "image_count": 25,
+  "cover_image": "media/exhibitions/collection/collection-01.jpg",
+  "description": []
+}

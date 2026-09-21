@@ -1,0 +1,62 @@
+{
+  "slug": "caravan-arts",
+  "title": "Caravan Arts",
+  "year": null,
+  "years_participated": [
+    2013,
+    2014,
+    2015
+  ],
+  "type": "group / festival",
+  "venue": "CARAVAN (Cairo – London 2013, Cairo – Washington 2014, Cairo – Paris 2015)",
+  "old_url": "https://www.karimabdelmalak.com/3rd-gallery",
+  "page_heading": "CARAVAN ARTS",
+  "description": [
+    "CARAVAN is an international peacebuilding arts non-profit (NGO) that originated out of Cairo, Egypt with the objective of building bridges through the arts between the creeds and cultures of the Middle East and West. CARAVAN develops initiatives that use the arts as a catalyst to bring people of diverse backgrounds and beliefs closer together toward building sustainable peace. We develop, organize, curate and host numerous artistic programs; exhibitions, festivals, lectures, concerts, artist exchanges, collaborations, seminars, symposiums, forums/panels, film screenings, etc.",
+    "Our flagship initiative is the globally recognized annual interfaith CARAVAN Exhibition of Art that brings together many of the Middle East’s and West’s premier and emerging contemporary artists for intercultural and inter-religious interchange."
+  ],
+  "images": [
+    {
+      "id": "fdc35e_43a99f5108da44bdb668eb5b8ce5009c",
+      "order": 1,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_43a99f5108da44bdb668eb5b8ce5009c~mv2.jpg",
+      "local_path": "media/exhibitions/caravan-arts/caravan-arts-01.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_e4f82255019b47cca7c0f6e0e4dfc6eb",
+      "order": 2,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_e4f82255019b47cca7c0f6e0e4dfc6eb~mv2.jpg",
+      "local_path": "media/exhibitions/caravan-arts/caravan-arts-02.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_dace0b236ead45fda6320f894a1ce083",
+      "order": 3,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_dace0b236ead45fda6320f894a1ce083~mv2.jpg",
+      "local_path": "media/exhibitions/caravan-arts/caravan-arts-03.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    },
+    {
+      "id": "fdc35e_4406b9fa97c74bceaf816a373c5f5e9a",
+      "order": 4,
+      "original_url": "https://static.wixstatic.com/media/fdc35e_4406b9fa97c74bceaf816a373c5f5e9a~mv2.jpg",
+      "local_path": "media/exhibitions/caravan-arts/caravan-arts-04.jpg",
+      "title": null,
+      "medium": null,
+      "dimensions": null,
+      "year": null
+    }
+  ],
+  "image_count": 4,
+  "cover_image": "media/exhibitions/caravan-arts/caravan-arts-01.jpg"
+}
