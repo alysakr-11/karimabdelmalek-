@@ -7,7 +7,5 @@ build/
 *.tsbuildinfo
 .DS_Store
 npm-debug.log*
-qa.local.mjs
-interact.local.mjs
-hover.local.mjs
-out/
+# Local QA / snapshot scripts, not part of the site
+*.local.mjs

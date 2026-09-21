@@ -60,7 +60,18 @@ export function NotchedFrame({
     : '';
 
   return (
-    <div ref={ref} className={`relative ${className}`} style={style}>
+    <div
+      ref={ref}
+      className={`relative ${className}`}
+      style={style}
+      // The generated geometry is otherwise unrecoverable from the DOM. Exposing
+      // the inputs keeps the outline reproducible by anything that needs to
+      // recompute it — a static snapshot, a visual test, a debugging session.
+      data-notch-tab-width={tabWidth}
+      data-notch-tab-height={tabHeight}
+      data-notch-radius={radius}
+      data-notch-step-radius={stepRadius}
+    >
       {/* The clip path lives in a zero-size svg so it never affects layout. */}
       <svg aria-hidden className="absolute h-0 w-0 overflow-hidden">
         <defs>
