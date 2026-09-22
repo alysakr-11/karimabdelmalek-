@@ -1,0 +1,62 @@
+[
+  {
+    "slug": "al-nahar-tv-doaa-farouk",
+    "title": "Interview on Al Nahar TV",
+    "titleArabic": null,
+    "kind": "interview",
+    "outlet": "Al Nahar TV",
+    "byline": "Doaa Farouk",
+    "language": "ar",
+    "youtubeId": null,
+    "url": null,
+    "poster": null
+  },
+  {
+    "slug": "dmc-tv-sally-shahin-sherin-efat",
+    "title": "Interview on DMC TV",
+    "titleArabic": null,
+    "kind": "interview",
+    "outlet": "DMC TV",
+    "byline": "Sally Shahin and Sherin Efat",
+    "language": "ar",
+    "youtubeId": null,
+    "url": null,
+    "poster": null
+  },
+  {
+    "slug": "channel-1-dina-kandeel",
+    "title": "Interview on Channel 1, Egyptian TV",
+    "titleArabic": null,
+    "kind": "interview",
+    "outlet": "Channel 1, Egyptian TV",
+    "byline": "Dina Kandeel",
+    "language": "ar",
+    "youtubeId": null,
+    "url": null,
+    "poster": null
+  },
+  {
+    "slug": "dmc-tv-appearance",
+    "title": "8 El Sobh, DMC",
+    "titleArabic": "برنامج ٨ الصبح",
+    "kind": "interview",
+    "outlet": "DMC TV",
+    "byline": null,
+    "language": "ar",
+    "youtubeId": "r1wzTtKxJbw",
+    "url": "https://www.youtube.com/watch?v=r1wzTtKxJbw",
+    "poster": "video/dmc-8-el-sobh.webp"
+  },
+  {
+    "slug": "on-tv-appearance",
+    "title": "Appearance on ON TV",
+    "titleArabic": null,
+    "kind": "broadcast",
+    "outlet": "ON TV",
+    "byline": null,
+    "language": "ar",
+    "youtubeId": null,
+    "url": null,
+    "poster": null
+  }
+]

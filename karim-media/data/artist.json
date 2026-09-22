@@ -1,0 +1,36 @@
+{
+  "name": "Karim Abd Elmalak",
+  "nameArabic": "كريم عبد الملاك",
+  "role": "Painter, illustrator and sculptor",
+  "location": "Cairo, Egypt",
+  "statement": "Painter, illustrator and sculptor, based in Cairo. Graduate of the Faculty of Fine Arts, Minia University. Represented by Safarkhan Art Gallery, where he has held six solo exhibitions since 2016. His work is held by the Egyptian Presidential Palace and the Museum of Modern Art, Cairo.",
+  "phone": "+20 128 999 33 95",
+  "email": null,
+  "representation": {
+    "name": "Safarkhan Art Gallery",
+    "city": "Cairo",
+    "url": "https://www.safarkhan.com/"
+  },
+  "socials": [
+    {
+      "platform": "instagram",
+      "url": "https://www.instagram.com/karimabdelmalak/",
+      "label": "Instagram"
+    },
+    {
+      "platform": "youtube",
+      "url": "https://www.youtube.com/channel/UCd4YBZAFoPRqx8nQaRQO0_w",
+      "label": "YouTube"
+    },
+    {
+      "platform": "facebook",
+      "url": "https://www.facebook.com/groups/248401451888273/",
+      "label": "Facebook"
+    },
+    {
+      "platform": "twitter",
+      "url": "https://twitter.com/karimabdelmalak",
+      "label": "X"
+    }
+  ]
+}
