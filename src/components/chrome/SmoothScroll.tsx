@@ -43,6 +43,16 @@ export function SmoothScroll() {
       if (!el) return;
       event.preventDefault();
       lenis.scrollTo(el as HTMLElement, { offset: -88 });
+      // preventDefault() also cancels the browser moving focus to the target,
+      // which is the whole point of a skip link: "Skip to content" scrolled
+      // nowhere (main is already at the top), focus stayed on the link, and
+      // the next Tab went straight back into the header. Move it by hand.
+      // Lenis owns the scroll, so the focus must not trigger one of its own.
+      const focusable = el as HTMLElement;
+      if (!focusable.hasAttribute('tabindex') && focusable.tabIndex < 0) {
+        focusable.setAttribute('tabindex', '-1');
+      }
+      focusable.focus({ preventScroll: true });
     };
 
     document.addEventListener('click', onAnchorClick);

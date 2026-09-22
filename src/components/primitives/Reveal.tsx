@@ -45,16 +45,31 @@ export function Reveal({
     setShown(false);
     setArmed(true);
 
+    // Released when `threshold` of the element is on screen — or when it
+    // fills that share of the *screen*, whichever comes first. The second
+    // test matters for anything tall: a block can only ever be as visible as
+    // the screen is high, so one more than ~5 screens tall could never reach
+    // 18% of itself and stayed hidden for good. The exhibition CV on /about
+    // did exactly that on a small phone held sideways. The extra thresholds
+    // make the observer re-check as a tall block scrolls further in.
     const io = new IntersectionObserver(
       (entries) => {
         for (const entry of entries) {
-          if (entry.isIntersecting) {
+          if (!entry.isIntersecting) continue;
+          const screen = entry.rootBounds?.height ?? window.innerHeight;
+          if (
+            entry.intersectionRatio >= threshold ||
+            entry.intersectionRect.height >= screen * threshold
+          ) {
             setShown(true);
             io.disconnect();
           }
         }
       },
-      { threshold, rootMargin: '0px 0px -8% 0px' },
+      {
+        threshold: [0, 0.02, 0.05, 0.1, threshold].filter((t, i, a) => a.indexOf(t) === i),
+        rootMargin: '0px 0px -8% 0px',
+      },
     );
     io.observe(el);
     return () => io.disconnect();

@@ -22,7 +22,9 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   if (!art) return { title: 'Work not found' };
 
   return {
-    title: `${art.label} — ${art.exhibitionTitle}`,
+    // An untitled work's label is already "<show> · 03"; appending the show
+    // again gave "Horra · 03 — Horra — Karim Abd Elmalak".
+    title: art.title ? `${art.title} — ${art.exhibitionTitle}` : art.label,
     description: [art.title, art.medium, art.dimensions, art.year]
       .filter(Boolean)
       .join(' · ') || `Work ${art.plate} from ${art.exhibitionTitle} by ${artist.name}.`,

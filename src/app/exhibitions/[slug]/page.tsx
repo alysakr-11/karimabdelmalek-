@@ -24,10 +24,16 @@ export async function generateMetadata({ params }: Params): Promise<Metadata> {
   const ex = exhibitionBySlug(slug);
   if (!ex) return { title: 'Exhibition not found' };
 
+  // A search result or link preview wants one short sentence, not the show's
+  // full text: the first paragraph, cut at a word before ~155 characters.
+  const lead = ex.description[0];
+  const clipped =
+    lead && lead.length > 155 ? `${lead.slice(0, 155).replace(/\s+\S*$/, '')}…` : lead;
+
   return {
     title: `${ex.title}${ex.year ? ` ${ex.year}` : ''}`,
     description:
-      ex.description ??
+      clipped ||
       `${ex.artworks.length} works from ${ex.title}${ex.year ? ` (${ex.year})` : ''} by Karim Abd Elmalak${ex.venue ? ` at ${ex.venue}` : ''}.`,
     alternates: { canonical: `/exhibitions/${ex.slug}` },
     openGraph: { images: [{ url: ex.cover.src }] },
@@ -69,12 +75,25 @@ export default async function ExhibitionPage({ params }: Params) {
         trail={ex.year ? String(ex.year) : undefined}
         seed={ex.slug.length * 7}
         body={
-          ex.description ?? (
+          ex.description.length ? (
+            // One element per paragraph — rendered as a bare list they ran
+            // together with no break between them.
+            <div className="space-y-3">
+              {ex.description.map((p) => (
+                <p key={p.slice(0, 32)}>{p}</p>
+              ))}
+            </div>
+          ) : (
             <>
               {ex.artworks.length} works.{' '}
               <span className="text-ink-muted">
-                The artist publishes these without captions, so each piece is
-                identified by its plate number.
+                {/* Three cases: said plainly "published without captions"
+                    even where the gallery catalogue now names most of them. */}
+                {ex.captioned === ex.artworks.length
+                  ? 'Titles, media and sizes from the Safarkhan Art Gallery catalogue.'
+                  : ex.captioned > 0
+                    ? `${ex.captioned} carry their titles, media and sizes from the Safarkhan Art Gallery catalogue; the rest are identified by plate number.`
+                    : 'The artist publishes these without captions, so each piece is identified by its plate number.'}
               </span>
             </>
           )
