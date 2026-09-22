@@ -9,7 +9,7 @@ import { ContourField } from '@/components/primitives/ContourField';
 import { SectionHeading } from '@/components/primitives/SectionHeading';
 import { Reveal } from '@/components/primitives/Reveal';
 import { FULL_TRIM, type Focus, type Trim } from '@/content/media';
-import { exhibitions, totalArtworks } from '@/content/exhibitions';
+import { exhibitions } from '@/content/exhibitions';
 import { illustrations } from '@/content/illustrations';
 import { interviews } from '@/content/interviews';
 import { artist } from '@/content/artist';
@@ -45,7 +45,7 @@ const ROOMS: Room[] = [
     index: '01',
     title: 'Exhibitions',
     meta: `${exhibitions.length} galleries`,
-    body: `Six solo shows at Safarkhan in Cairo, the Caravan festival, and a wider collection — ${totalArtworks} works, each with a page of its own.`,
+    body: 'Six solo shows at Safarkhan in Cairo, from Soul in 2016 to Wsal in 2025, plus the Caravan festival and a wider collection.',
     image: cover
       ? {
           src: cover.src,
