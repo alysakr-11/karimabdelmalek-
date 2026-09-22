@@ -10,9 +10,13 @@ type Props = {
   href: string;
   src: string;
   alt: string;
-  /** Shown in the notch. The artist publishes no titles, so this is usually
-   *  the exhibition name and plate number. */
+  /** Shown in the notch. The artist's own site published no titles, so this is
+   *  the exhibition name and plate number for every work the gallery
+   *  catalogue could not name. */
   label: string;
+  /** Script of `label`. Arabic needs marking up so the caption renders in the
+   *  right face and its punctuation lands on the right side. */
+  labelLang?: 'ar' | 'en' | null;
   meta?: string | null;
   /** Content box, so the white canvas around the artwork is cropped off. */
   trim: Trim;
@@ -34,6 +38,7 @@ export function ArtworkCard({
   src,
   alt,
   label,
+  labelLang,
   meta,
   trim,
   priority = false,
@@ -65,6 +70,7 @@ export function ArtworkCard({
              near-white text on the white cards and made it unreadable. */
           <span className="flex w-full items-baseline justify-end gap-2.5 truncate">
             <span
+              {...(labelLang === 'ar' ? { lang: 'ar', dir: 'rtl' } : {})}
               className={`t-caption truncate ${
                 onLight ? 'text-ink' : dark ? 'text-chalk' : 'text-ink'
               }`}

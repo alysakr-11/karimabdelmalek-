@@ -26,9 +26,14 @@
   --color-clay: #8a5535;
 
   /* ---- Type ------------------------------------------------------------ */
-  --font-display: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
-  --font-serif: 'Fraunces', 'Iowan Old Style', Georgia, serif;
-  --font-sans: 'Archivo', 'Helvetica Neue', Arial, sans-serif;
+  /* 'Noto Naskh Arabic' sits in every stack on purpose. Its @font-face covers
+     only the Arabic range, and Archivo's and Fraunces' cover only theirs, so
+     the browser reaches it for an Arabic codepoint and never for a Latin one.
+     A title set in Arabic therefore renders in the self-hosted face wherever
+     it appears, with no per-element font switching. */
+  --font-display: 'Archivo', 'Noto Naskh Arabic', 'Helvetica Neue', Arial, sans-serif;
+  --font-serif: 'Fraunces', 'Noto Naskh Arabic', 'Iowan Old Style', Georgia, serif;
+  --font-sans: 'Archivo', 'Noto Naskh Arabic', 'Helvetica Neue', Arial, sans-serif;
 
   /* ---- Motion ---------------------------------------------------------- */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
