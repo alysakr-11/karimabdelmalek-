@@ -29,11 +29,15 @@ export default function InterviewsPage() {
         lead="Interviews"
         seed={47}
         body={
-          playable
-            ? `${interviews.length} television appearances. ${playable} of them ${
-                playable === 1 ? 'plays' : 'play'
-              } here; the rest were embedded with a player that did not survive the move, so for now those are the programme stills.`
-            : `${interviews.length} television appearances. The original broadcasts were embedded with a player that did not survive the move, so these are the programme stills.`
+          /* Three states, because "the rest" was still being written when
+             there was no rest left. */
+          playable === interviews.length
+            ? `${interviews.length} television appearances, recovered from the broadcasts themselves. Press one to watch it.`
+            : playable
+              ? `${interviews.length} television appearances. ${playable} of them ${
+                  playable === 1 ? 'plays' : 'play'
+                } here; the ${interviews.length - playable} others were embedded with a player that did not survive the move, so for now those are the programme stills.`
+              : `${interviews.length} television appearances. The original broadcasts were embedded with a player that did not survive the move, so these are the programme stills.`
         }
       />
 
