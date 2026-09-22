@@ -24,7 +24,7 @@ export function PageHeader({
       <ContourField seed={seed} opacity={0.3} stroke="var(--color-clay)" />
 
       <div className="shell relative grid gap-8 md:grid-cols-12 md:gap-10">
-        <div className="md:col-span-8">
+        <div className="md:col-span-12 lg:col-span-8">
           <Reveal>
             <p className="t-eyebrow mb-5 text-ochre">{eyebrow}</p>
           </Reveal>
@@ -47,7 +47,7 @@ export function PageHeader({
         </div>
 
         {body ? (
-          <Reveal delay={150} className="md:col-span-4 md:col-start-9 md:self-end">
+          <Reveal delay={150} className="md:col-span-12 lg:col-span-4 lg:col-start-9 lg:self-end">
             <div className="t-body max-w-[46ch] text-ink-soft">{body}</div>
           </Reveal>
         ) : null}

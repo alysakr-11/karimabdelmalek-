@@ -3,7 +3,7 @@
 import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { MenuOverlay } from './MenuOverlay';
-import { artist } from '@/content/artist';
+import { LOGOTYPE, SITE_NAME } from '@/content/site';
 
 /**
  * Fixed header: stacked logotype at the left, a primary action and the menu
@@ -68,12 +68,12 @@ export function Header() {
         <div className="shell flex items-start justify-between py-4 sm:py-5">
           <Link
             href="/"
-            aria-label={`${artist.name} — home`}
+            aria-label={`${SITE_NAME} — home`}
             className={`pointer-events-auto t-display text-[0.9375rem] leading-[0.92] transition-colors duration-500 sm:text-[1.0625rem] ${
               inverted ? 'text-chalk' : 'text-ink'
             }`}
           >
-            {artist.logotype.map((line) => (
+            {LOGOTYPE.map((line) => (
               <span key={line} className="block">
                 {line}
               </span>

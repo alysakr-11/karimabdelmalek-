@@ -1,32 +1,25 @@
 'use client';
 
+import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import { artist } from '@/content/artist';
+import { SITE_NAME } from '@/content/site';
+import { totalArtworks, exhibitions } from '@/content/exhibitions';
 import { PillLink } from '@/components/primitives/PillButton';
-import { NotchedFrame } from '@/components/primitives/NotchedFrame';
-import { ReservedCanvas } from '@/components/primitives/ReservedCanvas';
 import { ContourField } from '@/components/primitives/ContourField';
 import { Reveal } from '@/components/primitives/Reveal';
-import { works, hasRealWorks } from '@/content/works';
 import { useReducedMotion } from '@/lib/useReducedMotion';
-import Image from 'next/image';
+
+const HERO_IMAGE = '/media/site/home-hero.jpg';
 
 /**
- * Opening statement.
- *
- * FIDELITY NOTE: the reference recording never shows its hero, so this is an
- * original composition built from the same vocabulary observed elsewhere on
- * that site — stacked display caps against a serif counter-line, a notched
- * media panel, and a warm ground carrying the contour texture.
+ * Opening statement: the artist's name set large against the hero image his
+ * own site opens with, over the same warm ground the rest of the site uses.
  */
 export function Hero() {
   const panelRef = useRef<HTMLDivElement | null>(null);
   const reduced = useReducedMotion();
-  const lead = hasRealWorks ? works[0] : null;
 
-  // Light parallax on the media panel. Plain rAF against scroll position —
-  // cheaper than a scroll library for a single transform, and trivially
-  // switched off for reduced motion.
   useEffect(() => {
     if (reduced) return;
     const el = panelRef.current;
@@ -60,13 +53,15 @@ export function Hero() {
       <div className="shell relative">
         <div className="grid items-end gap-10 lg:grid-cols-12 lg:gap-8">
           <div className="lg:col-span-7">
-            <p className="t-eyebrow mb-6 text-ochre">
-              {artist.role} · {artist.location}
-            </p>
-
             <Reveal>
+              <p className="t-eyebrow mb-6 text-ochre">
+                {artist.roles.join(' · ')} — {artist.location}
+              </p>
+            </Reveal>
+
+            <Reveal delay={50}>
               <h1 className="mb-6">
-                <span className="t-display block text-[clamp(3rem,1rem+11vw,9rem)] text-ink">
+                <span className="t-display block text-[clamp(2.75rem,1rem+10vw,8rem)] text-ink">
                   <span className="line-mask">
                     <span className="block">Karim</span>
                   </span>
@@ -75,72 +70,53 @@ export function Hero() {
                     data-multiline
                     style={{ '--reveal-delay': '90ms' } as React.CSSProperties}
                   >
-                    <span className="block">Abdel Malak</span>
+                    <span className="block">Abd Elmalak</span>
                   </span>
                 </span>
                 <span
-                  className="t-serif mt-3 block max-w-[18ch] text-[clamp(1.375rem,0.9rem+2.1vw,2.5rem)] text-clay italic"
+                  className="t-serif mt-3 block text-[clamp(1.375rem,0.9rem+2.1vw,2.5rem)] text-clay italic"
                   style={{ '--reveal-delay': '180ms' } as React.CSSProperties}
                 >
-                  <span className="line-mask" data-multiline>
-                    <span className="block">{artist.tagline}</span>
+                  <span className="line-mask">
+                    <span className="block">Artworks</span>
                   </span>
                 </span>
               </h1>
             </Reveal>
 
-            <p className="t-body mb-8 max-w-[48ch] text-ink-soft">{artist.statement[0]}</p>
+            <Reveal delay={130}>
+              <p className="t-body mb-8 max-w-[46ch] text-ink-soft">
+                {totalArtworks} works across {exhibitions.length} exhibitions, from{' '}
+                {exhibitions[exhibitions.length - 3]?.title} in 2016 to Wsal in 2025 —
+                painting, illustration and sculpture.
+              </p>
+            </Reveal>
 
-            <div className="flex flex-wrap gap-3">
-              <PillLink href="/works" tone="ink">
-                View the work
-              </PillLink>
-              <PillLink href="/about" tone="outline">
-                About the artist
-              </PillLink>
-            </div>
+            <Reveal delay={190}>
+              <div className="flex flex-wrap gap-3">
+                <PillLink href="/exhibitions" tone="ink">
+                  View the exhibitions
+                </PillLink>
+                <PillLink href="/about" tone="outline">
+                  About the artist
+                </PillLink>
+              </div>
+            </Reveal>
           </div>
 
           <div ref={panelRef} className="lg:col-span-5 will-change-transform">
-            <NotchedFrame
-              tabWidth={190}
-              stroke="rgba(22,18,13,0.18)"
-              className="aspect-[4/5] w-full"
-              caption={
-                <span className="flex w-full items-baseline justify-end gap-2.5">
-                  <span className="t-caption text-ink">
-                    {lead ? lead.title : 'Selected work'}
-                  </span>
-                  <span className="t-caption text-ochre">
-                    {lead?.year ?? 'Pending'}
-                  </span>
-                </span>
-              }
-            >
-              <div className="relative h-full w-full bg-paper-deep" style={{ paddingBottom: 38 }}>
-                <div className="relative h-full w-full overflow-hidden">
-                  {lead ? (
-                    <Image
-                      src={lead.image}
-                      alt={lead.alt}
-                      fill
-                      priority
-                      sizes="(max-width: 1024px) 92vw, 40vw"
-                      className="object-cover object-center"
-                    />
-                  ) : (
-                    <>
-                      <ReservedCanvas seed={5} className="absolute inset-0" />
-                      <div className="absolute inset-0 flex items-center justify-center">
-                        <span className="t-eyebrow rounded-full border border-ink/15 px-3 py-1.5 text-[0.5625rem] text-ink/45">
-                          Image pending
-                        </span>
-                      </div>
-                    </>
-                  )}
-                </div>
+            <Reveal delay={120}>
+              <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-paper-deep">
+                <Image
+                  src={HERO_IMAGE}
+                  alt={`Artwork by ${SITE_NAME}`}
+                  fill
+                  priority
+                  sizes="(max-width: 1024px) 92vw, 40vw"
+                  className="object-cover object-center"
+                />
               </div>
-            </NotchedFrame>
+            </Reveal>
           </div>
         </div>
 

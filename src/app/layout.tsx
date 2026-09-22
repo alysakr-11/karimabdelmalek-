@@ -3,37 +3,36 @@ import './globals.css';
 import { Header } from '@/components/chrome/Header';
 import { Footer } from '@/components/chrome/Footer';
 import { SmoothScroll } from '@/components/chrome/SmoothScroll';
+import { SITE_NAME, socials } from '@/content/site';
 import { artist } from '@/content/artist';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.karimabdelmalak.com';
 
 const description =
-  'Karim Abdel Malak is an Egyptian contemporary artist working in mixed media — graphic design combined with acrylic and textured oils, in a monotone palette of wooden and earthen tones.';
+  'Karim Abd Elmalak is an Egyptian painter, illustrator and sculptor based in Cairo. Six solo exhibitions at Safarkhan Art Gallery, work held at the Egyptian Presidential Palace and the Modern Art Museum.';
 
 export const metadata: Metadata = {
   metadataBase: new URL(SITE_URL),
-  title: {
-    default: `${artist.name} — ${artist.role}`,
-    template: `%s — ${artist.name}`,
-  },
+  title: { default: `${SITE_NAME} — Artworks`, template: `%s — ${SITE_NAME}` },
   description,
   keywords: [
-    artist.name,
-    artist.nameAlt,
+    SITE_NAME,
+    ...artist.nameVariants,
     'Egyptian contemporary art',
     'mixed media painting',
     'Safarkhan Art Gallery',
     'Cairo artist',
   ],
-  authors: [{ name: artist.name }],
+  authors: [{ name: SITE_NAME }],
   openGraph: {
     type: 'website',
-    siteName: artist.name,
-    title: `${artist.name} — ${artist.role}`,
+    siteName: SITE_NAME,
+    title: `${SITE_NAME} — Artworks`,
     description,
     locale: 'en_GB',
+    images: [{ url: '/media/site/og-image.jpg' }],
   },
-  twitter: { card: 'summary_large_image', title: artist.name, description },
+  twitter: { card: 'summary_large_image', title: SITE_NAME, description },
   robots: { index: true, follow: true },
   alternates: { canonical: '/' },
 };
@@ -46,20 +45,24 @@ export const viewport: Viewport = {
   colorScheme: 'light',
 };
 
-/** Structured data, built only from facts recorded in the content module. */
+/** Structured data, built only from facts recorded in the content export. */
 function PersonJsonLd() {
   const json = {
     '@context': 'https://schema.org',
     '@type': 'Person',
-    name: artist.name,
-    alternateName: artist.nameAlt,
-    jobTitle: artist.role,
+    name: SITE_NAME,
+    alternateName: artist.nameVariants,
+    jobTitle: artist.roles.join(', '),
     description,
     url: SITE_URL,
+    image: `${SITE_URL}${artist.portrait}`,
     nationality: 'Egyptian',
     address: { '@type': 'PostalAddress', addressLocality: 'Cairo', addressCountry: 'EG' },
-    alumniOf: { '@type': 'CollegeOrUniversity', name: 'Minya University, Faculty of Fine Arts' },
-    sameAs: artist.socials.map((s) => s.href),
+    alumniOf: {
+      '@type': 'CollegeOrUniversity',
+      name: 'Faculty of Fine Arts, Minia University',
+    },
+    sameAs: socials.map((s) => s.url),
   };
   return (
     <script

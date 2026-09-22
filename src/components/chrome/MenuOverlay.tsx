@@ -3,8 +3,9 @@
 import Link from 'next/link';
 import { useEffect, useRef } from 'react';
 import { NAV_LINKS } from './nav';
-import { artist } from '@/content/artist';
-import { collections } from '@/content/collections';
+import { socials } from '@/content/site';
+import { exhibitions } from '@/content/exhibitions';
+import { contact } from '@/content/contact';
 import { ContourField } from '@/components/primitives/ContourField';
 
 /**
@@ -120,41 +121,42 @@ export function MenuOverlay({ open, onClose }: { open: boolean; onClose: () => v
 
         <div className="grid gap-6 border-t border-chalk/12 pt-6 sm:grid-cols-3">
           <div>
-            <p className="t-eyebrow mb-3 text-chalk/40">Collections</p>
+            <p className="t-eyebrow mb-3 text-chalk/40">Exhibitions</p>
             <ul className="flex flex-wrap gap-x-4 gap-y-1.5">
-              {collections.map((c) => (
+              {exhibitions.map((c) => (
                 <li key={c.slug}>
                   <Link
-                    href={`/collections#${c.slug}`}
+                    href={`/exhibitions/${c.slug}`}
                     onClick={onClose}
                     className="t-caption text-chalk/70 transition-colors hover:text-ochre-lift"
                   >
-                    {c.title} <span className="text-chalk/35">{c.year}</span>
+                    {c.title}{c.year ? <span className="text-chalk/35"> {c.year}</span> : null}
                   </Link>
                 </li>
               ))}
             </ul>
           </div>
           <div>
-            <p className="t-eyebrow mb-3 text-chalk/40">Represented by</p>
-            <p className="t-caption leading-relaxed text-chalk/70">
-              {artist.gallery.name}
-              <br />
-              {artist.gallery.address}
-            </p>
+            <p className="t-eyebrow mb-3 text-chalk/40">Get in touch</p>
+            <a
+              href={contact.phoneHref}
+              className="t-caption text-chalk/70 transition-colors hover:text-ochre-lift"
+            >
+              {contact.phoneDisplay}
+            </a>
           </div>
           <div>
             <p className="t-eyebrow mb-3 text-chalk/40">Elsewhere</p>
             <ul className="flex flex-wrap gap-4">
-              {artist.socials.map((s) => (
-                <li key={s.href}>
+              {socials.map((s) => (
+                <li key={s.url}>
                   <a
-                    href={s.href}
+                    href={s.url}
                     target="_blank"
                     rel="noreferrer noopener"
                     className="t-caption text-chalk/70 transition-colors hover:text-ochre-lift"
                   >
-                    {s.label}
+                    {s.platform}
                   </a>
                 </li>
               ))}

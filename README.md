@@ -1,4 +1,4 @@
-# Karim Abdel Malak — portfolio
+# Karim Abd Elmalak — portfolio
 
 A premium single-artist portfolio for the Egyptian contemporary painter Karim
 Abdel Malak, built with Next.js.
@@ -110,20 +110,22 @@ Worth stating plainly, since the brief asked for honesty about this:
   in a comment.
 - Nothing here is pixel-matched to the reference, and it is not meant to be.
 
-## Content provenance
+## Content
 
-`karimabdelmalak.com` was unreachable from the build environment, so the
-biography was assembled from published gallery and press sources. **Every fact
-carries a `source` field** in `src/content/artist.ts`, and the prose is original
-writing rather than copied gallery copy.
+Everything comes from `data/` — a structured export of the artist's previous
+site, committed in full: 8 exhibitions holding 128 works, 7 illustrations, 5
+interviews, the biography and CV, and 152 media files at original resolution.
+No component hard-codes a fact or an image path.
 
-Outstanding items are listed in `MISSING_CONTENT` in that file and are shown to
-visitors in the site footer — the site tells the truth about its own gaps rather
-than quietly looking finished.
+The source site publishes artwork **without captions**, so every artwork record
+has `title`, `medium`, `dimensions` and `year` set to `null`. The site does not
+invent them: a work shows as *Plate 04* until a real title is supplied, and
+absent fields are omitted rather than guessed. `src/content/gaps.ts` lists what
+is still missing and renders it in the footer.
 
-**No artwork has been invented, and no stock imagery substituted.** The gallery
-renders clearly-labelled reserved slots at true proportions until real files
-arrive. See **[ARTWORK_ASSETS.md](./ARTWORK_ASSETS.md)** for the handover.
+See **[docs/UPDATING_CONTENT.md](./docs/UPDATING_CONTENT.md)** to change any of
+it, and **[docs/CONTENT_ARCHIVE.md](./docs/CONTENT_ARCHIVE.md)** for how the
+export itself is organised.
 
 ## Testing
 

@@ -3,9 +3,8 @@
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import { NotchedFrame } from '@/components/primitives/NotchedFrame';
-import { ReservedCanvas } from '@/components/primitives/ReservedCanvas';
 import { useReducedMotion } from '@/lib/useReducedMotion';
-import { works, hasRealWorks } from '@/content/works';
+import { allArtworks } from '@/content/exhibitions';
 
 /**
  * A row of panels bowed along an arc: each is rotated and pushed down in
@@ -48,10 +47,12 @@ export function ArcStrip() {
     };
   }, [reduced]);
 
+  // Spread the picks across the whole body of work rather than taking the
+  // first seven, so the band samples several exhibitions.
+  const step = Math.max(1, Math.floor(allArtworks.length / PANEL_COUNT));
   const panels = Array.from({ length: PANEL_COUNT }, (_, i) => ({
     key: `arc-${i}`,
-    seed: 41 + i * 13,
-    work: hasRealWorks ? works[i % works.length] : null,
+    work: allArtworks[(i * step) % allArtworks.length],
   }));
 
   const mid = (PANEL_COUNT - 1) / 2;
@@ -83,18 +84,14 @@ export function ArcStrip() {
                   className="aspect-[3/4] w-full"
                 >
                   <div className="relative h-full w-full overflow-hidden bg-paper-deep">
-                    {panel.work ? (
-                      <Image
-                        src={panel.work.image}
-                        alt=""
-                        aria-hidden
-                        fill
-                        sizes="(max-width: 640px) 20vw, 14vw"
-                        className="object-cover object-center"
-                      />
-                    ) : (
-                      <ReservedCanvas seed={panel.seed} className="absolute inset-0" />
-                    )}
+                    <Image
+                      src={panel.work.src}
+                      alt=""
+                      aria-hidden
+                      fill
+                      sizes="(max-width: 640px) 20vw, 14vw"
+                      className="object-cover object-center"
+                    />
                   </div>
                 </NotchedFrame>
               </div>
@@ -103,11 +100,6 @@ export function ArcStrip() {
         </div>
       </div>
 
-      {!hasRealWorks ? (
-        <p className="shell t-caption mt-6 text-center font-normal text-ink-muted/70">
-          Reserved panels — artwork files not yet supplied.
-        </p>
-      ) : null}
     </section>
   );
 }
