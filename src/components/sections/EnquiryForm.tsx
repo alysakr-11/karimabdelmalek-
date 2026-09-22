@@ -65,7 +65,26 @@ export function EnquiryForm() {
   }
 
   return (
-    <form onSubmit={onSubmit} className="space-y-4" noValidate={false}>
+    <form
+      // Set on the element itself, as Formspree asks, not only in the fetch
+      // above. With JavaScript running, onSubmit takes over and the page never
+      // leaves; without it — script blocked, slow connection, still loading —
+      // the browser posts straight to Formspree instead of back to this page.
+      action={configured ? ENDPOINT : undefined}
+      method="POST"
+      onSubmit={onSubmit}
+      className="space-y-4"
+      noValidate={false}
+    >
+      {/* Spam trap. Formspree silently drops any submission where `_gotcha` is
+          filled in; people never see this field, and form-filling bots fill
+          in everything. Off-screen rather than display:none, which some bots
+          know to skip, and out of the tab order and the accessibility tree. */}
+      <div aria-hidden className="absolute -left-[9999px] h-px w-px overflow-hidden">
+        <label htmlFor="_gotcha">Leave this empty</label>
+        <input id="_gotcha" name="_gotcha" type="text" tabIndex={-1} autoComplete="off" />
+      </div>
+
       {!configured ? (
         <p
           role="note"
