@@ -13,9 +13,27 @@ The live site is image-heavy with almost no metadata. Before launch, these need 
    - `wesal-14` lists `120 x 60 cm` for a work photographed landscape at 2.05. One of the two
      is wrong; the gallery's label is the likelier source of truth, but it needs confirming.
 2. **Exhibition statements** — only Caravan has descriptive text. The six solo shows have none.
-3. **Interview videos** — the page embeds Wix-hosted videos loaded by JavaScript, so only the
-   poster frames could be captured. Get the original video files or YouTube links, plus air dates.
-   Interviews 4 (DMC TV) and 5 (ON TV) have no presenter names.
+3. **Interview videos** — **1 of 5 now plays.** The DMC appearance *8 El Sobh*
+   (`r1wzTtKxJbw`) was found on the artist's own YouTube channel and is wired up in
+   `data/videos.json`; the page plays it in place. The other four still need a link:
+
+   | # | Channel | Presenters | Needs |
+   |---|---|---|---|
+   | 01 | Al Nahar TV | Doaa Farouk | YouTube link or video file, air date |
+   | 02 | DMC TV | Sally Shahin & Sherin Efat | YouTube link or video file, air date |
+   | 03 | Channel 1, Egyptian TV | Dina Kandeel | YouTube link or video file, air date |
+   | 05 | ON TV | *none recorded* | YouTube link or video file, air date, presenter |
+
+   A YouTube link is all that is needed — drop the id into `data/videos.json` against the
+   entry's order number and the player appears on its own. Interviews 4 and 5 also have no
+   presenter names. And confirm **which** of the two DMC appearances `r1wzTtKxJbw` is: it is
+   currently attached to the unnamed entry (04), not the one naming Sally Shahin and Sherin
+   Efat (02), because the video itself does not say.
+
+   Two more recordings were recovered and are **not yet shown anywhere**: the *Sakan* trailer
+   (`R7znWIDnDlc`) and its opening night (`WGaaSBDu9Ow`). They belong to the Sakan 2019
+   exhibition rather than to any interview; they sit in `data/videos.json` waiting for a place
+   on that exhibition's page.
 4. **Contact form** — fields aren't visible without JavaScript. Also: no email address is published.
    Decide where form submissions should go.
 5. **"Collection" gallery** — no year or description; unclear if it's a show or a general portfolio.
