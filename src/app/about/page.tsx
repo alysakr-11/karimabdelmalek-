@@ -1,7 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { artist, cvDated, cvUndated } from '@/content/artist';
-import { MISSING_CONTENT } from '@/content/gaps';
 import { PageHeader } from '@/components/sections/PageHeader';
 import { Reveal } from '@/components/primitives/Reveal';
 import { ContactCta } from '@/components/sections/ContactCta';
@@ -126,17 +125,6 @@ export default function AboutPage() {
               </dl>
             </Reveal>
 
-            <Reveal delay={170}>
-              <div className="mt-6 rounded-2xl border border-ochre/25 bg-ochre/5 p-6">
-                {/* clay, not ochre: the box's own ochre tint drops ochre text to 4.31:1. */}
-                <p className="t-eyebrow mb-3 text-clay">Still to come</p>
-                <ul className="space-y-1.5">
-                  {MISSING_CONTENT.slice(0, 3).map((item) => (
-                    <li key={item} className="t-caption font-normal text-ink-muted">— {item}</li>
-                  ))}
-                </ul>
-              </div>
-            </Reveal>
           </aside>
         </div>
       </section>
