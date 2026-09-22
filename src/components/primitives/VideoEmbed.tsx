@@ -17,15 +17,22 @@ import { youtubeEmbedUrl, youtubeWatchUrl } from '@/content/videos';
  * The control is a real <button>, so Enter and Space work and it announces
  * itself; `title` names the specific recording rather than saying "play video"
  * five times over.
+ *
+ * Takes either a direct video file or a YouTube id. The interviews are files —
+ * the artist's own site served them as MP4s and they were never on YouTube —
+ * while the exhibition footage is on his channel.
  */
 export function VideoEmbed({
   youtubeId,
+  file,
   title,
   poster,
   posterAlt,
   priority = false,
 }: {
-  youtubeId: string;
+  youtubeId?: string;
+  /** Direct URL to a video file; takes precedence over `youtubeId`. */
+  file?: string;
   title: string;
   poster: string;
   posterAlt: string;
@@ -33,7 +40,25 @@ export function VideoEmbed({
 }) {
   const [playing, setPlaying] = useState(false);
 
-  if (playing) {
+  if (playing && file) {
+    return (
+      /* eslint-disable-next-line jsx-a11y/media-has-caption --
+         no transcript or subtitle track exists for these broadcasts; adding an
+         empty <track> would claim captions that are not there. */
+      <video
+        className="h-full w-full bg-umber-deep"
+        src={file}
+        poster={poster}
+        title={title}
+        controls
+        autoPlay
+        playsInline
+        preload="metadata"
+      />
+    );
+  }
+
+  if (playing && youtubeId) {
     return (
       <iframe
         className="h-full w-full border-0"

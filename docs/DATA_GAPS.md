@@ -13,27 +13,29 @@ The live site is image-heavy with almost no metadata. Before launch, these need 
    - `wesal-14` lists `120 x 60 cm` for a work photographed landscape at 2.05. One of the two
      is wrong; the gallery's label is the likelier source of truth, but it needs confirming.
 2. **Exhibition statements** — only Caravan has descriptive text. The six solo shows have none.
-3. **Interview videos** — **1 of 5 now plays.** The DMC appearance *8 El Sobh*
-   (`r1wzTtKxJbw`) was found on the artist's own YouTube channel and is wired up in
-   `data/videos.json`; the page plays it in place. The other four still need a link:
+3. **Interview videos** — **all five now play.** The URLs were recovered from a saved copy of
+   the old `/events` page: each interview was a Wix-hosted MP4 whose asset id is the stem of
+   its poster's filename, which is how each file is joined to its entry — exact, not inferred.
+   They are in `data/videos.json`. What is still open:
 
-   | # | Channel | Presenters | Needs |
-   |---|---|---|---|
-   | 01 | Al Nahar TV | Doaa Farouk | YouTube link or video file, air date |
-   | 02 | DMC TV | Sally Shahin & Sherin Efat | YouTube link or video file, air date |
-   | 03 | Channel 1, Egyptian TV | Dina Kandeel | YouTube link or video file, air date |
-   | 05 | ON TV | *none recorded* | YouTube link or video file, air date, presenter |
-
-   A YouTube link is all that is needed — drop the id into `data/videos.json` against the
-   entry's order number and the player appears on its own. Interviews 4 and 5 also have no
-   presenter names. And confirm **which** of the two DMC appearances `r1wzTtKxJbw` is: it is
-   currently attached to the unnamed entry (04), not the one naming Sally Shahin and Sherin
-   Efat (02), because the video itself does not say.
+   - **The files are hotlinked from the old site's CDN** (`video.wixstatic.com`). If that Wix
+     site is ever taken down, all five stop working. The durable fix is to download the five
+     MP4s and commit them under `public/media/video`, then point `file` at those. The URLs are
+     in `data/videos.json`; the build environment cannot reach that CDN to do it automatically.
+   - **Air dates** for all five, and **a presenter name** for ON TV (05). Interview 04 has none
+     recorded either.
+   - Interview 03 (Channel 1) is only available at **360p**; the rest are 720p. If a better
+     master exists, it is worth having.
+   - A YouTube copy of a DMC appearance (`r1wzTtKxJbw`, *8 El Sobh*) is recorded in
+     `data/videos.json` but **not played**: which of the two DMC entries it belongs to was never
+     established, and each entry now has its own file anyway. Comparing its still against all
+     five posters was inconclusive — distances 1.5–1.9, where a true match scores under 0.5.
 
    Two further recordings — the *Sakan* trailer (`R7znWIDnDlc`) and its opening night
-   (`WGaaSBDu9Ow`) — belong to the Sakan 2019 exhibition rather than to any interview, and
-   now play on that show's page under *On film*. They are the only moving footage of any
-   exhibition; if any of the other seven were filmed, those links are worth having too.
+   (`WGaaSBDu9Ow`) — belong to the Sakan 2019 exhibition rather than to any interview, and play
+   on that show's page under *On film*. They are the only moving footage of any exhibition; if
+   any of the other seven were filmed, those links are worth having too.
+
 4. **Contact form** — fields aren't visible without JavaScript. Also: no email address is published.
    Decide where form submissions should go.
 5. **"Collection" gallery** — no year or description; unclear if it's a show or a general portfolio.
