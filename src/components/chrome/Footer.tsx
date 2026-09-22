@@ -2,6 +2,7 @@ import Link from 'next/link';
 import { LOGOTYPE, SITE_NAME, socials, nav } from '@/content/site';
 import { artist } from '@/content/artist';
 import { contact } from '@/content/contact';
+import { PhoneActions } from '@/components/primitives/PhoneActions';
 import { exhibitions } from '@/content/exhibitions';
 import { ContourField } from '@/components/primitives/ContourField';
 import { CurveDivider } from '@/components/primitives/CurveDivider';
@@ -25,12 +26,11 @@ export function Footer() {
               <p className="t-serif mt-4 max-w-[26ch] text-xl text-ochre-lift italic">
                 {artist.tagline}
               </p>
-              <a
-                href={contact.phoneHref}
-                className="t-caption mt-6 block font-normal text-chalk/75 transition-colors hover:text-ochre-lift"
-              >
-                {contact.phoneDisplay}
-              </a>
+              <PhoneActions
+                tone="dark"
+                className="mt-6"
+                numberClassName="t-caption block font-normal text-chalk/75 hover:text-ochre-lift"
+              />
               {contact.emailHref ? (
                 <a
                   href={contact.emailHref}

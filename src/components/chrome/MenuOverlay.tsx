@@ -5,7 +5,7 @@ import { useEffect, useRef } from 'react';
 import { NAV_LINKS } from './nav';
 import { socials } from '@/content/site';
 import { exhibitions } from '@/content/exhibitions';
-import { contact } from '@/content/contact';
+import { PhoneActions } from '@/components/primitives/PhoneActions';
 import { ContourField } from '@/components/primitives/ContourField';
 
 /**
@@ -103,7 +103,7 @@ export function MenuOverlay({ open, onClose }: { open: boolean; onClose: () => v
                 <Link
                   href={link.href}
                   onClick={onClose}
-                  className="t-display group flex items-baseline gap-4 py-1 text-[clamp(2.5rem,1rem+8vw,6rem)] text-chalk transition-colors duration-300 hover:text-ochre-lift"
+                  className="t-display group flex items-baseline gap-4 py-1 text-[clamp(1.75rem,0.25rem+7.5vw,6rem)] text-chalk transition-colors duration-300 hover:text-ochre-lift"
                   style={{
                     transform: open ? 'none' : 'translate3d(0,110%,0)',
                     transition: `transform 900ms var(--ease-out-expo) ${open ? 120 + i * 70 : 0}ms`,
@@ -138,12 +138,10 @@ export function MenuOverlay({ open, onClose }: { open: boolean; onClose: () => v
           </div>
           <div>
             <p className="t-eyebrow mb-3 text-chalk/40">Get in touch</p>
-            <a
-              href={contact.phoneHref}
-              className="t-caption text-chalk/70 transition-colors hover:text-ochre-lift"
-            >
-              {contact.phoneDisplay}
-            </a>
+            <PhoneActions
+              tone="dark"
+              numberClassName="t-caption text-chalk/70 hover:text-ochre-lift"
+            />
           </div>
           <div>
             <p className="t-eyebrow mb-3 text-chalk/40">Elsewhere</p>

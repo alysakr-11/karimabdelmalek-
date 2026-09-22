@@ -16,6 +16,14 @@ export const contact = {
   heading: data.heading as string,
   phoneDisplay: data.phone_display as string,
   phoneHref: `tel:${data.phone_e164}`,
+  /**
+   * WhatsApp chat link for `whatsapp_e164`, or null to hide the WhatsApp
+   * option. wa.me takes the number as digits only, no plus sign. Set the field
+   * to null in data/contact.json if the number is ever not on WhatsApp.
+   */
+  whatsappHref: (data as { whatsapp_e164?: string | null }).whatsapp_e164
+    ? `https://wa.me/${(data as { whatsapp_e164: string }).whatsapp_e164.replace(/\D/g, '')}`
+    : null,
   email: (data.email as string | null) || null,
   /** `mailto:` for the address, or null when there is none to link to. */
   emailHref: data.email ? `mailto:${data.email as string}` : null,
