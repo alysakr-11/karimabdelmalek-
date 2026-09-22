@@ -20,9 +20,7 @@ facts that go with them. No framework, no build step. Use it with anything.
     artwork/<series>/       START HERE. Web-ready, trimmed, named, catalogued
     artwork/documentation/  photographs of the artist at work
     originals/              full-resolution source files, up to 8587px
-    archive/<exhibition>/   EVERY image recovered from the old site, 135 of them
-    thumb/                  small previews of the archive
-    contact-sheet.html      open this. A visual index of the whole archive
+    contact-sheet.html      a visual index of what we pulled
     video/                  poster frames for the three videos
     data/works.json         the curated works, with metadata
     data/works.csv          the same, for a spreadsheet
@@ -41,11 +39,10 @@ joined to `works.json` on the `image` field.
 **`originals/`** is the same paintings at full resolution, up to 8587x4574.
 Use these for anything printed, or for a zoom view.
 
-**`archive/`** is everything else recovered from the old site: 135 images
-across all eight galleries, including the four series with no usable
-photography. They are real works, just small -- most trim to 450-700px.
-`archive.json` records the measured size, the true ratio, how much white
-padding was removed, and whether the work needs rephotographing.
+**This repository already has the images.** `public/media/` carries 152 files
+pulled from the same source, which is more than we recovered. What is here that
+is not there: catalogue records for 35 works, higher-resolution photography for
+two shows, and three video links. See `data/README-FOR-THIS-REPO.md`.
 
 Two warnings in `archive.json` worth heeding. `mappingTrusted: false` means the
 old site's own page title contradicted its URL, so which exhibition that image
