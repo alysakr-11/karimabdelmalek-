@@ -1,6 +1,6 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { interviews } from '@/content/interviews';
+import { interviews, playableCount } from '@/content/interviews';
 import { socials } from '@/content/site';
 import { PageHeader } from '@/components/sections/PageHeader';
 import { Reveal } from '@/components/primitives/Reveal';
@@ -25,7 +25,11 @@ export default function InterviewsPage() {
         eyebrow="Press"
         lead="Interviews"
         seed={47}
-        body={`${interviews.length} television appearances. The original broadcasts were embedded with a player that did not survive the move, so these are the programme stills.`}
+        body={
+          playableCount > 0
+            ? `${interviews.length} television appearances. ${playableCount} of them can be watched; the rest were embedded with a player that did not survive the move, so those are the programme stills.`
+            : `${interviews.length} television appearances. The original broadcasts were embedded with a player that did not survive the move, so these are the programme stills.`
+        }
       />
 
       <CurveDivider fill="var(--color-umber-deep)" className="-mb-px" height={72} />
@@ -61,8 +65,28 @@ export default function InterviewsPage() {
                         fill
                         priority={i < 3}
                         sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 31vw"
-                        className="object-cover object-center"
+                        className="object-cover object-center transition-transform duration-[1100ms] ease-[var(--ease-out-expo)] group-hover:scale-[1.04]"
                       />
+
+                      {/* A still that plays has to look like one. Without this the
+                          card is indistinguishable from the four that cannot be
+                          watched, so nobody thinks to click it. */}
+                      {interview.videoUrl ? (
+                        <span
+                          aria-hidden
+                          className="pointer-events-none absolute inset-0 flex items-center justify-center"
+                        >
+                          <span className="absolute inset-0 bg-umber-deep/25 transition-colors duration-500 group-hover:bg-umber-deep/10" />
+                          <span className="relative flex h-14 w-14 items-center justify-center rounded-full border border-chalk/70 bg-umber-deep/55 backdrop-blur-sm transition-all duration-500 group-hover:scale-110 group-hover:border-ochre-lift group-hover:bg-ochre-lift group-focus-visible:scale-110">
+                            <svg
+                              viewBox="0 0 16 18"
+                              className="ml-0.5 h-4 w-4 fill-chalk transition-colors duration-500 group-hover:fill-umber-deep"
+                            >
+                              <path d="M1 1.8v14.4a1 1 0 0 0 1.52.85l11.6-7.2a1 1 0 0 0 0-1.7L2.52.95A1 1 0 0 0 1 1.8Z" />
+                            </svg>
+                          </span>
+                        </span>
+                      ) : null}
                     </div>
                   </div>
                 </NotchedFrame>
@@ -77,7 +101,10 @@ export default function InterviewsPage() {
                       href={interview.videoUrl}
                       target="_blank"
                       rel="noreferrer noopener"
-                      className="group block"
+                      aria-label={`Watch ${
+                        interview.programme ? `${interview.programme}, ` : ''
+                      }${interview.channel} — opens on YouTube`}
+                      className="group block rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ochre-lift"
                     >
                       {body}
                     </a>
@@ -86,14 +113,31 @@ export default function InterviewsPage() {
                   )}
 
                   <div className="mt-4">
-                    <p className="t-serif text-xl text-chalk">{interview.channel}</p>
+                    <p className="t-serif text-xl text-chalk">
+                      {interview.programme ?? interview.channel}
+                    </p>
+                    {interview.programme ? (
+                      <p className="t-caption mt-1 font-normal text-chalk/60">
+                        {interview.channel}
+                        {interview.programmeArabic ? (
+                          <>
+                            {' · '}
+                            <span lang="ar" dir="rtl">
+                              {interview.programmeArabic}
+                            </span>
+                          </>
+                        ) : null}
+                      </p>
+                    ) : null}
                     {interview.presenters.length > 0 ? (
                       <p className="t-caption mt-1 font-normal text-chalk/60">
                         with {interview.presenters.join(' & ')}
                       </p>
                     ) : null}
                     <p className="t-caption mt-2 font-normal text-chalk/40">
-                      {interview.date ?? (interview.videoUrl ? 'Watch' : 'Recording not yet linked')}
+                      {interview.videoUrl
+                        ? `Watch on YouTube${interview.date ? ` · ${interview.date}` : ''}`
+                        : (interview.date ?? 'Recording not yet linked')}
                     </p>
                   </div>
                 </Reveal>
@@ -104,10 +148,11 @@ export default function InterviewsPage() {
           {youtube ? (
             <Reveal className="mt-14">
               <div className="rounded-2xl border border-ochre-lift/25 bg-ochre-lift/5 p-6">
-                <p className="t-eyebrow mb-3 text-ochre-lift">Looking for the full interviews?</p>
+                <p className="t-eyebrow mb-3 text-ochre-lift">Looking for the rest?</p>
                 <p className="t-body max-w-[60ch] text-sm text-chalk/70">
-                  The video files are not part of this site yet. In the meantime the
-                  artist&rsquo;s own channel carries his published video.
+                  {playableCount === interviews.length
+                    ? 'The artist\u2019s own channel carries his published video.'
+                    : `Only ${playableCount} of these ${interviews.length} broadcasts is published anywhere we can find. The rest survive here as programme stills. The artist\u2019s own channel carries what he has put up.`}
                 </p>
                 <a
                   href={youtube.url}

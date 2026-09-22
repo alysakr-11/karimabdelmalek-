@@ -13,9 +13,20 @@ The live site is image-heavy with almost no metadata. Before launch, these need 
    - `wesal-14` lists `120 x 60 cm` for a work photographed landscape at 2.05. One of the two
      is wrong; the gallery's label is the likelier source of truth, but it needs confirming.
 2. **Exhibition statements** — only Caravan has descriptive text. The six solo shows have none.
-3. **Interview videos** — the page embeds Wix-hosted videos loaded by JavaScript, so only the
-   poster frames could be captured. Get the original video files or YouTube links, plus air dates.
-   Interviews 4 (DMC TV) and 5 (ON TV) have no presenter names.
+3. **Interview videos** — **1 of 5 now links.** The DMC entry at order 4 is *8 El Sobh*
+   (برنامج ٨ الصبح), found on the artist's own YouTube channel as `r1wzTtKxJbw` and recorded in
+   `karim-media/data/press.json`. Interviews 1, 2, 3 and 5 are not published anywhere we can
+   find: the old page embedded Wix-hosted players loaded by JavaScript, so only poster frames
+   survived, and the live site is unreachable from this environment. Still needed from Karim:
+   the four remaining recordings, air dates for all five, and presenter names for 4 (DMC TV)
+   and 5 (ON TV).
+   - **Caution on the one we have.** It is attached to the *unnamed* DMC entry (order 4), not
+     the DMC entry naming Sally Shahin and Sherin Efat (order 2). Which of the two appearances
+     the recording actually is cannot be established from the video, so it is left where the
+     archive put it rather than moved on a guess. Karim can settle it in a sentence.
+   - **Two further videos exist but are not interviews.** `R7znWIDnDlc` (Sakan exhibition
+     trailer) and `WGaaSBDu9Ow` (Sakan opening night, 2019) belong to the Sakan 2019
+     exhibition and are not on the old site at all. They are not wired up anywhere yet.
 4. **Contact form** — fields aren't visible without JavaScript. Also: no email address is published.
    Decide where form submissions should go.
 5. **"Collection" gallery** — no year or description; unclear if it's a show or a general portfolio.

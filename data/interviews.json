@@ -1,7 +1,7 @@
 {
   "title": "Interviews",
   "old_url": "https://www.karimabdelmalak.com/events",
-  "note": "Videos are Wix-hosted players loaded by JavaScript; only poster frames are in the page HTML. video_url must be filled in manually (see docs/DATA_GAPS.md).",
+  "note": "Videos were Wix-hosted players loaded by JavaScript, so the export captured only poster frames. One recording was later found on the artist's own YouTube channel and is linked below; the other four are not published anywhere we can find. See docs/DATA_GAPS.md.",
   "interviews": [
     {
       "order": 1,
@@ -43,8 +43,11 @@
       "presenters": [],
       "poster_image": "https://static.wixstatic.com/media/fdc35e_d034e48a0a3b4319ac05ef0e43a5d806f001.jpg",
       "local_poster": "media/interviews/interview-04-poster.jpg",
-      "video_url": null,
-      "date": null
+      "video_url": "https://www.youtube.com/watch?v=r1wzTtKxJbw",
+      "date": null,
+      "programme": "8 El Sobh",
+      "programme_arabic": "برنامج ٨ الصبح",
+      "video_source": "The artist's own YouTube channel (see karim-media/data/press.json)"
     },
     {
       "order": 5,
