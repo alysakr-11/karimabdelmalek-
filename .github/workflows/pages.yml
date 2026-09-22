@@ -3,10 +3,14 @@ name: Deploy to GitHub Pages
 # Pages serves files and nothing else, so this builds the static export rather
 # than the server build: no image optimiser, no redirects, and everything
 # living under /<repo>/ instead of the domain root.
+#
+# Manual only. The site is deployed from a host that runs the server build,
+# where the export is not wanted; and this workflow cannot succeed until Pages
+# is switched on for the repository (Settings -> Pages -> Source: GitHub
+# Actions), so running it on every push would just redden the branch. Run it
+# from the Actions tab when a static copy is actually needed.
 
 on:
-  push:
-    branches: [main, claude/admiring-gates-3vwgbv]
   workflow_dispatch:
 
 permissions:
