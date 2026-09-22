@@ -114,14 +114,49 @@ Worth stating plainly, since the brief asked for honesty about this:
 
 Everything comes from `data/` — a structured export of the artist's previous
 site, committed in full: 8 exhibitions holding 128 works, 7 illustrations, 5
-interviews, the biography and CV, and 152 media files at original resolution.
-No component hard-codes a fact or an image path.
+interviews, the biography and CV, and 152 media files at original resolution —
+plus `karim-media/`, the recovered archive and the gallery catalogue that names
+31 of those works. No component hard-codes a fact or an image path.
 
 The source site publishes artwork **without captions**, so every artwork record
 has `title`, `medium`, `dimensions` and `year` set to `null`. The site does not
 invent them: a work shows as *Plate 04* until a real title is supplied, and
 absent fields are omitted rather than guessed. `src/content/gaps.ts` lists what
 is still missing and renders it in the footer.
+
+### The gallery catalogue
+
+**31 works are now named.** Safarkhan Art Gallery, who represent him, publish
+catalogue records for the two shows they held — Wesāl (2025) and Zāt (2023) —
+with titles, years, media, sizes and sale status. Those records live in
+`karim-media/` and are the only place this information exists.
+
+They are keyed to the gallery's own photography, not to the files this site
+serves, and nothing in either source says which record is which plate. So the
+join is established from the pictures themselves: `scripts/match-catalogue.mjs`
+crops each plate to its measured trim box, normalises both images for the two
+photographers' different exposure, scores every pairing by pixel distance plus
+an aspect-ratio penalty, and takes the globally cheapest one-to-one assignment.
+A pairing is written to `data/catalogue.json` only if it is its record's
+cheapest *and* clears a distance and a runner-up-margin threshold.
+
+That last rule is the point of the exercise. It rejects the two *Zat Highchair*
+sculptures — near-identical pieces, photographed alike, where the evidence
+genuinely cannot say which is I and which is II — and all twenty Third Eye
+records, whose catalogue titles are only "Untitled" anyway. Those works keep
+their plate numbers. **A plate number is honest; a wrong title is not.**
+
+Two conventions carried over from the gallery and surfaced in the UI:
+dimensions read **height before width** (a work listed `180 x 120 cm` is 180
+tall — reading it the other way inverts every portrait in the show), and each
+plate page credits Safarkhan rather than presenting the details as this site's
+own claim.
+
+Fourteen of the Wesāl titles are Arabic. They are shown as the artist titled
+them, marked `lang="ar" dir="rtl"` so they render and read correctly, and set
+in a self-hosted Noto Naskh Arabic — added to every font stack, where its
+unicode-range means it is reached for an Arabic codepoint and never for a Latin
+one. No English renderings were invented.
 
 See **[docs/UPDATING_CONTENT.md](./docs/UPDATING_CONTENT.md)** to change any of
 it, and **[docs/CONTENT_ARCHIVE.md](./docs/CONTENT_ARCHIVE.md)** for how the

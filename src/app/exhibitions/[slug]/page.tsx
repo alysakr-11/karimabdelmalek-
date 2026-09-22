@@ -44,7 +44,11 @@ export default async function ExhibitionPage({ params }: Params) {
     src: a.src,
     alt: a.alt,
     label: a.title ?? ex.title,
-    meta: a.title ? null : String(a.plate).padStart(2, '0'),
+    labelLang: a.titleLang,
+    // A named work shows its own year — Wesal hung work made in 2021 and 2024
+    // alongside each other, so the show's year is not the work's. An unnamed
+    // one shows its plate number, which is all anyone can honestly call it.
+    meta: a.title ? (a.year ? String(a.year) : null) : String(a.plate).padStart(2, '0'),
     width: a.width,
     height: a.height,
     trim: a.trim,

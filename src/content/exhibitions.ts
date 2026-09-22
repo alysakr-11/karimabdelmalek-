@@ -9,6 +9,7 @@ import caravan from '@data/exhibitions/caravan-arts.json';
 import collection from '@data/exhibitions/collection.json';
 import { displaySizeOf, trimOf, type Trim } from './media';
 import { mediaUrl } from './site';
+import { catalogueFor } from './catalogue';
 
 /**
  * The eight galleries, in the export's order (newest first).
@@ -17,6 +18,11 @@ import { mediaUrl } from './site';
  * record's title, medium, dimensions and year are null in the export. Nothing
  * here invents them. A work is identified by its exhibition and its plate
  * number, which is the order it appears in on the artist's own site.
+ *
+ * The one exception is the gallery catalogue in `./catalogue` — real records
+ * from Safarkhan for the two shows they held, matched to their plates by image
+ * comparison. Those fields come from a published source, never from a guess,
+ * and every other plate still shows as a plate.
  */
 
 export type RawImage = {
@@ -42,9 +48,15 @@ export type Artwork = {
   /** Content box within the file, for the CSS crop. */
   trim: Trim;
   title: string | null;
+  /** Script of the title, so it can be marked up and rendered correctly.
+   *  Null when there is no title at all. */
+  titleLang: 'ar' | 'en' | null;
   medium: string | null;
+  /** As the gallery prints it — height before width. */
   dimensions: string | null;
   year: number | string | null;
+  /** Whether the gallery listed the work as sold. Null when unknown. */
+  availability: string | null;
   exhibitionSlug: string;
   exhibitionTitle: string;
   /** What the UI shows when there is no title — never a fabricated one. */
@@ -82,7 +94,15 @@ const FILES: RawExhibition[] = [
 function toArtwork(raw: RawImage, ex: RawExhibition): Artwork {
   const { width, height } = displaySizeOf(raw.local_path);
   const trim = trimOf(raw.local_path);
-  const label = `${ex.title} · ${String(raw.order).padStart(2, '0')}`;
+  const plateLabel = `${ex.title} · ${String(raw.order).padStart(2, '0')}`;
+
+  // The export's own fields win where it has any; the gallery catalogue fills
+  // the rest. In practice the export supplies none of these, so for the 31
+  // matched works this is where every caption comes from.
+  const cat = catalogueFor(ex.slug, raw.order);
+  const title = raw.title ?? cat?.title ?? null;
+  const titleLang = raw.title ? 'en' : (cat?.titleLang ?? null);
+
   return {
     plate: raw.order,
     slug: String(raw.order),
@@ -90,18 +110,18 @@ function toArtwork(raw: RawImage, ex: RawExhibition): Artwork {
     width,
     height,
     trim,
-    title: raw.title,
-    medium: raw.medium,
-    dimensions: raw.dimensions,
-    year: raw.year,
+    title,
+    titleLang,
+    medium: raw.medium ?? cat?.medium ?? null,
+    dimensions: raw.dimensions ?? cat?.dimensions ?? null,
+    year: raw.year ?? cat?.year ?? null,
+    availability: cat?.availability ?? null,
     exhibitionSlug: ex.slug,
     exhibitionTitle: ex.title,
-    label: raw.title ?? label,
-    // The export carries no descriptions, so alt text states what the image
-    // is rather than describing a picture nobody has captioned.
-    alt: raw.title
-      ? `${raw.title} — ${ex.title}`
-      : `Artwork ${raw.order} from ${ex.title}`,
+    label: title ?? plateLabel,
+    // Neither source carries a description, so alt text states what the image
+    // is rather than describing a picture nobody has described.
+    alt: title ? `${title} — ${ex.title}` : `Artwork ${raw.order} from ${ex.title}`,
   };
 }
 

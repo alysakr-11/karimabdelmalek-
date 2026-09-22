@@ -10,6 +10,8 @@ export type GridItem = {
   src: string;
   alt: string;
   label: string;
+  /** Script of `label`, when it is a real title rather than a plate number. */
+  labelLang?: 'ar' | 'en' | null;
   meta?: string | null;
   width: number;
   height: number;
@@ -49,6 +51,7 @@ export function ArtworkGrid({
             src={item.src}
             alt={item.alt}
             label={item.label}
+            labelLang={item.labelLang}
             meta={item.meta}
             trim={item.trim}
             dark={dark}

@@ -90,7 +90,10 @@ export default async function ArtworkPage({ params }: Params) {
               {ex.title}
               {ex.year ? ` · ${ex.year}` : ''}
             </p>
-            <h1 className="t-serif mb-6 text-[clamp(1.875rem,1.3rem+2.4vw,3rem)] leading-[1.05] text-chalk">
+            <h1
+              {...(art.titleLang === 'ar' ? { lang: 'ar', dir: 'rtl' } : {})}
+              className="t-serif mb-6 text-[clamp(1.875rem,1.3rem+2.4vw,3rem)] leading-[1.05] text-chalk"
+            >
               {art.title ?? `Plate ${String(art.plate).padStart(2, '0')}`}
             </h1>
 
@@ -110,7 +113,19 @@ export default async function ArtworkPage({ params }: Params) {
               {art.dimensions ? (
                 <div>
                   <dt className="t-eyebrow mb-1.5 text-chalk/40">Dimensions</dt>
-                  <dd className="t-body text-sm text-chalk/80">{art.dimensions}</dd>
+                  {/* Stated height-first because that is how the gallery
+                      prints it, and reading it the other way inverts every
+                      portrait work in the show. */}
+                  <dd className="t-body text-sm text-chalk/80">
+                    {art.dimensions}
+                    <span className="text-chalk/40"> · height × width</span>
+                  </dd>
+                </div>
+              ) : null}
+              {art.availability ? (
+                <div>
+                  <dt className="t-eyebrow mb-1.5 text-chalk/40">Status</dt>
+                  <dd className="t-body text-sm text-chalk/80 capitalize">{art.availability}</dd>
                 </div>
               ) : null}
               <div>
@@ -137,11 +152,18 @@ export default async function ArtworkPage({ params }: Params) {
               </div>
             </dl>
 
-            {!art.title ? (
+            {art.title ? (
+              /* Say where a caption came from. The artist's own site published
+                 these works bare, so every detail above is the gallery's
+                 record, not this site's assertion. */
+              <p className="t-caption mt-6 font-normal text-chalk/45">
+                Catalogue details from Safarkhan Art Gallery.
+              </p>
+            ) : (
               <p className="t-caption mt-6 font-normal text-chalk/45">
                 This work is published without a title, medium or size.
               </p>
-            ) : null}
+            )}
 
             <div className="mt-8 flex flex-wrap gap-3">
               {!lone ? (
