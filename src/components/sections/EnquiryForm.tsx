@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import { PillButton } from '@/components/primitives/PillButton';
+import { contact } from '@/content/contact';
 
 /**
  * Enquiry form.
@@ -11,6 +12,11 @@ import { PillButton } from '@/components/primitives/PillButton';
  * service, or an API route). When that variable is unset the form renders in a
  * clearly-labelled unconfigured state instead of silently discarding what
  * someone types — the gallery and Instagram routes beside it still work.
+ *
+ * The four fields, the button's label and the confirmation line are the old
+ * site's own: name, email, subject, message, "Send", and "Success! Message
+ * received.", all held in `data/contact.json`. Hardcoding a friendlier
+ * wording here meant the site said something the artist never did.
  */
 const ENDPOINT = process.env.NEXT_PUBLIC_ENQUIRY_ENDPOINT ?? '';
 
@@ -122,12 +128,12 @@ export function EnquiryForm() {
 
       <div className="flex flex-wrap items-center gap-4 pt-1">
         <PillButton type="submit" tone="accent" disabled={!configured || status === 'sending'}>
-          {status === 'sending' ? 'Sending' : 'Send enquiry'}
+          {status === 'sending' ? 'Sending' : contact.submitLabel}
         </PillButton>
 
         <p aria-live="polite" className="t-caption font-normal">
           {status === 'sent' ? (
-            <span className="text-ochre">Thank you — your message is on its way.</span>
+            <span className="text-ochre">{contact.formSuccessMessage}</span>
           ) : status === 'error' ? (
             <span className="text-clay">
               That didn&rsquo;t send. Please try Instagram or the gallery instead.
