@@ -6,7 +6,13 @@
     "present": true,
     "success_message": "Success! Message received.",
     "submit_label": "Send",
-    "fields": "not captured (rendered by JavaScript)"
+    "fields": [
+      "name",
+      "email",
+      "subject",
+      "message"
+    ],
+    "endpoint": "https://formspree.io/f/xeaogblk"
   },
   "heading": "GET IN TOUCH",
   "image": {

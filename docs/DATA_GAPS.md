@@ -36,17 +36,14 @@ The live site is image-heavy with almost no metadata. Before launch, these need 
    on that show's page under *On film*. They are the only moving footage of any exhibition; if
    any of the other seven were filmed, those links are worth having too.
 
-4. **Contact form** — **an email address is published now** (`malak9910@yahoo.com`, in
-   `data/contact.json`), and it shows on the contact page, in the footer, in the site-wide
-   call to action and on the home page's contact card. The disabled form points at it too.
+4. **Contact form** — **done.** The form delivers through Formspree
+   (`https://formspree.io/f/xeaogblk`, in `data/contact.json` under `contact_form.endpoint`;
+   `NEXT_PUBLIC_ENQUIRY_ENDPOINT` overrides it if a host ever sets one). The email address
+   `malak9910@yahoo.com` is published beside it on the contact page, in the footer, in the
+   site-wide call to action and on the home page's contact card. Its four fields match the old
+   site's exactly: Name\*, Email\*, Subject, Message. Formspree's free tier allows 50
+   submissions a month.
 
-   The form itself is still off: it needs somewhere to deliver to. Set
-   `NEXT_PUBLIC_ENQUIRY_ENDPOINT` to a form service (Formspree gives you a
-   `https://formspree.io/f/…` URL that takes this form's fields as they are, with no code
-   change) or to an API route, then redeploy — `NEXT_PUBLIC_*` is baked in at build time, so
-   setting the variable alone changes nothing.
-
-   Its four fields match the old site's exactly: Name\*, Email\*, Subject, Message.
 5. **"Collection" gallery** — no year or description; unclear if it's a show or a general portfolio.
 6. **Exhibitions landing thumbnails** — 5 of 8 thumbnails don't appear inside any gallery;
    likely custom covers. Confirm which belongs to which (see manifest rows marked `unconfirmed`).
