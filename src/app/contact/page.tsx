@@ -46,11 +46,27 @@ export default function ContactPage() {
               <h2 className="t-eyebrow mb-4 text-ochre">By phone</h2>
               <a
                 href={contact.phoneHref}
-                className="t-serif mb-8 block text-2xl text-ink transition-colors hover:text-ochre"
+                className="t-serif block text-2xl text-ink transition-colors hover:text-ochre"
               >
                 {contact.phoneDisplay}
               </a>
+
+              {/* Only when there is an address to link to — a heading over
+                  nothing is worse than no heading. */}
+              {contact.emailHref ? (
+                <>
+                  <h2 className="t-eyebrow mt-8 mb-4 text-ochre">By email</h2>
+                  <a
+                    href={contact.emailHref}
+                    className="t-serif block break-all text-2xl text-ink transition-colors hover:text-ochre"
+                  >
+                    {contact.email}
+                  </a>
+                </>
+              ) : null}
             </Reveal>
+
+            <div className="mb-8" />
 
             <Reveal delay={190}>
               <h2 className="t-eyebrow mb-4 text-ochre">Elsewhere</h2>

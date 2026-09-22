@@ -28,10 +28,18 @@ export function Footer() {
               </p>
               <a
                 href={contact.phoneHref}
-                className="t-caption mt-6 inline-block font-normal text-chalk/75 transition-colors hover:text-ochre-lift"
+                className="t-caption mt-6 block font-normal text-chalk/75 transition-colors hover:text-ochre-lift"
               >
                 {contact.phoneDisplay}
               </a>
+              {contact.emailHref ? (
+                <a
+                  href={contact.emailHref}
+                  className="t-caption mt-1.5 block break-all font-normal text-chalk/75 transition-colors hover:text-ochre-lift"
+                >
+                  {contact.email}
+                </a>
+              ) : null}
             </div>
 
             <nav aria-label="Footer" className="md:col-span-3 lg:col-span-2">

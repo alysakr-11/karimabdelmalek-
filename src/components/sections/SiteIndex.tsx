@@ -192,6 +192,9 @@ function ContactRoom() {
             <p className="t-display text-[clamp(1.25rem,0.9rem+1.4vw,2rem)] text-ochre-lift">
               {contact.phoneDisplay}
             </p>
+            {contact.email ? (
+              <p className="t-body mt-1 break-all text-sm text-chalk/60">{contact.email}</p>
+            ) : null}
             <span className="t-eyebrow mt-3 inline-flex items-center gap-2 text-chalk/55 transition-colors group-hover:text-ochre-lift">
               Send a message
               <svg
