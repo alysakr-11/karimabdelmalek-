@@ -1,6 +1,6 @@
 'use client';
 
-import Image from 'next/image';
+import { CroppedImage } from '@/components/primitives/CroppedImage';
 import { useEffect, useRef } from 'react';
 import { NotchedFrame } from '@/components/primitives/NotchedFrame';
 import { useReducedMotion } from '@/lib/useReducedMotion';
@@ -84,13 +84,11 @@ export function ArcStrip() {
                   className="aspect-[3/4] w-full"
                 >
                   <div className="relative h-full w-full overflow-hidden bg-paper-deep">
-                    <Image
+                    <CroppedImage
                       src={panel.work.src}
                       alt=""
-                      aria-hidden
-                      fill
+                      trim={panel.work.trim}
                       sizes="(max-width: 640px) 20vw, 14vw"
-                      className="object-cover object-center"
                     />
                   </div>
                 </NotchedFrame>

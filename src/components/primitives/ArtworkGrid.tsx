@@ -2,6 +2,7 @@
 
 import { MasonryColumns } from './MasonryColumns';
 import { ArtworkCard } from './ArtworkCard';
+import type { Trim } from '@/content/media';
 
 export type GridItem = {
   key: string;
@@ -12,6 +13,7 @@ export type GridItem = {
   meta?: string | null;
   width: number;
   height: number;
+  trim: Trim;
 };
 
 /** Shared masonry gallery, used by the home page, each exhibition, and the
@@ -19,10 +21,12 @@ export type GridItem = {
 export function ArtworkGrid({
   items,
   dark = true,
+  surface = 'dark',
   priorityCount = 4,
 }: {
   items: GridItem[];
   dark?: boolean;
+  surface?: 'dark' | 'light';
   priorityCount?: number;
 }) {
   if (items.length === 0) {
@@ -46,7 +50,9 @@ export function ArtworkGrid({
             alt={item.alt}
             label={item.label}
             meta={item.meta}
+            trim={item.trim}
             dark={dark}
+            surface={surface}
             priority={i < priorityCount}
           />
         ),

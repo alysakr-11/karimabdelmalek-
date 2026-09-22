@@ -7,7 +7,7 @@ import horra from '@data/exhibitions/horra-2017.json';
 import soul from '@data/exhibitions/soul-2016.json';
 import caravan from '@data/exhibitions/caravan-arts.json';
 import collection from '@data/exhibitions/collection.json';
-import { sizeOf } from './media';
+import { displaySizeOf, trimOf, type Trim } from './media';
 import { mediaUrl } from './site';
 
 /**
@@ -35,8 +35,12 @@ export type Artwork = {
   /** URL segment within the exhibition. */
   slug: string;
   src: string;
+  /** Size of the artwork once its white padding is cropped away — this is
+   *  what layout packs by, not the file's own letterboxed shape. */
   width: number;
   height: number;
+  /** Content box within the file, for the CSS crop. */
+  trim: Trim;
   title: string | null;
   medium: string | null;
   dimensions: string | null;
@@ -76,7 +80,8 @@ const FILES: RawExhibition[] = [
 ] as unknown as RawExhibition[];
 
 function toArtwork(raw: RawImage, ex: RawExhibition): Artwork {
-  const { width, height } = sizeOf(raw.local_path);
+  const { width, height } = displaySizeOf(raw.local_path);
+  const trim = trimOf(raw.local_path);
   const label = `${ex.title} · ${String(raw.order).padStart(2, '0')}`;
   return {
     plate: raw.order,
@@ -84,6 +89,7 @@ function toArtwork(raw: RawImage, ex: RawExhibition): Artwork {
     src: mediaUrl(raw.local_path),
     width,
     height,
+    trim,
     title: raw.title,
     medium: raw.medium,
     dimensions: raw.dimensions,

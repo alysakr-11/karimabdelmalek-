@@ -47,6 +47,7 @@ export default async function ExhibitionPage({ params }: Params) {
     meta: a.title ? null : String(a.plate).padStart(2, '0'),
     width: a.width,
     height: a.height,
+    trim: a.trim,
   }));
 
   return (

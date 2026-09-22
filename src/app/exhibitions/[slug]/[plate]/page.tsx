@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import { CroppedImage } from '@/components/primitives/CroppedImage';
 import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { exhibitions, exhibitionBySlug, artworkAt } from '@/content/exhibitions';
@@ -63,21 +63,24 @@ export default async function ArtworkPage({ params }: Params) {
         <div className="grid gap-10 lg:grid-cols-12 lg:gap-14">
           <div className="lg:col-span-8">
             {/* object-contain at the work's true ratio: the layout never crops it. */}
-            {/* 85% of the source files are letterboxed onto a white canvas by
-                the original export. Rather than crop the artwork to hide that,
-                the surface itself is white: padded files blend into it
-                seamlessly, and unpadded ones read as a gallery mount. */}
+            {/* The source files letterbox most paintings onto a white canvas.
+                The frame takes the artwork's own proportions and the image is
+                cropped to its content box, so no white margin ever shows. */}
             <div
-              className="relative w-full overflow-hidden rounded-2xl bg-white shadow-[0_24px_60px_-32px_rgba(0,0,0,0.75)]"
-              style={{ aspectRatio: `${art.width} / ${art.height}` }}
+              className="relative mx-auto w-full overflow-hidden rounded-2xl bg-umber shadow-[0_24px_60px_-32px_rgba(0,0,0,0.75)]"
+              style={{
+                aspectRatio: `${art.width} / ${art.height}`,
+                // A very tall work would otherwise run off the screen.
+                maxHeight: '78vh',
+                maxWidth: `min(100%, calc(78vh * ${art.width} / ${art.height}))`,
+              }}
             >
-              <Image
+              <CroppedImage
                 src={art.src}
                 alt={art.alt}
-                fill
+                trim={art.trim}
                 priority
                 sizes="(max-width: 1024px) 94vw, 64vw"
-                className="object-contain"
               />
             </div>
           </div>

@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import Image from 'next/image';
+import { CroppedImage } from '@/components/primitives/CroppedImage';
 import Link from 'next/link';
 import { exhibitions, totalArtworks } from '@/content/exhibitions';
 import { PageHeader } from '@/components/sections/PageHeader';
@@ -55,13 +55,13 @@ export default function ExhibitionsPage() {
                   >
                     <div className="relative h-full w-full bg-umber" style={{ paddingBottom: 38 }}>
                       <div className="relative h-full w-full overflow-hidden">
-                        <Image
+                        <CroppedImage
                           src={ex.cover.src}
                           alt={`${ex.title} — cover`}
-                          fill
+                          trim={ex.cover.trim}
                           priority={i < 3}
                           sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 31vw"
-                          className="object-cover object-center transition-transform duration-[1100ms] ease-[var(--ease-out-expo)] group-hover:scale-[1.05]"
+                          imgClassName="transition-transform duration-[1100ms] ease-[var(--ease-out-expo)] group-hover:scale-[1.05]"
                         />
                         <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-umber-deep/90 via-umber-deep/40 to-transparent p-5 pt-16">
                           <span className="t-serif block text-2xl text-chalk transition-colors duration-500 group-hover:text-ochre-lift">

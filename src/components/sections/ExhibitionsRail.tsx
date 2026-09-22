@@ -1,4 +1,4 @@
-import Image from 'next/image';
+import { CroppedImage } from '@/components/primitives/CroppedImage';
 import Link from 'next/link';
 import { exhibitions } from '@/content/exhibitions';
 import { NotchedFrame } from '@/components/primitives/NotchedFrame';
@@ -58,12 +58,12 @@ export function ExhibitionsRail() {
                     >
                       <div className="relative h-full w-full bg-umber-deep" style={{ paddingBottom: 38 }}>
                         <div className="relative h-full w-full overflow-hidden">
-                          <Image
+                          <CroppedImage
                             src={ex.cover.src}
                             alt={`${ex.title} — cover`}
-                            fill
+                            trim={ex.cover.trim}
                             sizes="(max-width: 640px) 70vw, 300px"
-                            className="object-cover object-center transition-transform duration-[1100ms] ease-[var(--ease-out-expo)] group-hover:scale-[1.05]"
+                            imgClassName="transition-transform duration-[1100ms] ease-[var(--ease-out-expo)] group-hover:scale-[1.05]"
                           />
                           <span className="absolute inset-x-0 bottom-0 bg-gradient-to-t from-umber-deep/85 to-transparent p-4 pt-10">
                             <span className="t-caption block font-normal text-chalk/70">

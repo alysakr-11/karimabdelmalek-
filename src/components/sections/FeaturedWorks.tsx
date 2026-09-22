@@ -22,6 +22,7 @@ export function FeaturedWorks() {
         meta: ex.year ? String(ex.year) : null,
         width: a.width,
         height: a.height,
+        trim: a.trim,
       })),
     );
 

@@ -24,6 +24,7 @@ export default function IllustrationsPage() {
     meta: String(ill.plate).padStart(2, '0'),
     width: ill.width,
     height: ill.height,
+    trim: ill.trim,
   }));
 
   return (
@@ -43,7 +44,7 @@ export default function IllustrationsPage() {
       >
         <ContourField seed={71} opacity={0.32} stroke="var(--color-ochre-lift)" />
         <div className="shell relative">
-          <ArtworkGrid items={items} dark />
+          <ArtworkGrid items={items} dark surface="light" />
         </div>
       </section>
 

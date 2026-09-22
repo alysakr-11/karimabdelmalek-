@@ -1,9 +1,10 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
 import { useState } from 'react';
 import { NotchedFrame } from './NotchedFrame';
+import { CroppedImage } from './CroppedImage';
+import type { Trim } from '@/content/media';
 
 type Props = {
   href: string;
@@ -13,10 +14,14 @@ type Props = {
    *  the exhibition name and plate number. */
   label: string;
   meta?: string | null;
+  /** Content box, so the white canvas around the artwork is cropped off. */
+  trim: Trim;
   priority?: boolean;
   tabWidth?: number;
   /** Dark grounds need a lighter hairline than the paper ones. */
   dark?: boolean;
+  /** Backdrop behind the image. Light suits work painted on white paper. */
+  surface?: 'dark' | 'light';
 };
 
 /**
@@ -30,10 +35,13 @@ export function ArtworkCard({
   alt,
   label,
   meta,
+  trim,
   priority = false,
   tabWidth = 170,
   dark = true,
+  surface = 'dark',
 }: Props) {
+  const onLight = surface === 'light';
   const [active, setActive] = useState(false);
 
   return (
@@ -48,16 +56,27 @@ export function ArtworkCard({
       <NotchedFrame
         active={active}
         tabWidth={tabWidth}
-        stroke={dark ? 'rgba(245,241,233,0.14)' : 'rgba(22,18,13,0.16)'}
-        strokeActive={dark ? 'var(--color-ochre-lift)' : 'var(--color-ochre)'}
+        stroke={onLight ? 'rgba(22,18,13,0.18)' : dark ? 'rgba(245,241,233,0.14)' : 'rgba(22,18,13,0.16)'}
+        strokeActive={onLight ? 'var(--color-clay)' : dark ? 'var(--color-ochre-lift)' : 'var(--color-ochre)'}
         className="h-full w-full"
         caption={
+          /* The caption sits over the card's media surface, not the page, so
+             its colour follows `surface`. Keying it to the page theme put
+             near-white text on the white cards and made it unreadable. */
           <span className="flex w-full items-baseline justify-end gap-2.5 truncate">
-            <span className={`t-caption truncate ${dark ? 'text-chalk' : 'text-ink'}`}>
+            <span
+              className={`t-caption truncate ${
+                onLight ? 'text-ink' : dark ? 'text-chalk' : 'text-ink'
+              }`}
+            >
               {label}
             </span>
             {meta ? (
-              <span className={`t-caption shrink-0 ${dark ? 'text-ochre-lift' : 'text-ochre'}`}>
+              <span
+                className={`t-caption shrink-0 ${
+                  onLight ? 'text-clay' : dark ? 'text-ochre-lift' : 'text-ochre'
+                }`}
+              >
                 {meta}
               </span>
             ) : null}
@@ -65,19 +84,17 @@ export function ArtworkCard({
         }
       >
         <div
-          className={`relative h-full w-full ${dark ? 'bg-umber-deep' : 'bg-paper-deep'}`}
+          className={`relative h-full w-full ${surface === 'light' ? 'bg-white' : dark ? 'bg-umber-deep' : 'bg-paper-deep'}`}
           style={{ paddingBottom: 38 }}
         >
-          <div className="relative h-full w-full overflow-hidden">
-            <Image
-              src={src}
-              alt={alt}
-              fill
-              priority={priority}
-              sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 24vw"
-              className="object-cover object-center transition-transform duration-[1100ms] ease-[var(--ease-out-expo)] group-hover:scale-[1.04]"
-            />
-          </div>
+          <CroppedImage
+            src={src}
+            alt={alt}
+            trim={trim}
+            priority={priority}
+            sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 24vw"
+            imgClassName="transition-transform duration-[1100ms] ease-[var(--ease-out-expo)] group-hover:scale-[1.04]"
+          />
         </div>
       </NotchedFrame>
     </Link>
