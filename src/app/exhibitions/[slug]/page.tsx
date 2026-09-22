@@ -8,6 +8,10 @@ import { Reveal } from '@/components/primitives/Reveal';
 import { PillLink } from '@/components/primitives/PillButton';
 import { ContourField } from '@/components/primitives/ContourField';
 import { CurveDivider } from '@/components/primitives/CurveDivider';
+import { NotchedFrame } from '@/components/primitives/NotchedFrame';
+import { VideoEmbed, WatchOnYouTube } from '@/components/primitives/VideoEmbed';
+import { SectionHeading } from '@/components/primitives/SectionHeading';
+import { exhibitionVideosFor } from '@/content/videos';
 
 type Params = { params: Promise<{ slug: string }> };
 
@@ -37,6 +41,9 @@ export default async function ExhibitionPage({ params }: Params) {
 
   const index = exhibitions.findIndex((e) => e.slug === ex.slug);
   const next = exhibitions[(index + 1) % exhibitions.length];
+
+  // Only Sakan has any, so far — the rest render nothing extra.
+  const videos = exhibitionVideosFor(ex.slug);
 
   const items: GridItem[] = ex.artworks.map((a) => ({
     key: `${ex.slug}-${a.plate}`,
@@ -97,6 +104,63 @@ export default async function ExhibitionPage({ params }: Params) {
         <ContourField seed={ex.artworks.length * 3} opacity={0.32} stroke="var(--color-ochre-lift)" />
         <div className="shell relative">
           <ArtworkGrid items={items} dark />
+
+          {videos.length > 0 ? (
+            /* After the work, not before it: the show is the paintings, and
+               the film is a record of them hanging. */
+            <div className="mt-20 border-t border-chalk/12 pt-14 sm:mt-24">
+              <SectionHeading
+                eyebrow="On film"
+                lead="The show"
+                trail="in the room"
+                dark
+                body={`Recovered from the artist's own channel. ${
+                  videos.length === 1 ? 'One recording' : `${videos.length} recordings`
+                } of ${ex.title} — the only moving footage of any of the exhibitions.`}
+              />
+
+              <ul className="mt-10 grid gap-6 sm:mt-12 sm:grid-cols-2">
+                {videos.map((video, i) => (
+                  <Reveal as="li" key={video.youtubeId} delay={i * 70}>
+                    <NotchedFrame
+                      tabWidth={150}
+                      stroke="rgba(245,241,233,0.14)"
+                      className="aspect-video w-full"
+                      caption={
+                        /* "Film", not the show's name: the grid above captions
+                           every plate "<show> 08", and a video tab reading
+                           "Sakan 01" would look like plate one. */
+                        <span className="flex w-full items-baseline justify-end gap-2.5">
+                          <span className="t-caption truncate text-chalk">Film</span>
+                          <span className="t-caption shrink-0 text-ochre-lift">
+                            {String(i + 1).padStart(2, '0')}
+                          </span>
+                        </span>
+                      }
+                    >
+                      <div className="relative h-full w-full bg-umber" style={{ paddingBottom: 38 }}>
+                        <div className="relative h-full w-full overflow-hidden">
+                          <VideoEmbed
+                            youtubeId={video.youtubeId}
+                            title={video.title}
+                            poster={video.poster}
+                            posterAlt={`${video.title} — still from the recording`}
+                          />
+                        </div>
+                      </div>
+                    </NotchedFrame>
+
+                    <div className="mt-4">
+                      <p className="t-serif text-xl text-chalk">{video.title}</p>
+                      <p className="mt-2">
+                        <WatchOnYouTube youtubeId={video.youtubeId} />
+                      </p>
+                    </div>
+                  </Reveal>
+                ))}
+              </ul>
+            </div>
+          ) : null}
 
           <Reveal className="mt-14 flex flex-wrap gap-3">
             <PillLink href={`/exhibitions/${next.slug}`} tone="outline-light">

@@ -1,6 +1,6 @@
 {
   "source": "The artist's own YouTube channel, recovered in karim-media/data (press.json and exhibitions.json).",
-  "note": "The old site embedded its video with a Wix player that loaded over JavaScript, so the export captured poster frames and no URLs. These are the recordings that could be found again. Keyed by the order number the site uses, not by title.",
+  "note": "The old site embedded its video with a Wix player that loaded over JavaScript, so the export captured poster frames and no URLs. These are the recordings that could be found again. Keyed by the order number the site uses, not by title. Exhibition posters are the YouTube stills, copied from karim-media/video into public/media/video so the site can serve them.",
   "interviews": [
     {
       "order": 4,
@@ -15,12 +15,14 @@
     {
       "slug": "sakan-2019",
       "youtubeId": "R7znWIDnDlc",
-      "title": "Sakan, exhibition trailer"
+      "title": "Sakan, exhibition trailer",
+      "poster": "media/video/sakan-trailer.webp"
     },
     {
       "slug": "sakan-2019",
       "youtubeId": "WGaaSBDu9Ow",
-      "title": "Sakan, opening night, 2019"
+      "title": "Sakan, opening night, 2019",
+      "poster": "media/video/sakan-opening.webp"
     }
   ]
 }
