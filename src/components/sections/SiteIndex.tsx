@@ -246,11 +246,11 @@ export function SiteIndex() {
 
         <div className="shell relative">
           <SectionHeading
-            eyebrow="Explore"
-            lead="Five"
-            trail="rooms"
+            eyebrow="Since 2001"
+            lead="The"
+            trail="work"
             dark
-            body="Each part of the archive has a page of its own. Nothing here is a preview of something further down."
+            body="Paintings shown at the Egyptian Presidential Palace and the Modern Art Museum in Cairo, illustrations for the country’s magazines, and public commissions."
           />
 
           <Reveal className="mt-12 sm:mt-16">
