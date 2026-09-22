@@ -119,7 +119,8 @@ export default function AboutPage() {
 
             <Reveal delay={170}>
               <div className="mt-6 rounded-2xl border border-ochre/25 bg-ochre/5 p-6">
-                <p className="t-eyebrow mb-3 text-ochre">Still to come</p>
+                {/* clay, not ochre: the box's own ochre tint drops ochre text to 4.31:1. */}
+                <p className="t-eyebrow mb-3 text-clay">Still to come</p>
                 <ul className="space-y-1.5">
                   {MISSING_CONTENT.slice(0, 3).map((item) => (
                     <li key={item} className="t-caption font-normal text-ink-muted">— {item}</li>

@@ -15,13 +15,21 @@
   /* ---- Ink ------------------------------------------------------------- */
   --color-ink: #16120d;
   --color-ink-soft: #4a4136;
-  --color-ink-muted: #756a5a;
+  /* #756a5a until the pre-launch accessibility pass: 4.50:1 on the linen,
+     4.15:1 on the About sidebar, 3.93:1 on paper-deep — AA wants 4.5. Same
+     hue, a touch deeper; now 5.23 / 4.83 / 4.57. */
+  --color-ink-muted: #6a6052;
   --color-chalk: #f5f1e9;
   --color-chalk-muted: #a3947f;
 
   /* ---- Accent ---------------------------------------------------------- */
   /* Burnt ochre. Two tones so contrast holds on both grounds. */
-  --color-ochre: #b4732e;
+  /* #b4732e until the pre-launch accessibility pass. At that value, cream on
+     an ochre button measured 3.43:1 and ochre labels on the linen 3.28:1 —
+     both short of the 4.5:1 WCAG AA asks of text this size. This is the same
+     hue and saturation, lightness 0.44 -> 0.36: the least change that passes
+     both (4.79 and 4.59). Revert here if the brighter shade matters more. */
+  --color-ochre: #945e26;
   --color-ochre-lift: #dba25a;
   --color-clay: #8a5535;
 
@@ -85,6 +93,12 @@
     outline: 2px solid var(--color-ochre);
     outline-offset: 3px;
     border-radius: 2px;
+  }
+
+  /* A skip-link or anchor target takes focus only so the next Tab starts
+     there; it is not a control, and ringing the whole page would read as one. */
+  [tabindex='-1']:focus {
+    outline: none;
   }
 
   /* Dark grounds re-declare focus so the ring stays visible. */
