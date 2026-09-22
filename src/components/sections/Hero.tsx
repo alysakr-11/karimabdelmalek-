@@ -3,14 +3,14 @@
 import Image from 'next/image';
 import { useEffect, useRef } from 'react';
 import { artist } from '@/content/artist';
-import { SITE_NAME } from '@/content/site';
+import { SITE_NAME, mediaUrl } from '@/content/site';
 import { totalArtworks, exhibitions } from '@/content/exhibitions';
 import { PillLink } from '@/components/primitives/PillButton';
 import { ContourField } from '@/components/primitives/ContourField';
 import { Reveal } from '@/components/primitives/Reveal';
 import { useReducedMotion } from '@/lib/useReducedMotion';
 
-const HERO_IMAGE = '/media/site/home-hero.jpg';
+const HERO_IMAGE = mediaUrl('media/site/home-hero.jpg');
 
 /**
  * Opening statement: the artist's name set large against the hero image his

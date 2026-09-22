@@ -3,7 +3,7 @@ import './globals.css';
 import { Header } from '@/components/chrome/Header';
 import { Footer } from '@/components/chrome/Footer';
 import { SmoothScroll } from '@/components/chrome/SmoothScroll';
-import { SITE_NAME, socials } from '@/content/site';
+import { SITE_NAME, socials, mediaUrl } from '@/content/site';
 import { artist } from '@/content/artist';
 
 const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.karimabdelmalak.com';
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
     title: `${SITE_NAME} — Artworks`,
     description,
     locale: 'en_GB',
-    images: [{ url: '/media/site/og-image.jpg' }],
+    images: [{ url: mediaUrl('media/site/og-image.jpg') }],
   },
   twitter: { card: 'summary_large_image', title: SITE_NAME, description },
   robots: { index: true, follow: true },
