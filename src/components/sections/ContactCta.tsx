@@ -19,10 +19,19 @@ export function ContactCta() {
         <Reveal delay={130}>
           <a
             href={contact.phoneHref}
-            className="t-display mb-8 inline-block text-[clamp(1.5rem,1rem+2vw,2.5rem)] text-clay transition-colors hover:text-ochre"
+            className="t-display inline-block text-[clamp(1.5rem,1rem+2vw,2.5rem)] text-clay transition-colors hover:text-ochre"
           >
             {contact.phoneDisplay}
           </a>
+          {contact.emailHref ? (
+            <a
+              href={contact.emailHref}
+              className="t-body mt-3 block break-all text-ink-soft transition-colors hover:text-ochre"
+            >
+              {contact.email}
+            </a>
+          ) : null}
+          <div className="mb-8" />
         </Reveal>
         <Reveal delay={190}>
           <div className="flex flex-wrap justify-center gap-3">
