@@ -22,6 +22,7 @@ export function CroppedImage({
   imgClassName = '',
   focus = null,
   ratio,
+  onLoad,
 }: {
   src: string;
   alt: string;
@@ -36,6 +37,8 @@ export function CroppedImage({
   focus?: Focus | null;
   /** Width over height of the artwork itself, after trimming. */
   ratio?: number;
+  /** Called once the picture has loaded. */
+  onLoad?: () => void;
 }) {
   const cropped = trim.w < 1 || trim.h < 1;
 
@@ -59,6 +62,7 @@ export function CroppedImage({
         fill
         priority={priority}
         sizes={sizes}
+        onLoad={onLoad}
         className={`object-cover object-center ${imgClassName}`}
       />
     </div>

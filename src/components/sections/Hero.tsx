@@ -1,16 +1,15 @@
 'use client';
 
-import Image from 'next/image';
 import { useEffect, useRef } from 'react';
+import { HeroShowcase } from '@/components/primitives/HeroShowcase';
+import { showcase } from '@/content/showcase';
 import { artist } from '@/content/artist';
-import { SITE_NAME, mediaUrl } from '@/content/site';
 import { totalArtworks, exhibitions } from '@/content/exhibitions';
 import { PillLink } from '@/components/primitives/PillButton';
 import { ContourField } from '@/components/primitives/ContourField';
 import { Reveal } from '@/components/primitives/Reveal';
 import { useReducedMotion } from '@/lib/useReducedMotion';
 
-const HERO_IMAGE = mediaUrl('media/site/home-hero.jpg');
 
 /**
  * Opening statement: the artist's name set large against the hero image his
@@ -107,14 +106,7 @@ export function Hero() {
           <div ref={panelRef} className="lg:col-span-5 will-change-transform">
             <Reveal delay={120}>
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-paper-deep">
-                <Image
-                  src={HERO_IMAGE}
-                  alt={`Artwork by ${SITE_NAME}`}
-                  fill
-                  priority
-                  sizes="(max-width: 1024px) 92vw, 40vw"
-                  className="object-cover object-center"
-                />
+                <HeroShowcase slides={showcase} sizes="(max-width: 1024px) 92vw, 40vw" />
               </div>
             </Reveal>
           </div>
