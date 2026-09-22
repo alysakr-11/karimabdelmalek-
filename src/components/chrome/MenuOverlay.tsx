@@ -70,9 +70,9 @@ export function MenuOverlay({ open, onClose }: { open: boolean; onClose: () => v
       aria-modal="true"
       aria-label="Site navigation"
       aria-hidden={!open}
-      // inert keeps the closed menu out of the tab order without unmounting it,
-      // so the open/close transition can run.
-      {...(open ? {} : { inert: '' as unknown as boolean })}
+      // `inert` keeps the closed menu out of the tab order without unmounting
+      // it, so the open/close transition can still run.
+      inert={!open}
       className={`on-dark fixed inset-0 z-50 bg-umber-deep transition-[clip-path,opacity] duration-[900ms] ease-[var(--ease-in-out-quint)] ${
         open ? 'pointer-events-auto opacity-100' : 'pointer-events-none opacity-0'
       }`}
