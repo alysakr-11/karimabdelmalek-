@@ -7,7 +7,7 @@ import { Reveal } from '@/components/primitives/Reveal';
 import { NotchedFrame } from '@/components/primitives/NotchedFrame';
 import { ContourField } from '@/components/primitives/ContourField';
 import { CurveDivider } from '@/components/primitives/CurveDivider';
-import { VideoEmbed, WatchOnYouTube } from '@/components/primitives/VideoEmbed';
+import { VideoEmbed } from '@/components/primitives/VideoEmbed';
 import { ContactCta } from '@/components/sections/ContactCta';
 
 export const metadata: Metadata = {
@@ -48,7 +48,7 @@ export default function InterviewsPage() {
         <div className="shell relative">
           <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {interviews.map((interview, i) => {
-              const label = interview.videoTitle ?? `${interview.channel} interview`;
+              const label = `${interview.channel} interview`;
 
               return (
                 <Reveal as="li" key={interview.order} delay={(i % 3) * 70}>
@@ -67,9 +67,9 @@ export default function InterviewsPage() {
                   >
                     <div className="relative h-full w-full bg-umber" style={{ paddingBottom: 38 }}>
                       <div className="relative h-full w-full overflow-hidden">
-                        {interview.youtubeId ? (
+                        {interview.file ? (
                           <VideoEmbed
-                            youtubeId={interview.youtubeId}
+                            file={interview.file}
                             title={label}
                             poster={interview.poster}
                             posterAlt={`${interview.channel} — still from the recording`}
@@ -99,27 +99,12 @@ export default function InterviewsPage() {
                       </p>
                     ) : null}
 
-                    {interview.youtubeId ? (
-                      <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
-                        <p className="t-caption font-normal text-chalk/40">
-                          {interview.date ?? interview.videoTitle}
-                        </p>
-                        {/* An embed can be blocked by the network or the
-                            viewer's own settings; this keeps that from being a
-                            dead end. */}
-                        <WatchOnYouTube youtubeId={interview.youtubeId} />
-                      </div>
-                    ) : (
-                      <p className="t-caption mt-2 font-normal text-chalk/40">
-                        {interview.date ?? 'Recording not yet linked'}
-                      </p>
-                    )}
-
-                    {interview.videoCaution ? (
-                      <p className="t-caption mt-2 max-w-[42ch] font-normal text-chalk/35">
-                        {interview.videoCaution}
-                      </p>
-                    ) : null}
+                    <p className="t-caption mt-2 font-normal text-chalk/40">
+                      {interview.file
+                        ? [interview.date, interview.quality].filter(Boolean).join(' · ') ||
+                          'Watch'
+                        : interview.date ?? 'Recording not yet linked'}
+                    </p>
                   </div>
                 </Reveal>
               );

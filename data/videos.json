@@ -1,14 +1,58 @@
 {
-  "source": "The artist's own YouTube channel, recovered in karim-media/data (press.json and exhibitions.json).",
-  "note": "The old site embedded its video with a Wix player that loaded over JavaScript, so the export captured poster frames and no URLs. These are the recordings that could be found again. Keyed by the order number the site uses, not by title. Exhibition posters are the YouTube stills, copied from karim-media/video into public/media/video so the site can serve them.",
+  "source": "Interview files: the artist's own Wix site, read out of a saved copy of its /events page. Exhibition videos: his YouTube channel, via karim-media/data.",
+  "note": "The old site played each interview from a Wix-hosted MP4 whose asset id is the stem of its poster filename, which is how each file is joined to its entry — the mapping is exact, not inferred. These URLs are the old site's CDN: if that site goes away they stop working, so the durable fix is to commit the files under public/media/video and point 'file' at those instead. Exhibition posters are the YouTube stills, copied from karim-media/video into public/media/video.",
   "interviews": [
     {
+      "order": 1,
+      "channel": "Al Nahar TV",
+      "file": "https://video.wixstatic.com/video/fdc35e_01220efec416450e85ec44f345ec342a/720p/mp4/file.mp4",
+      "asset": "fdc35e_01220efec416450e85ec44f345ec342a",
+      "qualities": [
+        "720p",
+        "480p"
+      ]
+    },
+    {
+      "order": 2,
+      "channel": "DMC TV",
+      "file": "https://video.wixstatic.com/video/fdc35e_4e8be8670658458d9a7706f7ac5db64f/720p/mp4/file.mp4",
+      "asset": "fdc35e_4e8be8670658458d9a7706f7ac5db64f",
+      "qualities": [
+        "720p",
+        "480p"
+      ]
+    },
+    {
+      "order": 3,
+      "channel": "Channel 1 – Egyptian TV",
+      "file": "https://video.wixstatic.com/video/fdc35e_a316902c932142649d25037cb9e6eeb5/360p/mp4/file.mp4",
+      "asset": "fdc35e_a316902c932142649d25037cb9e6eeb5",
+      "qualities": [
+        "360p"
+      ]
+    },
+    {
       "order": 4,
+      "channel": "DMC TV",
+      "file": "https://video.wixstatic.com/video/fdc35e_d034e48a0a3b4319ac05ef0e43a5d806/720p/mp4/file.mp4",
+      "asset": "fdc35e_d034e48a0a3b4319ac05ef0e43a5d806",
+      "qualities": [
+        "720p",
+        "480p"
+      ],
       "youtubeId": "r1wzTtKxJbw",
-      "title": "8 El Sobh, DMC",
-      "titleArabic": "برنامج ٨ الصبح",
-      "caution": "Which of the two DMC appearances this is has not been confirmed.",
-      "internalNote": "Attached to the unnamed DMC entry (order 4) rather than the one naming Sally Shahin and Sherin Efat (order 2). Which of the two this recording is cannot be established from the video itself, so it is left where it is rather than moved on a guess. Ask Karim, then drop the caution."
+      "youtubeTitle": "8 El Sobh, DMC",
+      "youtubeNote": "Recovered separately from the artist's YouTube channel. NOT shown on the site: which of the two DMC appearances it is was never established, and the file above is definitively this entry's — it is what the old site played here. Comparing the YouTube still against all five posters was inconclusive (distances 1.5-1.9, where a true match scores under 0.5)."
+    },
+    {
+      "order": 5,
+      "channel": "ON TV",
+      "file": "https://video.wixstatic.com/video/fdc35e_7467d6aed63140e2b50843e36790c812/720p/mp4/file.mp4",
+      "asset": "fdc35e_7467d6aed63140e2b50843e36790c812",
+      "qualities": [
+        "720p",
+        "480p"
+      ]
     }
   ],
   "exhibitions": [

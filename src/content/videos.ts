@@ -2,30 +2,37 @@ import videos from '@data/videos.json';
 import { mediaUrl } from './site';
 
 /**
- * The recordings that could be found again.
+ * The recordings, and where to play them from.
  *
- * The old site embedded Wix-hosted players that only load under JavaScript, so
- * the export captured poster frames and no URLs at all. These come from the
- * artist's own YouTube channel instead, which is why they live in their own
- * file rather than being written back into `data/interviews.json` — that file
- * is a faithful record of what the old site published, and it published none
- * of this.
+ * The old site embedded Wix players that only load under JavaScript, so the
+ * scrape captured poster frames and no URLs. The URLs were recovered later
+ * from a saved copy of that page: each interview is a Wix-hosted MP4 whose
+ * asset id is the stem of its poster's filename, which is how a file is joined
+ * to an entry — exactly, not by inference.
  *
- * Adding a recording means adding an entry here, keyed by the order number the
- * interview already has. Nothing else needs to change: the page grows a player
- * for it on its own.
+ * They live here rather than in `data/interviews.json` because that file is a
+ * faithful record of what the old site *published*, and it published none of
+ * this.
+ *
+ * The interview URLs still point at the old site's CDN. If that site is ever
+ * taken down they stop working, so the durable fix is to commit the files
+ * under `public/media/video` and repoint `file` at those.
  */
 
 export type InterviewVideo = {
   order: number;
-  youtubeId: string;
-  title: string;
-  titleArabic: string | null;
-  /** Present when the match to an entry is not certain; surfaced in the UI,
-   *  so it stays short. The reasoning behind it lives in `internalNote`. */
-  caution?: string;
-  /** Why the entry is where it is. For whoever maintains the file, not the UI. */
-  internalNote?: string;
+  channel: string;
+  /** Direct URL to the recording. */
+  file: string;
+  /** Wix asset id — the stem of the poster's filename, which is what joins
+   *  the two. Kept so the mapping stays checkable. */
+  asset: string;
+  /** Every resolution the source offers, best first. */
+  qualities: string[];
+  /** A YouTube copy, where one is known. Not played: see `youtubeNote`. */
+  youtubeId?: string;
+  youtubeTitle?: string;
+  youtubeNote?: string;
 };
 
 export type ExhibitionVideo = {
