@@ -8,6 +8,7 @@ npm install
 npm run dev        # http://localhost:3000
 npm run build      # production build; typechecks and prerenders every route
 npm run typecheck
+npm run lint
 ```
 
 ---
@@ -53,18 +54,32 @@ Three motifs carry the whole design, all rebuilt from scratch:
 ## Architecture
 
 ```
+data/            the archive export — JSON, the single source of truth
 src/
-  content/       artist.ts, collections.ts, works.ts  — all copy and data
+  content/       artist, exhibitions, catalogue, illustrations, interviews,
+                 contact, site, media, gaps — a typed view over data/
   lib/           notch geometry, contour generator, measurement hooks
   components/
-    chrome/      Header, MenuOverlay, Footer, SmoothScroll
-    primitives/  NotchedFrame, ArtworkCard, MasonryColumns, Reveal, …
-    sections/    Hero, Statement, ArcStrip, SelectedWorks, CollectionsRail, …
+    chrome/      Header, MenuOverlay, Footer, SmoothScroll, nav
+    primitives/  NotchedFrame, ArtworkCard, ArtworkGrid, MasonryColumns,
+                 CroppedImage, ContourField, CurveDivider, Reveal,
+                 SectionHeading, PillButton
+    sections/    Hero, Statement, ArcStrip, FeaturedWorks, ExhibitionsRail,
+                 AboutPreview, ContactCta, EnquiryForm, PageHeader
   app/           routes, global stylesheet, sitemap, robots
 ```
 
-**All text and data live in `src/content/`.** No component hard-codes a fact
-about the artist. Editing those three files changes the whole site.
+**`data/` is the single source of truth; `src/content/` is a typed view over
+it.** Every module there reads its JSON and exports shaped, validated objects —
+`site.ts` reads `data/site.json`, `exhibitions.ts` reads the per-show files
+under `data/exhibitions/`, and so on. No component hard-codes a fact about the
+artist, and nothing in `src/content/` hand-copies one: **change the JSON, not
+the TypeScript.**
+
+The single exception is `gaps.ts`, which is a hand-maintained list of what the
+archive could not supply. It mirrors `docs/DATA_GAPS.md` and the footer renders
+it, so the site states its own incompleteness rather than looking finished while
+it is not.
 
 Notable choices:
 
