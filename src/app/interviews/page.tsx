@@ -1,12 +1,13 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
-import { interviews } from '@/content/interviews';
+import { interviews, playableInterviews } from '@/content/interviews';
 import { socials } from '@/content/site';
 import { PageHeader } from '@/components/sections/PageHeader';
 import { Reveal } from '@/components/primitives/Reveal';
 import { NotchedFrame } from '@/components/primitives/NotchedFrame';
 import { ContourField } from '@/components/primitives/ContourField';
 import { CurveDivider } from '@/components/primitives/CurveDivider';
+import { VideoEmbed, WatchOnYouTube } from '@/components/primitives/VideoEmbed';
 import { ContactCta } from '@/components/sections/ContactCta';
 
 export const metadata: Metadata = {
@@ -18,6 +19,8 @@ export const metadata: Metadata = {
 
 export default function InterviewsPage() {
   const youtube = socials.find((s) => s.platform === 'YouTube');
+  const playable = playableInterviews.length;
+  const missing = interviews.length - playable;
 
   return (
     <>
@@ -25,7 +28,13 @@ export default function InterviewsPage() {
         eyebrow="Press"
         lead="Interviews"
         seed={47}
-        body={`${interviews.length} television appearances. The original broadcasts were embedded with a player that did not survive the move, so these are the programme stills.`}
+        body={
+          playable
+            ? `${interviews.length} television appearances. ${playable} of them ${
+                playable === 1 ? 'plays' : 'play'
+              } here; the rest were embedded with a player that did not survive the move, so for now those are the programme stills.`
+            : `${interviews.length} television appearances. The original broadcasts were embedded with a player that did not survive the move, so these are the programme stills.`
+        }
       />
 
       <CurveDivider fill="var(--color-umber-deep)" className="-mb-px" height={72} />
@@ -39,51 +48,48 @@ export default function InterviewsPage() {
         <div className="shell relative">
           <ul className="grid gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {interviews.map((interview, i) => {
-              const body = (
-                <NotchedFrame
-                  tabWidth={150}
-                  stroke="rgba(245,241,233,0.14)"
-                  className="aspect-[16/10] w-full"
-                  caption={
-                    <span className="flex w-full items-baseline justify-end gap-2.5">
-                      <span className="t-caption truncate text-chalk">{interview.channel}</span>
-                      <span className="t-caption shrink-0 text-ochre-lift">
-                        {String(interview.order).padStart(2, '0')}
-                      </span>
-                    </span>
-                  }
-                >
-                  <div className="relative h-full w-full bg-umber" style={{ paddingBottom: 38 }}>
-                    <div className="relative h-full w-full overflow-hidden">
-                      <Image
-                        src={interview.poster}
-                        alt={`${interview.channel} interview still`}
-                        fill
-                        priority={i < 3}
-                        sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 31vw"
-                        className="object-cover object-center"
-                      />
-                    </div>
-                  </div>
-                </NotchedFrame>
-              );
+              const label = interview.videoTitle ?? `${interview.channel} interview`;
 
               return (
                 <Reveal as="li" key={interview.order} delay={(i % 3) * 70}>
-                  {/* Only render a link when there is something to play — a dead
-                      play button would be worse than none. */}
-                  {interview.videoUrl ? (
-                    <a
-                      href={interview.videoUrl}
-                      target="_blank"
-                      rel="noreferrer noopener"
-                      className="group block"
-                    >
-                      {body}
-                    </a>
-                  ) : (
-                    body
-                  )}
+                  <NotchedFrame
+                    tabWidth={150}
+                    stroke="rgba(245,241,233,0.14)"
+                    className="aspect-[16/10] w-full"
+                    caption={
+                      <span className="flex w-full items-baseline justify-end gap-2.5">
+                        <span className="t-caption truncate text-chalk">{interview.channel}</span>
+                        <span className="t-caption shrink-0 text-ochre-lift">
+                          {String(interview.order).padStart(2, '0')}
+                        </span>
+                      </span>
+                    }
+                  >
+                    <div className="relative h-full w-full bg-umber" style={{ paddingBottom: 38 }}>
+                      <div className="relative h-full w-full overflow-hidden">
+                        {interview.youtubeId ? (
+                          <VideoEmbed
+                            youtubeId={interview.youtubeId}
+                            title={label}
+                            poster={interview.poster}
+                            posterAlt={`${interview.channel} — still from the recording`}
+                            priority={i < 3}
+                          />
+                        ) : (
+                          /* No play affordance where there is nothing to play:
+                             a dead play button is worse than none. */
+                          <Image
+                            src={interview.poster}
+                            alt={`${interview.channel} interview still`}
+                            fill
+                            priority={i < 3}
+                            sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 31vw"
+                            className="object-cover object-center"
+                          />
+                        )}
+                      </div>
+                    </div>
+                  </NotchedFrame>
 
                   <div className="mt-4">
                     <p className="t-serif text-xl text-chalk">{interview.channel}</p>
@@ -92,22 +98,44 @@ export default function InterviewsPage() {
                         with {interview.presenters.join(' & ')}
                       </p>
                     ) : null}
-                    <p className="t-caption mt-2 font-normal text-chalk/40">
-                      {interview.date ?? (interview.videoUrl ? 'Watch' : 'Recording not yet linked')}
-                    </p>
+
+                    {interview.youtubeId ? (
+                      <div className="mt-2 flex flex-wrap items-center gap-x-3 gap-y-1">
+                        <p className="t-caption font-normal text-chalk/40">
+                          {interview.date ?? interview.videoTitle}
+                        </p>
+                        {/* An embed can be blocked by the network or the
+                            viewer's own settings; this keeps that from being a
+                            dead end. */}
+                        <WatchOnYouTube youtubeId={interview.youtubeId} />
+                      </div>
+                    ) : (
+                      <p className="t-caption mt-2 font-normal text-chalk/40">
+                        {interview.date ?? 'Recording not yet linked'}
+                      </p>
+                    )}
+
+                    {interview.videoCaution ? (
+                      <p className="t-caption mt-2 max-w-[42ch] font-normal text-chalk/35">
+                        {interview.videoCaution}
+                      </p>
+                    ) : null}
                   </div>
                 </Reveal>
               );
             })}
           </ul>
 
-          {youtube ? (
+          {youtube && missing > 0 ? (
             <Reveal className="mt-14">
               <div className="rounded-2xl border border-ochre-lift/25 bg-ochre-lift/5 p-6">
-                <p className="t-eyebrow mb-3 text-ochre-lift">Looking for the full interviews?</p>
+                <p className="t-eyebrow mb-3 text-ochre-lift">
+                  {missing} {missing === 1 ? 'recording' : 'recordings'} still missing
+                </p>
                 <p className="t-body max-w-[60ch] text-sm text-chalk/70">
-                  The video files are not part of this site yet. In the meantime the
-                  artist&rsquo;s own channel carries his published video.
+                  The old site played these through a Wix player that left no link behind,
+                  and they have not turned up since. The artist&rsquo;s own channel carries
+                  his published video.
                 </p>
                 <a
                   href={youtube.url}

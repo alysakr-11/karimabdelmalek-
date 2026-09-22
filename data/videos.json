@@ -1,0 +1,26 @@
+{
+  "source": "The artist's own YouTube channel, recovered in karim-media/data (press.json and exhibitions.json).",
+  "note": "The old site embedded its video with a Wix player that loaded over JavaScript, so the export captured poster frames and no URLs. These are the recordings that could be found again. Keyed by the order number the site uses, not by title.",
+  "interviews": [
+    {
+      "order": 4,
+      "youtubeId": "r1wzTtKxJbw",
+      "title": "8 El Sobh, DMC",
+      "titleArabic": "برنامج ٨ الصبح",
+      "caution": "Which of the two DMC appearances this is has not been confirmed.",
+      "internalNote": "Attached to the unnamed DMC entry (order 4) rather than the one naming Sally Shahin and Sherin Efat (order 2). Which of the two this recording is cannot be established from the video itself, so it is left where it is rather than moved on a guess. Ask Karim, then drop the caution."
+    }
+  ],
+  "exhibitions": [
+    {
+      "slug": "sakan-2019",
+      "youtubeId": "R7znWIDnDlc",
+      "title": "Sakan, exhibition trailer"
+    },
+    {
+      "slug": "sakan-2019",
+      "youtubeId": "WGaaSBDu9Ow",
+      "title": "Sakan, opening night, 2019"
+    }
+  ]
+}
