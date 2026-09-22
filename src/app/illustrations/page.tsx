@@ -1,7 +1,7 @@
 import type { Metadata } from 'next';
 import { illustrations, illustrationsContext } from '@/content/illustrations';
 import { PageHeader } from '@/components/sections/PageHeader';
-import { ArtworkGrid, type GridItem } from '@/components/primitives/ArtworkGrid';
+import { Slideshow, type Slide } from '@/components/primitives/Slideshow';
 import { ContourField } from '@/components/primitives/ContourField';
 import { CurveDivider } from '@/components/primitives/CurveDivider';
 import { ContactCta } from '@/components/sections/ContactCta';
@@ -14,14 +14,14 @@ export const metadata: Metadata = {
 };
 
 export default function IllustrationsPage() {
-  // Illustrations have no individual pages; the grid links to the full file.
-  const items: GridItem[] = illustrations.map((ill) => ({
+  // Illustrations have no individual pages; each opens the full file.
+  const slides: Slide[] = illustrations.map((ill) => ({
     key: ill.slug,
     href: ill.src,
     src: ill.src,
     alt: ill.alt,
-    label: 'Illustration',
-    meta: String(ill.plate).padStart(2, '0'),
+    label: `Illustration ${String(ill.plate).padStart(2, '0')}`,
+    detail: null,
     width: ill.width,
     height: ill.height,
     trim: ill.trim,
@@ -43,8 +43,8 @@ export default function IllustrationsPage() {
         className="on-dark relative overflow-hidden bg-umber-deep py-12 sm:py-16 lg:py-20"
       >
         <ContourField seed={71} opacity={0.32} stroke="var(--color-ochre-lift)" />
-        <div className="shell relative">
-          <ArtworkGrid items={items} dark surface="light" />
+        <div className="relative">
+          <Slideshow slides={slides} label="Illustrations" />
         </div>
       </section>
 

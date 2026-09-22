@@ -1,21 +1,17 @@
-import { Hero } from '@/components/sections/Hero';
-import { Statement } from '@/components/sections/Statement';
-import { ArcStrip } from '@/components/sections/ArcStrip';
-import { FeaturedWorks } from '@/components/sections/FeaturedWorks';
-import { ExhibitionsRail } from '@/components/sections/ExhibitionsRail';
-import { AboutPreview } from '@/components/sections/AboutPreview';
-import { ContactCta } from '@/components/sections/ContactCta';
+import { Doorway } from '@/components/sections/Doorway';
 
+/**
+ * Design 2's home page: the doorway alone.
+ *
+ * Design 1 composed seven sections here — Hero, Statement, ArcStrip,
+ * FeaturedWorks, ExhibitionsRail, AboutPreview, ContactCta — so the home page
+ * previewed the whole site and the rest was mostly confirmation. The artist's
+ * own site did the opposite, and this follows it: the home page offers the
+ * choice, the pages hold the content.
+ *
+ * Those seven sections all still exist and are unchanged. Restoring design 1
+ * is this file and nothing else.
+ */
 export default function HomePage() {
-  return (
-    <>
-      <Hero />
-      <Statement />
-      <ArcStrip />
-      <FeaturedWorks />
-      <ExhibitionsRail />
-      <AboutPreview />
-      <ContactCta />
-    </>
-  );
+  return <Doorway />;
 }
