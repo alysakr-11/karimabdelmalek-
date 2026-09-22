@@ -7,11 +7,14 @@ import { contact } from '@/content/contact';
 /**
  * Enquiry form.
  *
- * No enquiry address for the artist could be verified, so this form posts to
- * whatever endpoint is configured in NEXT_PUBLIC_ENQUIRY_ENDPOINT (a form
- * service, or an API route). When that variable is unset the form renders in a
- * clearly-labelled unconfigured state instead of silently discarding what
- * someone types — the gallery and Instagram routes beside it still work.
+ * The form posts to whatever endpoint is configured in
+ * NEXT_PUBLIC_ENQUIRY_ENDPOINT — a form service such as Formspree, or an API
+ * route. When that variable is unset the form disables itself rather than
+ * silently discarding what someone types, and points at the published email
+ * address instead, which needs no configuration and cannot break.
+ *
+ * The visitor is not told to set an environment variable. That instruction is
+ * for whoever runs the site, and it lives here and in docs/DATA_GAPS.md.
  *
  * The four fields, the button's label and the confirmation line are the old
  * site's own: name, email, subject, message, "Send", and "Success! Message
@@ -54,12 +57,24 @@ export function EnquiryForm() {
           role="note"
           className="t-body rounded-xl border border-ochre/30 bg-ochre/8 px-4 py-3 text-sm text-ink-soft"
         >
-          This form has no delivery address configured yet, so it is disabled rather than
-          accepting a message it could not send. Set{' '}
-          <code className="rounded bg-ink/8 px-1.5 py-0.5 text-[0.8em]">
-            NEXT_PUBLIC_ENQUIRY_ENDPOINT
-          </code>{' '}
-          to switch it on. The gallery and Instagram routes below work now.
+          This form has nowhere to deliver to yet, so it is disabled rather than accepting
+          a message it could not send.{' '}
+          {contact.emailHref ? (
+            <>
+              Write to{' '}
+              <a
+                href={contact.emailHref}
+                /* Not break-all: mid-sentence it split as "mal / ak9910@…".
+                   Kept whole, it wraps to the next line instead. */
+                className="font-medium whitespace-nowrap text-ochre underline decoration-ochre/40 underline-offset-4 transition-colors hover:decoration-ochre"
+              >
+                {contact.email}
+              </a>{' '}
+              instead — it reaches him directly.
+            </>
+          ) : (
+            <>The phone number and the social links beside it work now.</>
+          )}
         </p>
       ) : null}
 
