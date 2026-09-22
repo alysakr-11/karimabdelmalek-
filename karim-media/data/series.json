@@ -1,0 +1,68 @@
+[
+  {
+    "slug": "wesal-2025",
+    "title": "Wesal",
+    "titleArabic": "وصال",
+    "year": 2025,
+    "statement": null,
+    "exhibitions": [
+      "wesal-safarkhan-2025"
+    ],
+    "workCount": 16
+  },
+  {
+    "slug": "zat-2023",
+    "title": "Zat",
+    "titleArabic": "ذات",
+    "year": 2023,
+    "statement": null,
+    "exhibitions": [
+      "zat-safarkhan-2023"
+    ],
+    "workCount": 19
+  },
+  {
+    "slug": "the-third-eye-2021",
+    "title": "The Third Eye",
+    "titleArabic": "العين الثالثة",
+    "year": 2021,
+    "statement": null,
+    "exhibitions": [
+      "the-third-eye-safarkhan-2021"
+    ],
+    "workCount": 20
+  },
+  {
+    "slug": "sakan-2019",
+    "title": "Sakan",
+    "titleArabic": "سكن",
+    "year": 2019,
+    "statement": null,
+    "exhibitions": [
+      "sakan-safarkhan-2019"
+    ],
+    "workCount": 0
+  },
+  {
+    "slug": "horra-2017",
+    "title": "Horra",
+    "titleArabic": "حرة",
+    "year": 2017,
+    "statement": null,
+    "exhibitions": [
+      "horra-safarkhan-2017"
+    ],
+    "workCount": 0
+  },
+  {
+    "slug": "soul-2016",
+    "title": "Soul",
+    "titleArabic": "روح",
+    "year": 2016,
+    "statement": null,
+    "exhibitions": [
+      "soul-safarkhan-2016"
+    ],
+    "workCount": 0
+  }
+]

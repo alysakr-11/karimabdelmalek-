@@ -1,0 +1,123 @@
+[
+  {
+    "slug": "wesal-safarkhan-2025",
+    "title": "Wesal",
+    "titleArabic": "وصال",
+    "kind": "solo",
+    "venue": "Safarkhan Art Gallery",
+    "city": "Cairo",
+    "country": "Egypt",
+    "startDate": "2025-01-04",
+    "endDate": "2025-01-28",
+    "dates": "4–28 January 2025",
+    "series": [
+      "wesal-2025"
+    ],
+    "videos": []
+  },
+  {
+    "slug": "zat-safarkhan-2023",
+    "title": "Zat",
+    "titleArabic": "ذات",
+    "kind": "solo",
+    "venue": "Safarkhan Art Gallery",
+    "city": "Cairo",
+    "country": "Egypt",
+    "startDate": "2023-02-07",
+    "endDate": "2023-03-01",
+    "dates": "7 February – 1 March 2023",
+    "series": [
+      "zat-2023"
+    ],
+    "videos": []
+  },
+  {
+    "slug": "the-third-eye-safarkhan-2021",
+    "title": "The Third Eye",
+    "titleArabic": null,
+    "kind": "solo",
+    "venue": "Safarkhan Art Gallery",
+    "city": "Cairo",
+    "country": "Egypt",
+    "startDate": "2021",
+    "endDate": null,
+    "dates": "2021",
+    "series": [
+      "the-third-eye-2021"
+    ],
+    "videos": []
+  },
+  {
+    "slug": "sakan-safarkhan-2019",
+    "title": "Sakan",
+    "titleArabic": "سكن",
+    "kind": "solo",
+    "venue": "Safarkhan Art Gallery",
+    "city": "Cairo",
+    "country": "Egypt",
+    "startDate": "2019",
+    "endDate": null,
+    "dates": "2019",
+    "series": [
+      "sakan-2019"
+    ],
+    "videos": [
+      {
+        "youtubeId": "R7znWIDnDlc",
+        "title": "Sakan, exhibition trailer",
+        "poster": "video/sakan-trailer.webp"
+      },
+      {
+        "youtubeId": "WGaaSBDu9Ow",
+        "title": "Sakan, opening night, 2019",
+        "poster": "video/sakan-opening.webp"
+      }
+    ]
+  },
+  {
+    "slug": "horra-safarkhan-2017",
+    "title": "Horra",
+    "titleArabic": "حرة",
+    "kind": "solo",
+    "venue": "Safarkhan Art Gallery",
+    "city": "Cairo",
+    "country": "Egypt",
+    "startDate": "2017",
+    "endDate": null,
+    "dates": "2017",
+    "series": [
+      "horra-2017"
+    ],
+    "videos": []
+  },
+  {
+    "slug": "soul-safarkhan-2016",
+    "title": "Soul",
+    "titleArabic": null,
+    "kind": "solo",
+    "venue": "Safarkhan Art Gallery",
+    "city": "Cairo",
+    "country": "Egypt",
+    "startDate": "2016",
+    "endDate": null,
+    "dates": "2016",
+    "series": [
+      "soul-2016"
+    ],
+    "videos": []
+  },
+  {
+    "slug": "caravan-festival",
+    "title": "Caravan Festival for Arts",
+    "titleArabic": null,
+    "kind": "festival",
+    "venue": "Caravan Festival",
+    "city": "Cairo, London, Washington, Paris",
+    "country": null,
+    "startDate": "2013",
+    "endDate": "2015",
+    "dates": "2013–2015",
+    "series": [],
+    "videos": []
+  }
+]

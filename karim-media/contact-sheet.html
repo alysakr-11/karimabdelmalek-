@@ -1,0 +1,1611 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Migration contact sheet — karimabdelmalak</title>
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<style>
+  :root{--bg:#12100d;--fg:#f2ede6;--muted:#9c8d7a;--line:#2a241d;--accent:#b08442}
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--fg);font:16px/1.6 ui-sans-serif,system-ui,sans-serif;padding:3rem 1.5rem 6rem}
+  .wrap{max-width:1500px;margin:0 auto}
+  h1{font-size:2rem;margin:0 0 .4rem;font-weight:400}
+  .lede{color:var(--muted);max-width:60ch;margin:0 0 2.5rem}
+  .stats{display:flex;flex-wrap:wrap;gap:.6rem;margin-bottom:3rem}
+  .stat{border:1px solid var(--line);padding:.7rem 1.1rem;border-radius:3px}
+  .stat b{display:block;font-size:1.6rem;font-weight:400}
+  .stat span{color:var(--muted);font-size:.8rem;text-transform:uppercase;letter-spacing:.1em}
+  .callout{border-left:2px solid var(--accent);padding:1rem 1.2rem;background:#1c1814;margin:0 0 3rem;border-radius:0 3px 3px 0}
+  .callout h3{margin:0 0 .5rem;font-weight:400}
+  .callout ul{margin:.5rem 0 0;padding-left:1.1rem;color:var(--muted)}
+  section{margin-bottom:4rem}
+  h2{font-size:1.25rem;font-weight:400;border-bottom:1px solid var(--line);padding-bottom:.6rem;margin:0 0 1.5rem}
+  h2 small{color:var(--muted);font-size:.8rem;margin-left:.6rem;font-family:ui-monospace,monospace}
+  .warn{background:#2a1a12;border:1px solid #5a3a1f;padding:.8rem 1rem;border-radius:3px;color:#e8c9a0;font-size:.9rem;margin:0 0 1.5rem}
+  .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(230px,1fr));gap:1.8rem}
+  .card{margin:0}
+  .frame{width:100%;overflow:hidden;border:1px solid var(--line)}
+  .frame img{width:100%;height:100%;object-fit:contain;display:block}
+  figcaption{font-size:.78rem;color:var(--muted);margin-top:.6rem;line-height:1.5}
+  figcaption b{color:var(--fg);font-weight:500}
+  figcaption small,figcaption code{display:block}
+  figcaption code{font-size:.7rem;opacity:.5;margin-top:.2rem}
+  .tag{display:inline-block;padding:.05rem .45rem;border-radius:2px;font-size:.65rem;text-transform:uppercase;letter-spacing:.08em;margin-left:.3rem}
+  .tag.full{background:#1e3a24;color:#8fd4a0}
+  .tag.usable{background:#3a3218;color:#ddc580}
+  .tag.rescan{background:#4a1d1d;color:#f0a0a0}
+  .grade-rescan .frame{border-color:#7a3030}
+  table{border-collapse:collapse;width:100%;font-size:.85rem}
+  th,td{text-align:left;padding:.45rem .8rem;border-bottom:1px solid var(--line)}
+  th{color:var(--muted);font-weight:400;text-transform:uppercase;font-size:.7rem;letter-spacing:.1em}
+  @media(prefers-color-scheme:light){
+    :root{--bg:#faf8f5;--fg:#1c1814;--muted:#756753;--line:#e2dace}
+    .callout{background:#f2ede6}
+  }
+</style>
+<div class="wrap">
+<h1>Migration contact sheet</h1>
+<p class="lede">Every image recovered from the old Wix site, with its white padding trimmed and its
+true aspect ratio measured. <b>Nothing here is published.</b> This sheet exists so a
+person can check the trims before anything lands.</p>
+
+<div class="stats">
+  <div class="stat"><b>135</b><span>assets</span></div>
+  <div class="stat"><b>2</b><span>full quality</span></div>
+  <div class="stat"><b>36</b><span>usable</span></div>
+  <div class="stat"><b>97</b><span>need rescan</span></div>
+  <div class="stat"><b>48%</b><span>avg padding</span></div>
+  <div class="stat"><b>0</b><span>skipped</span></div>
+</div>
+
+<div class="callout">
+  <h3>What to check</h3>
+  <ul>
+    <li><b>Over-trimming.</b> If a painting has a pale passage running to its edge, the trim may have eaten it. Compare against the original dimensions shown under each card.</li>
+    <li><b>Under-trimming.</b> A visible white border means the threshold needs raising for that asset.</li>
+    <li><b>Aspect ratio.</b> It should match the painting's real proportions — that ratio becomes permanent content-model data.</li>
+    <li><b>Mapping.</b> Sections marked ⚠ have slugs that contradict their own rendered titles. The artist must confirm which works belong where.</li>
+  </ul>
+</div>
+
+
+<section>
+  <h2>Rescan list <small>for the artist</small></h2>
+  <p class="lede">These trim to under 1200px on the long edge — too small for a detail page.
+  This is the list of paintings that need rephotographing.</p>
+  <table>
+    <tr><th>Exhibition (as labelled)</th><th>Recovered size</th><th>Ratio</th><th>Asset</th></tr>
+    <tr><td>sakan 2019</td><td>1056×660</td><td>1.60</td><td><code>88a84b221f22</code></td></tr><tr><td>sakan 2019</td><td>530×660</td><td>0.80</td><td><code>059356d53dc0</code></td></tr><tr><td>sakan 2019</td><td>445×660</td><td>0.67</td><td><code>c7d72f4470b3</code></td></tr><tr><td>sakan 2019</td><td>532×660</td><td>0.81</td><td><code>393d95fb54d5</code></td></tr><tr><td>sakan 2019</td><td>552×660</td><td>0.84</td><td><code>5576f23b038b</code></td></tr><tr><td>sakan 2019</td><td>474×660</td><td>0.72</td><td><code>d45153bac6ba</code></td></tr><tr><td>sakan 2019</td><td>746×660</td><td>1.13</td><td><code>77ffae8a944d</code></td></tr><tr><td>sakan 2019</td><td>803×660</td><td>1.22</td><td><code>83e88eab70ad</code></td></tr><tr><td>sakan 2019</td><td>476×660</td><td>0.72</td><td><code>075b523c6bca</code></td></tr><tr><td>sakan 2019</td><td>444×660</td><td>0.67</td><td><code>f9b390c84612</code></td></tr><tr><td>sakan 2019</td><td>664×660</td><td>1.01</td><td><code>7c4f0211faa4</code></td></tr><tr><td>sakan 2019</td><td>443×660</td><td>0.67</td><td><code>19c69748cc0b</code></td></tr><tr><td>sakan 2019</td><td>300×660</td><td>0.45</td><td><code>fcdee3b439e3</code></td></tr><tr><td>SOUL 2016</td><td>1084×660</td><td>1.64</td><td><code>34fe06c5e772</code></td></tr><tr><td>SOUL 2016</td><td>991×660</td><td>1.50</td><td><code>80a32111c37e</code></td></tr><tr><td>SOUL 2016</td><td>421×660</td><td>0.64</td><td><code>269e2e30a1a0</code></td></tr><tr><td>SOUL 2016</td><td>746×660</td><td>1.13</td><td><code>49935591b001</code></td></tr><tr><td>SOUL 2016</td><td>454×624</td><td>0.73</td><td><code>1db2350a80d5</code></td></tr><tr><td>SOUL 2016</td><td>666×660</td><td>1.01</td><td><code>277550afdefa</code></td></tr><tr><td>SOUL 2016</td><td>1181×363</td><td>3.25</td><td><code>b7be57ded06a</code></td></tr><tr><td>SOUL 2016</td><td>269×626</td><td>0.43</td><td><code>7fb40871a78f</code></td></tr><tr><td>SOUL 2016</td><td>1013×660</td><td>1.53</td><td><code>c5d129cb7fba</code></td></tr><tr><td>SOUL 2016</td><td>474×660</td><td>0.72</td><td><code>5c7c38b80f72</code></td></tr><tr><td>SOUL 2016</td><td>270×475</td><td>0.57</td><td><code>3c62708485f4</code></td></tr><tr><td>HORRA 2017</td><td>1019×660</td><td>1.54</td><td><code>bad6da474af8</code></td></tr><tr><td>HORRA 2017</td><td>468×660</td><td>0.71</td><td><code>00e0027a325a</code></td></tr><tr><td>HORRA 2017</td><td>468×660</td><td>0.71</td><td><code>880e33947ed7</code></td></tr><tr><td>HORRA 2017</td><td>462×660</td><td>0.70</td><td><code>467e71c6f718</code></td></tr><tr><td>HORRA 2017</td><td>640×660</td><td>0.97</td><td><code>9c209fddfc32</code></td></tr><tr><td>HORRA 2017</td><td>1181×363</td><td>3.25</td><td><code>6b8719503d28</code></td></tr><tr><td>HORRA 2017</td><td>477×660</td><td>0.72</td><td><code>909fab8d2874</code></td></tr><tr><td>HORRA 2017</td><td>533×660</td><td>0.81</td><td><code>3fc92944d86f</code></td></tr><tr><td>HORRA 2017</td><td>684×660</td><td>1.04</td><td><code>021f09ad7ec3</code></td></tr><tr><td>HORRA 2017</td><td>623×660</td><td>0.94</td><td><code>da1fdfbfc4cc</code></td></tr><tr><td>HORRA 2017</td><td>757×614</td><td>1.23</td><td><code>779393f6fb7d</code></td></tr><tr><td>HORRA 2017</td><td>616×660</td><td>0.93</td><td><code>3f2e78dc0fc3</code></td></tr><tr><td>HORRA 2017</td><td>478×660</td><td>0.72</td><td><code>8e7a64526cdd</code></td></tr><tr><td>HORRA 2017</td><td>514×660</td><td>0.78</td><td><code>560db7b148dc</code></td></tr><tr><td>HORRA 2017</td><td>502×660</td><td>0.76</td><td><code>f8b256386415</code></td></tr><tr><td>HORRA 2017</td><td>823×660</td><td>1.25</td><td><code>6324a9c43f8d</code></td></tr><tr><td>HORRA 2017</td><td>452×660</td><td>0.68</td><td><code>c8d4419bb71b</code></td></tr><tr><td>HORRA 2017</td><td>435×660</td><td>0.66</td><td><code>0555cdc62661</code></td></tr><tr><td>HORRA 2017</td><td>980×660</td><td>1.48</td><td><code>7db8248b0d48</code></td></tr><tr><td>caravan</td><td>1025×660</td><td>1.55</td><td><code>8ce69558b6a4</code></td></tr><tr><td>caravan</td><td>1036×660</td><td>1.57</td><td><code>025a590d6262</code></td></tr><tr><td>caravan</td><td>1026×660</td><td>1.55</td><td><code>e28469cebe1b</code></td></tr><tr><td>caravan</td><td>479×660</td><td>0.73</td><td><code>64468ab19568</code></td></tr><tr><td>caravan</td><td>658×660</td><td>1.00</td><td><code>a78a047b8131</code></td></tr><tr><td>caravan</td><td>468×660</td><td>0.71</td><td><code>27d2a0563494</code></td></tr><tr><td>caravan</td><td>547×660</td><td>0.83</td><td><code>035f16229918</code></td></tr><tr><td>caravan</td><td>468×660</td><td>0.71</td><td><code>3b4bb0a2c68e</code></td></tr><tr><td>caravan</td><td>821×660</td><td>1.24</td><td><code>48dde6a99e04</code></td></tr><tr><td>caravan</td><td>661×660</td><td>1.00</td><td><code>28b8c99a2b65</code></td></tr><tr><td>caravan</td><td>659×660</td><td>1.00</td><td><code>b267b2bc7825</code></td></tr><tr><td>caravan</td><td>670×660</td><td>1.02</td><td><code>94233651da79</code></td></tr><tr><td>caravan</td><td>930×660</td><td>1.41</td><td><code>f2df4bfe3eb4</code></td></tr><tr><td>caravan</td><td>665×660</td><td>1.01</td><td><code>750326d93dba</code></td></tr><tr><td>caravan</td><td>242×660</td><td>0.37</td><td><code>af78a4f38cd2</code></td></tr><tr><td>caravan</td><td>475×660</td><td>0.72</td><td><code>bbba0330e9f8</code></td></tr><tr><td>caravan</td><td>525×660</td><td>0.80</td><td><code>20bdbdab9915</code></td></tr><tr><td>caravan</td><td>1004×660</td><td>1.52</td><td><code>2a2d1cc3a634</code></td></tr><tr><td>caravan</td><td>1100×344</td><td>3.20</td><td><code>43a99f5108da</code></td></tr><tr><td>caravan</td><td>1072×315</td><td>3.40</td><td><code>e4f82255019b</code></td></tr><tr><td>caravan</td><td>834×654</td><td>1.28</td><td><code>dace0b236ead</code></td></tr><tr><td>caravan</td><td>497×660</td><td>0.75</td><td><code>4406b9fa97c7</code></td></tr><tr><td>wsal 2025</td><td>1181×660</td><td>1.79</td><td><code>402f2255799e</code></td></tr><tr><td>wsal 2025</td><td>505×660</td><td>0.77</td><td><code>5c6f828e02bb</code></td></tr><tr><td>wsal 2025</td><td>660×660</td><td>1.00</td><td><code>c3640f6bcab1</code></td></tr><tr><td>wsal 2025</td><td>309×660</td><td>0.47</td><td><code>05388b1bb250</code></td></tr><tr><td>wsal 2025</td><td>549×660</td><td>0.83</td><td><code>4431780d9c5e</code></td></tr><tr><td>wsal 2025</td><td>560×660</td><td>0.85</td><td><code>7b6fbd396be7</code></td></tr><tr><td>wsal 2025</td><td>479×660</td><td>0.73</td><td><code>7b27e073d77a</code></td></tr><tr><td>wsal 2025</td><td>444×660</td><td>0.67</td><td><code>31a9e2cdb6ed</code></td></tr><tr><td>wsal 2025</td><td>472×660</td><td>0.72</td><td><code>89b228bd9110</code></td></tr><tr><td>wsal 2025</td><td>452×660</td><td>0.68</td><td><code>d25a25a7022f</code></td></tr><tr><td>wsal 2025</td><td>948×660</td><td>1.44</td><td><code>094b68481329</code></td></tr><tr><td>wsal 2025</td><td>666×660</td><td>1.01</td><td><code>75d06ee5b100</code></td></tr><tr><td>wsal 2025</td><td>1074×660</td><td>1.63</td><td><code>e47f2ec76b6f</code></td></tr><tr><td>wsal 2025</td><td>1181×561</td><td>2.11</td><td><code>d658a1082989</code></td></tr><tr><td>wsal 2025</td><td>670×660</td><td>1.02</td><td><code>2c71a401603e</code></td></tr><tr><td>wsal 2025</td><td>1047×660</td><td>1.59</td><td><code>18b1383bfcc8</code></td></tr><tr><td>wsal 2025</td><td>600×660</td><td>0.91</td><td><code>c0d380642375</code></td></tr><tr><td>wsal 2025</td><td>674×660</td><td>1.02</td><td><code>2e281c3a54c7</code></td></tr><tr><td>wsal 2025</td><td>683×660</td><td>1.03</td><td><code>0ab06e942293</code></td></tr><tr><td>wsal 2025</td><td>1181×539</td><td>2.19</td><td><code>4ecb0febb24f</code></td></tr><tr><td>wsal 2025</td><td>502×660</td><td>0.76</td><td><code>10cb696a7b24</code></td></tr><tr><td>wsal 2025</td><td>1054×660</td><td>1.60</td><td><code>fb82cfd3e3af</code></td></tr><tr><td>wsal 2025</td><td>1072×660</td><td>1.62</td><td><code>f836cd5c9fe6</code></td></tr><tr><td>wsal 2025</td><td>641×641</td><td>1.00</td><td><code>d324a6a47d76</code></td></tr><tr><td>wsal 2025</td><td>435×660</td><td>0.66</td><td><code>2b57c1a6915f</code></td></tr><tr><td>Illustrations (blank page)</td><td>496×645</td><td>0.77</td><td><code>2694c2184dfb</code></td></tr><tr><td>Illustrations (blank page)</td><td>594×586</td><td>1.01</td><td><code>5239e54ef32f</code></td></tr><tr><td>Illustrations (blank page)</td><td>459×612</td><td>0.75</td><td><code>2e1cf87f5386</code></td></tr><tr><td>Illustrations (blank page)</td><td>479×614</td><td>0.78</td><td><code>610e6e08744f</code></td></tr><tr><td>Illustrations (blank page)</td><td>449×612</td><td>0.73</td><td><code>ca656deeb95d</code></td></tr><tr><td>Illustrations (blank page)</td><td>567×616</td><td>0.92</td><td><code>31c94c98c696</code></td></tr><tr><td>Illustrations (blank page)</td><td>519×534</td><td>0.97</td><td><code>5282255b9792</code></td></tr>
+  </table>
+</section>
+
+
+    <section>
+      <h2>sakan 2019 <small>/copy-of-sakan-1</small></h2>
+      <p class="warn">⚠ This page's slug and its rendered title disagree. The work → exhibition mapping here is <b>untrusted</b> and must be confirmed by the artist before anything is published.</p>
+      <div class="grid">
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.6;background:#282828">
+        <img src="thumb/fdc35e_88a84b221f224618b2bcf8ceacf1894a.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1056×660</b> · ratio 1.60
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 11% padding</small>
+        <code>88a84b221f22</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.803;background:#a88868">
+        <img src="thumb/fdc35e_059356d53dc047c886f51f485bf7a125.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>530×660</b> · ratio 0.80
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 55% padding</small>
+        <code>059356d53dc0</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.6742;background:#282828">
+        <img src="thumb/fdc35e_c7d72f4470b34052834e5a5fdd6ffd4a.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>445×660</b> · ratio 0.67
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 62% padding</small>
+        <code>c7d72f4470b3</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.8061;background:#987858">
+        <img src="thumb/fdc35e_393d95fb54d540d7a98d10e1cd6fd9b3.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>532×660</b> · ratio 0.81
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 55% padding</small>
+        <code>393d95fb54d5</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.8364;background:#885818">
+        <img src="thumb/fdc35e_5576f23b038b495f9a1a3505fbf2053d.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>552×660</b> · ratio 0.84
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 53% padding</small>
+        <code>5576f23b038b</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.7182;background:#987868">
+        <img src="thumb/fdc35e_d45153bac6ba4695a32995a61a6a3860.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>474×660</b> · ratio 0.72
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 60% padding</small>
+        <code>d45153bac6ba</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.1303;background:#f8f8f8">
+        <img src="thumb/fdc35e_77ffae8a944d41bd88ab19441a3e1b1a.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>746×660</b> · ratio 1.13
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 37% padding</small>
+        <code>77ffae8a944d</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.2167;background:#180808">
+        <img src="thumb/fdc35e_83e88eab70ad4afe8ade999c7f84f1df.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>803×660</b> · ratio 1.22
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 32% padding</small>
+        <code>83e88eab70ad</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.7212;background:#c8a888">
+        <img src="thumb/fdc35e_075b523c6bca4aefbe188212d23519aa.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>476×660</b> · ratio 0.72
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 60% padding</small>
+        <code>075b523c6bca</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.6727;background:#181818">
+        <img src="thumb/fdc35e_f9b390c8461246919aa32b21322a5fa8.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>444×660</b> · ratio 0.67
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 62% padding</small>
+        <code>f9b390c84612</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.0061;background:#181818">
+        <img src="thumb/fdc35e_7c4f0211faa44ee4bf86e5330bed9e5d.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>664×660</b> · ratio 1.01
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 44% padding</small>
+        <code>7c4f0211faa4</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.6712;background:#182838">
+        <img src="thumb/fdc35e_19c69748cc0b44e380e43adec74a1702.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>443×660</b> · ratio 0.67
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 62% padding</small>
+        <code>19c69748cc0b</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.4545;background:#283838">
+        <img src="thumb/fdc35e_fcdee3b439e3485084c9f46d3a2c9948.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>300×660</b> · ratio 0.45
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 75% padding</small>
+        <code>fcdee3b439e3</code>
+      </figcaption>
+    </figure></div>
+    </section>
+    <section>
+      <h2>the third eye 2021 <small>/copy-of-the-third-eye</small></h2>
+      
+      <div class="grid">
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:1.3646;background:#080808">
+        <img src="thumb/fdc35e_2b6a1c0963d5428d95454cf8e2236b95.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1834×1344</b> · ratio 1.36
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 24% padding</small>
+        <code>2b6a1c0963d5</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.6763;background:#482818">
+        <img src="thumb/fdc35e_b0ec0ac8c1e64f78ae11629dccbba515.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>909×1344</b> · ratio 0.68
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 62% padding</small>
+        <code>b0ec0ac8c1e6</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.6763;background:#382818">
+        <img src="thumb/fdc35e_e7be8fd1192f4e79b15b06f21d6b01e9.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>909×1344</b> · ratio 0.68
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 62% padding</small>
+        <code>e7be8fd1192f</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.689;background:#281818">
+        <img src="thumb/fdc35e_1c0059a793b04c8c823320a0ad1a5ba3.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>926×1344</b> · ratio 0.69
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 61% padding</small>
+        <code>1c0059a793b0</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.6622;background:#182838">
+        <img src="thumb/fdc35e_d8bb3a64b4864885916d7029f24c1a75.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>890×1344</b> · ratio 0.66
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 63% padding</small>
+        <code>d8bb3a64b486</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:1.0045;background:#282828">
+        <img src="thumb/fdc35e_5615977476204e0389072087a50af626.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1350×1344</b> · ratio 1.00
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 44% padding</small>
+        <code>561597747620</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:1.0015;background:#281818">
+        <img src="thumb/fdc35e_5902d40a6e154062872ac55a54c0efd8.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1346×1344</b> · ratio 1.00
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 44% padding</small>
+        <code>5902d40a6e15</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.9926;background:#482818">
+        <img src="thumb/fdc35e_e7f3bd3facd84a48a19d6d6ba49901ad.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1334×1344</b> · ratio 0.99
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 44% padding</small>
+        <code>e7f3bd3facd8</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.9985;background:#181818">
+        <img src="thumb/fdc35e_62b90b89feab420596529409db294206.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1342×1344</b> · ratio 1.00
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 44% padding</small>
+        <code>62b90b89feab</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:1.0164;background:#182828">
+        <img src="thumb/fdc35e_ba6b64c504aa43669ca3b9cbdf237f2b.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1366×1344</b> · ratio 1.02
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 43% padding</small>
+        <code>ba6b64c504aa</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:1.2292;background:#383838">
+        <img src="thumb/fdc35e_fcb3ef3ddff2437fb939c9580332f60a.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1652×1344</b> · ratio 1.23
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 31% padding</small>
+        <code>fcb3ef3ddff2</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:1.0082;background:#281818">
+        <img src="thumb/fdc35e_af2d698eda114a83acc5adb2dee196bd.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1355×1344</b> · ratio 1.01
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 44% padding</small>
+        <code>af2d698eda11</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.994;background:#282828">
+        <img src="thumb/fdc35e_bf1af288049c4a3bbb9eb55e3bbcf85f.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1336×1344</b> · ratio 0.99
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 44% padding</small>
+        <code>bf1af288049c</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.5201;background:#484848">
+        <img src="thumb/fdc35e_39d9945b7765406ca1e0b5c7a144115b.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>699×1344</b> · ratio 0.52
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 71% padding</small>
+        <code>39d9945b7765</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.7031;background:#181818">
+        <img src="thumb/fdc35e_1c481876245f4b7ea85e5477dba94f4e.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>945×1344</b> · ratio 0.70
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 61% padding</small>
+        <code>1c481876245f</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.689;background:#484838">
+        <img src="thumb/fdc35e_57cc244d65004b64a74a50f3d2f311e8.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>926×1344</b> · ratio 0.69
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 61% padding</small>
+        <code>57cc244d6500</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.3192;background:#382818">
+        <img src="thumb/fdc35e_3d7bb1c0e7234f4bad4842a932021986.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>429×1344</b> · ratio 0.32
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 82% padding</small>
+        <code>3d7bb1c0e723</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.494;background:#382828">
+        <img src="thumb/fdc35e_bb3fc3aca9724dc78d5a5aa89f0010a3.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>664×1344</b> · ratio 0.49
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 72% padding</small>
+        <code>bb3fc3aca972</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.5045;background:#181818">
+        <img src="thumb/fdc35e_49f39e312d434354ab228d13f2a35644.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>678×1344</b> · ratio 0.50
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 72% padding</small>
+        <code>49f39e312d43</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.6957;background:#e8e8d8">
+        <img src="thumb/fdc35e_d1fb25885a8f45ae9e37f35ac1796195.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>935×1344</b> · ratio 0.70
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 61% padding</small>
+        <code>d1fb25885a8f</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-full">
+      <div class="frame" style="aspect-ratio:1.7857;background:#f8f8e8">
+        <img src="thumb/fdc35e_72a9f9e9b9564dc790bd82609567af55.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>2400×1344</b> · ratio 1.79
+        <span class="tag full">full</span>
+        <small>was 2400×1344 — 0% padding</small>
+        <code>72a9f9e9b956</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-full">
+      <div class="frame" style="aspect-ratio:1.7857;background:#f8f8e8">
+        <img src="thumb/fdc35e_5bb79ed26f8b48c5953bf373982c496d.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>2400×1344</b> · ratio 1.79
+        <span class="tag full">full</span>
+        <small>was 2400×1344 — 0% padding</small>
+        <code>5bb79ed26f8b</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.8237;background:#080808">
+        <img src="thumb/fdc35e_b6d2f3673a584aa1824a8ce7b9720261.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1107×1344</b> · ratio 0.82
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 54% padding</small>
+        <code>b6d2f3673a58</code>
+      </figcaption>
+    </figure></div>
+    </section>
+    <section>
+      <h2>SOUL 2016 <small>/copy-of-soul</small></h2>
+      <p class="warn">⚠ This page's slug and its rendered title disagree. The work → exhibition mapping here is <b>untrusted</b> and must be confirmed by the artist before anything is published.</p>
+      <div class="grid">
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.6424;background:#281808">
+        <img src="thumb/fdc35e_34fe06c5e77241f9b19b3c6f608db17f.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1084×660</b> · ratio 1.64
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 8% padding</small>
+        <code>34fe06c5e772</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.5015;background:#180808">
+        <img src="thumb/fdc35e_80a32111c37e4ace9e17fd1ca9a26c9f.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>991×660</b> · ratio 1.50
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 16% padding</small>
+        <code>80a32111c37e</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.6379;background:#381808">
+        <img src="thumb/fdc35e_269e2e30a1a041e496de2f7fb635c2a4.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>421×660</b> · ratio 0.64
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 64% padding</small>
+        <code>269e2e30a1a0</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.1303;background:#f8f8f8">
+        <img src="thumb/fdc35e_49935591b0014b6cb0d24c1d163406e2.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>746×660</b> · ratio 1.13
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 37% padding</small>
+        <code>49935591b001</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.7276;background:#f8f8f8">
+        <img src="thumb/fdc35e_1db2350a80d54449b12bb9e28567ce9e.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>454×624</b> · ratio 0.73
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 64% padding</small>
+        <code>1db2350a80d5</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.0091;background:#482808">
+        <img src="thumb/fdc35e_277550afdefa43efac08f7e1961e4be5.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>666×660</b> · ratio 1.01
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 44% padding</small>
+        <code>277550afdefa</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:3.2534;background:#381808">
+        <img src="thumb/fdc35e_b7be57ded06a4184bac33953de23ab3a.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1181×363</b> · ratio 3.25
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 45% padding</small>
+        <code>b7be57ded06a</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.4297;background:#f8f8f8">
+        <img src="thumb/fdc35e_7fb40871a78f4cc89c01db55395749f5.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>269×626</b> · ratio 0.43
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 78% padding</small>
+        <code>7fb40871a78f</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.5348;background:#180808">
+        <img src="thumb/fdc35e_c5d129cb7fba4350a3913162cc5d9f55.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1013×660</b> · ratio 1.53
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 14% padding</small>
+        <code>c5d129cb7fba</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.7182;background:#180808">
+        <img src="thumb/fdc35e_5c7c38b80f7241ab92a048c074949161.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>474×660</b> · ratio 0.72
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 60% padding</small>
+        <code>5c7c38b80f72</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.5684;background:#f8f8f8">
+        <img src="thumb/fdc35e_3c62708485f440e8ae4f33719b61db93.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>270×475</b> · ratio 0.57
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 84% padding</small>
+        <code>3c62708485f4</code>
+      </figcaption>
+    </figure></div>
+    </section>
+    <section>
+      <h2>ZAT 2023 <small>/copy-of-zat</small></h2>
+      <p class="warn">⚠ This page's slug and its rendered title disagree. The work → exhibition mapping here is <b>untrusted</b> and must be confirmed by the artist before anything is published.</p>
+      <div class="grid">
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.6719;background:#583828">
+        <img src="thumb/fdc35e_3f9449ee154b4a3d8beaa209aacc5334.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>903×1344</b> · ratio 0.67
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 62% padding</small>
+        <code>3f9449ee154b</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.7068;background:#584838">
+        <img src="thumb/fdc35e_549637d41e0f47e5bf6200d277a23380.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>950×1344</b> · ratio 0.71
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 60% padding</small>
+        <code>549637d41e0f</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.6704;background:#785848">
+        <img src="thumb/fdc35e_275301ea6aa94597a94d114fdf55cfdc.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>901×1344</b> · ratio 0.67
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 62% padding</small>
+        <code>275301ea6aa9</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:1.0037;background:#483828">
+        <img src="thumb/fdc35e_40149f4c7d6c43f585c663b67abd3a93.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1349×1344</b> · ratio 1.00
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 44% padding</small>
+        <code>40149f4c7d6c</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:1.0037;background:#583828">
+        <img src="thumb/fdc35e_4663bca130874551baceb7e80a275a4c.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1349×1344</b> · ratio 1.00
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 44% padding</small>
+        <code>4663bca13087</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:1.2091;background:#383838">
+        <img src="thumb/fdc35e_5351e92125304e9cb7e860307f365522.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1625×1344</b> · ratio 1.21
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 32% padding</small>
+        <code>5351e9212530</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.6771;background:#382818">
+        <img src="thumb/fdc35e_ffe5e4fed56a4f3a9531a9dd4a6976dd.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>910×1344</b> · ratio 0.68
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 62% padding</small>
+        <code>ffe5e4fed56a</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.6845;background:#584838">
+        <img src="thumb/fdc35e_c61eef4db6f2463497536b8c07660b1b.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>920×1344</b> · ratio 0.68
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 62% padding</small>
+        <code>c61eef4db6f2</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.8423;background:#483828">
+        <img src="thumb/fdc35e_b67e79cfaee44515a74bce78b32d8b20.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1132×1344</b> · ratio 0.84
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 53% padding</small>
+        <code>b67e79cfaee4</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.3036;background:#684838">
+        <img src="thumb/fdc35e_a8599be0cac44e288f0e1b567d032747.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>408×1344</b> · ratio 0.30
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 83% padding</small>
+        <code>a8599be0cac4</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.3013;background:#483828">
+        <img src="thumb/fdc35e_c2526cbf0c1c499788af16f601de7f3a.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>405×1344</b> · ratio 0.30
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 83% padding</small>
+        <code>c2526cbf0c1c</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.5045;background:#684828">
+        <img src="thumb/fdc35e_7fdea8cdfe6940949f0d521b200b85d7.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>678×1344</b> · ratio 0.50
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 72% padding</small>
+        <code>7fdea8cdfe69</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:1.9978;background:#483828">
+        <img src="thumb/fdc35e_3b87f806171e4dca95cec21b6050c89d.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1856×929</b> · ratio 2.00
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 47% padding</small>
+        <code>3b87f806171e</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:0.9435;background:#080808">
+        <img src="thumb/fdc35e_52f4ddb6deed4f1f8653cf01eee80297.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1268×1344</b> · ratio 0.94
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 47% padding</small>
+        <code>52f4ddb6deed</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-usable">
+      <div class="frame" style="aspect-ratio:1.0037;background:#b88858">
+        <img src="thumb/fdc35e_89e76fdba30f4b07ab7aec7fa1a4f8a5.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1349×1344</b> · ratio 1.00
+        <span class="tag usable">usable</span>
+        <small>was 2400×1344 — 44% padding</small>
+        <code>89e76fdba30f</code>
+      </figcaption>
+    </figure></div>
+    </section>
+    <section>
+      <h2>HORRA 2017 <small>/1st-gallery</small></h2>
+      
+      <div class="grid">
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.5439;background:#d8d8d8">
+        <img src="thumb/fdc35e_bad6da474af84e809f4170989c68bb13.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1019×660</b> · ratio 1.54
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 14% padding</small>
+        <code>bad6da474af8</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.7091;background:#281818">
+        <img src="thumb/fdc35e_00e0027a325a4cf8a755d57722fea96f.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>468×660</b> · ratio 0.71
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 60% padding</small>
+        <code>00e0027a325a</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.7091;background:#281818">
+        <img src="thumb/fdc35e_880e33947ed74a188e3ee3025bdc3d09.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>468×660</b> · ratio 0.71
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 60% padding</small>
+        <code>880e33947ed7</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.7;background:#589888">
+        <img src="thumb/fdc35e_467e71c6f7184828bb5e1bb723f882fe.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>462×660</b> · ratio 0.70
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 61% padding</small>
+        <code>467e71c6f718</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.9697;background:#f8f8f8">
+        <img src="thumb/fdc35e_9c209fddfc3243e491055ea70be503cd.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>640×660</b> · ratio 0.97
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 46% padding</small>
+        <code>9c209fddfc32</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:3.2534;background:#481808">
+        <img src="thumb/fdc35e_6b8719503d284612bb09096c60ec8639.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1181×363</b> · ratio 3.25
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 45% padding</small>
+        <code>6b8719503d28</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.7227;background:#381808">
+        <img src="thumb/fdc35e_909fab8d2874472b92565b11e75cdde6.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>477×660</b> · ratio 0.72
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 60% padding</small>
+        <code>909fab8d2874</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.8076;background:#987838">
+        <img src="thumb/fdc35e_3fc92944d86f42a087891a0edad74e4b.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>533×660</b> · ratio 0.81
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 55% padding</small>
+        <code>3fc92944d86f</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.0364;background:#885828">
+        <img src="thumb/fdc35e_021f09ad7ec342bfa340034dfcb7db4f.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>684×660</b> · ratio 1.04
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 42% padding</small>
+        <code>021f09ad7ec3</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.9439;background:#587868">
+        <img src="thumb/fdc35e_da1fdfbfc4cc4f9db5742762cead24be.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>623×660</b> · ratio 0.94
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 47% padding</small>
+        <code>da1fdfbfc4cc</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.2329;background:#f8f8f8">
+        <img src="thumb/fdc35e_779393f6fb7d4e448a83d1788181824e.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>757×614</b> · ratio 1.23
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 40% padding</small>
+        <code>779393f6fb7d</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.9333;background:#a84828">
+        <img src="thumb/fdc35e_3f2e78dc0fc34e87848d9407fdc56d88.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>616×660</b> · ratio 0.93
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 48% padding</small>
+        <code>3f2e78dc0fc3</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.7242;background:#887858">
+        <img src="thumb/fdc35e_8e7a64526cdd46f79bb9775456f1de8a.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>478×660</b> · ratio 0.72
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 60% padding</small>
+        <code>8e7a64526cdd</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.7788;background:#886828">
+        <img src="thumb/fdc35e_560db7b148dc4cab9baf23f722bb3b75.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>514×660</b> · ratio 0.78
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 56% padding</small>
+        <code>560db7b148dc</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.7606;background:#886838">
+        <img src="thumb/fdc35e_f8b25638641540c6897f79b723e80cd2.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>502×660</b> · ratio 0.76
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 57% padding</small>
+        <code>f8b256386415</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.247;background:#f8f8f8">
+        <img src="thumb/fdc35e_6324a9c43f8d4576a2b29ebafeb15ceb.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>823×660</b> · ratio 1.25
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 30% padding</small>
+        <code>6324a9c43f8d</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.6848;background:#a89878">
+        <img src="thumb/fdc35e_c8d4419bb71b46c8a19ed885cd0d6e08.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>452×660</b> · ratio 0.68
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 62% padding</small>
+        <code>c8d4419bb71b</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.6591;background:#d8b8b8">
+        <img src="thumb/fdc35e_0555cdc626614e66b561f5875c46eca0.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>435×660</b> · ratio 0.66
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 63% padding</small>
+        <code>0555cdc62661</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.4848;background:#281818">
+        <img src="thumb/fdc35e_7db8248b0d4847b49107a81b65378b22.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>980×660</b> · ratio 1.48
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 17% padding</small>
+        <code>7db8248b0d48</code>
+      </figcaption>
+    </figure></div>
+    </section>
+    <section>
+      <h2>caravan <small>/2nd-gallery</small></h2>
+      
+      <div class="grid">
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.553;background:#481808">
+        <img src="thumb/fdc35e_8ce69558b6a44a758885d039fe301daa.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1025×660</b> · ratio 1.55
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 13% padding</small>
+        <code>8ce69558b6a4</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.5697;background:#281818">
+        <img src="thumb/fdc35e_025a590d626246679071f6838b39f118.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1036×660</b> · ratio 1.57
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 12% padding</small>
+        <code>025a590d6262</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.5545;background:#b88858">
+        <img src="thumb/fdc35e_e28469cebe1b4623a23928649e6479b8.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1026×660</b> · ratio 1.55
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 13% padding</small>
+        <code>e28469cebe1b</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.7258;background:#281818">
+        <img src="thumb/fdc35e_64468ab195684fa6bbd7cc70aefc86a9.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>479×660</b> · ratio 0.73
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 59% padding</small>
+        <code>64468ab19568</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.997;background:#78a8a8">
+        <img src="thumb/fdc35e_a78a047b813140c6943707bacc5faa98.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>658×660</b> · ratio 1.00
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 44% padding</small>
+        <code>a78a047b8131</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.7091;background:#c8a888">
+        <img src="thumb/fdc35e_27d2a05634944a79a98fc918182a7f39.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>468×660</b> · ratio 0.71
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 60% padding</small>
+        <code>27d2a0563494</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.8288;background:#b8b898">
+        <img src="thumb/fdc35e_035f162299184deb8694e327ddf6175f.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>547×660</b> · ratio 0.83
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 54% padding</small>
+        <code>035f16229918</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.7091;background:#c8a888">
+        <img src="thumb/fdc35e_3b4bb0a2c68e48b488fc92ebdb22779a.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>468×660</b> · ratio 0.71
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 60% padding</small>
+        <code>3b4bb0a2c68e</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.2439;background:#f8f8f8">
+        <img src="thumb/fdc35e_48dde6a99e04496fadd4331eed22d597.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>821×660</b> · ratio 1.24
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 30% padding</small>
+        <code>48dde6a99e04</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.0015;background:#98a8a8">
+        <img src="thumb/fdc35e_28b8c99a2b654faab1fdcf45d70d5016.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>661×660</b> · ratio 1.00
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 44% padding</small>
+        <code>28b8c99a2b65</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.9985;background:#88a8a8">
+        <img src="thumb/fdc35e_b267b2bc782544128b8223a43457c7fb.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>659×660</b> · ratio 1.00
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 44% padding</small>
+        <code>b267b2bc7825</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.0152;background:#884818">
+        <img src="thumb/fdc35e_94233651da794f549dcb60d1867a3d09.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>670×660</b> · ratio 1.02
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 43% padding</small>
+        <code>94233651da79</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.4091;background:#f8f8f8">
+        <img src="thumb/fdc35e_f2df4bfe3eb442d8aae5b3ec00bf4c34.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>930×660</b> · ratio 1.41
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 21% padding</small>
+        <code>f2df4bfe3eb4</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.0076;background:#888878">
+        <img src="thumb/fdc35e_750326d93dba498e922b8a491c64ec92.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>665×660</b> · ratio 1.01
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 44% padding</small>
+        <code>750326d93dba</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.3667;background:#885828">
+        <img src="thumb/fdc35e_af78a4f38cd243c9a9a7b14c8535d23e.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>242×660</b> · ratio 0.37
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 80% padding</small>
+        <code>af78a4f38cd2</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.7197;background:#381808">
+        <img src="thumb/fdc35e_bbba0330e9f84af09155c34d9800c08f.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>475×660</b> · ratio 0.72
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 60% padding</small>
+        <code>bbba0330e9f8</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.7955;background:#585848">
+        <img src="thumb/fdc35e_20bdbdab99154339ace7f2942d526212.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>525×660</b> · ratio 0.80
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 56% padding</small>
+        <code>20bdbdab9915</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.5212;background:#482818">
+        <img src="thumb/fdc35e_2a2d1cc3a6344579adc0802785806287.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1004×660</b> · ratio 1.52
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 15% padding</small>
+        <code>2a2d1cc3a634</code>
+      </figcaption>
+    </figure></div>
+    </section>
+    <section>
+      <h2>caravan <small>/3rd-gallery</small></h2>
+      
+      <div class="grid">
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:3.1977;background:#f8f8f8">
+        <img src="thumb/fdc35e_43a99f5108da44bdb668eb5b8ce5009c.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1100×344</b> · ratio 3.20
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 51% padding</small>
+        <code>43a99f5108da</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:3.4032;background:#f8f8f8">
+        <img src="thumb/fdc35e_e4f82255019b47cca7c0f6e0e4dfc6eb.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1072×315</b> · ratio 3.40
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 57% padding</small>
+        <code>e4f82255019b</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.2752;background:#f8f8f8">
+        <img src="thumb/fdc35e_dace0b236ead45fda6320f894a1ce083.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>834×654</b> · ratio 1.28
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 30% padding</small>
+        <code>dace0b236ead</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.753;background:#281808">
+        <img src="thumb/fdc35e_4406b9fa97c74bceaf816a373c5f5e9a.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>497×660</b> · ratio 0.75
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 58% padding</small>
+        <code>4406b9fa97c7</code>
+      </figcaption>
+    </figure></div>
+    </section>
+    <section>
+      <h2>wsal 2025 <small>/4th-gallery</small></h2>
+      
+      <div class="grid">
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.7894;background:#180808">
+        <img src="thumb/fdc35e_402f2255799e44cdadf87af753a361c8.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1181×660</b> · ratio 1.79
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 0% padding</small>
+        <code>402f2255799e</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.7652;background:#381808">
+        <img src="thumb/fdc35e_5c6f828e02bb465c8b95f98455fa5994.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>505×660</b> · ratio 0.77
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 57% padding</small>
+        <code>5c6f828e02bb</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1;background:#f8f8f8">
+        <img src="thumb/fdc35e_c3640f6bcab144ada09278ed6a423f5d.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>660×660</b> · ratio 1.00
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 44% padding</small>
+        <code>c3640f6bcab1</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.4682;background:#383838">
+        <img src="thumb/fdc35e_05388b1bb2504d10bec8178158fb834c.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>309×660</b> · ratio 0.47
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 74% padding</small>
+        <code>05388b1bb250</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.8318;background:#b88858">
+        <img src="thumb/fdc35e_4431780d9c5e42b99e3c919eb09e0c9e.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>549×660</b> · ratio 0.83
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 54% padding</small>
+        <code>4431780d9c5e</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.8485;background:#281808">
+        <img src="thumb/fdc35e_7b6fbd396be749bfb0ef6d4710887b08.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>560×660</b> · ratio 0.85
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 53% padding</small>
+        <code>7b6fbd396be7</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.7258;background:#282828">
+        <img src="thumb/fdc35e_7b27e073d77a4ea182d6b03da2b8e9a3.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>479×660</b> · ratio 0.73
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 59% padding</small>
+        <code>7b27e073d77a</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.6727;background:#081818">
+        <img src="thumb/fdc35e_31a9e2cdb6ed47069a4e037ebb3c6c1f.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>444×660</b> · ratio 0.67
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 62% padding</small>
+        <code>31a9e2cdb6ed</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.7152;background:#683818">
+        <img src="thumb/fdc35e_89b228bd91104c1289b233d773530350.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>472×660</b> · ratio 0.72
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 60% padding</small>
+        <code>89b228bd9110</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.6848;background:#381808">
+        <img src="thumb/fdc35e_d25a25a7022f4ab79388f288d4acdf98.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>452×660</b> · ratio 0.68
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 62% padding</small>
+        <code>d25a25a7022f</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.4364;background:#280808">
+        <img src="thumb/fdc35e_094b684813294a2aa2eb7dc75aa2f603.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>948×660</b> · ratio 1.44
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 20% padding</small>
+        <code>094b68481329</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.0091;background:#381808">
+        <img src="thumb/fdc35e_75d06ee5b1004f4a90fd0dfaadd91563.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>666×660</b> · ratio 1.01
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 44% padding</small>
+        <code>75d06ee5b100</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.6273;background:#383838">
+        <img src="thumb/fdc35e_e47f2ec76b6f4037add434605e89d00a.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1074×660</b> · ratio 1.63
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 9% padding</small>
+        <code>e47f2ec76b6f</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:2.1052;background:#382818">
+        <img src="thumb/fdc35e_d658a1082989435b99d632500bc868a0.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1181×561</b> · ratio 2.11
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 15% padding</small>
+        <code>d658a1082989</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.0152;background:#381808">
+        <img src="thumb/fdc35e_2c71a401603e446fa0779a09aed2d318.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>670×660</b> · ratio 1.02
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 43% padding</small>
+        <code>2c71a401603e</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.5864;background:#383838">
+        <img src="thumb/fdc35e_18b1383bfcc84592925baa7ae17a6b6c.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1047×660</b> · ratio 1.59
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 11% padding</small>
+        <code>18b1383bfcc8</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.9091;background:#281818">
+        <img src="thumb/fdc35e_c0d38064237543eeb3bd863dc000502f.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>600×660</b> · ratio 0.91
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 49% padding</small>
+        <code>c0d380642375</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.0212;background:#382808">
+        <img src="thumb/fdc35e_2e281c3a54c741b28210449b6b5bdd76.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>674×660</b> · ratio 1.02
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 43% padding</small>
+        <code>2e281c3a54c7</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.0348;background:#682808">
+        <img src="thumb/fdc35e_0ab06e942293490491b6440c3e1b0e2b.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>683×660</b> · ratio 1.03
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 42% padding</small>
+        <code>0ab06e942293</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:2.1911;background:#682808">
+        <img src="thumb/fdc35e_4ecb0febb24f4a0ea9def63ef9a8ce16.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1181×539</b> · ratio 2.19
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 18% padding</small>
+        <code>4ecb0febb24f</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.7606;background:#382818">
+        <img src="thumb/fdc35e_10cb696a7b244c0abdaa1ff47eec514d.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>502×660</b> · ratio 0.76
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 57% padding</small>
+        <code>10cb696a7b24</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.597;background:#281818">
+        <img src="thumb/fdc35e_fb82cfd3e3af454580eb40b9326a31ab.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1054×660</b> · ratio 1.60
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 11% padding</small>
+        <code>fb82cfd3e3af</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.6242;background:#382828">
+        <img src="thumb/fdc35e_f836cd5c9fe64ebb825c8f48891cbdea.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>1072×660</b> · ratio 1.62
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 9% padding</small>
+        <code>f836cd5c9fe6</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1;background:#f8f8f8">
+        <img src="thumb/fdc35e_d324a6a47d76416184dc3614d811f470.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>641×641</b> · ratio 1.00
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 47% padding</small>
+        <code>d324a6a47d76</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.6591;background:#281818">
+        <img src="thumb/fdc35e_2b57c1a6915f47b4b45296b2543f302e.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>435×660</b> · ratio 0.66
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 63% padding</small>
+        <code>2b57c1a6915f</code>
+      </figcaption>
+    </figure></div>
+    </section>
+    <section>
+      <h2>Illustrations (blank page) <small>/copy-of-1-st-gallery</small></h2>
+      
+      <div class="grid">
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.769;background:#f8f8f8">
+        <img src="thumb/fdc35e_2694c2184dfb4a99a70bab16e78bb8f5.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>496×645</b> · ratio 0.77
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 59% padding</small>
+        <code>2694c2184dfb</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:1.0137;background:#f8f8f8">
+        <img src="thumb/fdc35e_5239e54ef32f4b6aa4e3305dce6a0f61.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>594×586</b> · ratio 1.01
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 55% padding</small>
+        <code>5239e54ef32f</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.75;background:#f8f8f8">
+        <img src="thumb/fdc35e_2e1cf87f53864558a53b359c26c41270.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>459×612</b> · ratio 0.75
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 64% padding</small>
+        <code>2e1cf87f5386</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.7801;background:#f8f8f8">
+        <img src="thumb/fdc35e_610e6e08744f42d195300e61e7626100.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>479×614</b> · ratio 0.78
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 62% padding</small>
+        <code>610e6e08744f</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.7337;background:#f8f8f8">
+        <img src="thumb/fdc35e_ca656deeb95d488f8470f60df6f104bb.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>449×612</b> · ratio 0.73
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 65% padding</small>
+        <code>ca656deeb95d</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.9205;background:#f8f8f8">
+        <img src="thumb/fdc35e_31c94c98c69641b4bb130ef862fad734.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>567×616</b> · ratio 0.92
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 55% padding</small>
+        <code>31c94c98c696</code>
+      </figcaption>
+    </figure>
+    <figure class="card grade-rescan">
+      <div class="frame" style="aspect-ratio:0.9719;background:#f8f8f8">
+        <img src="thumb/fdc35e_5282255b97924f26b742dfe34629e1b2.webp" alt="" loading="lazy">
+      </div>
+      <figcaption>
+        <b>519×534</b> · ratio 0.97
+        <span class="tag rescan">rescan</span>
+        <small>was 1181×660 — 64% padding</small>
+        <code>5282255b9792</code>
+      </figcaption>
+    </figure></div>
+    </section>
+</div>
