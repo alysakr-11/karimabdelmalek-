@@ -49,6 +49,15 @@ export default function AboutPage() {
                   priority
                   sizes="(max-width: 768px) 92vw, 56vw"
                   className="object-cover object-center"
+                  // Centre-cropping a tall portrait into this landscape frame
+                  // cut his face off; anchor on it instead.
+                  style={
+                    artist.portraitFocus
+                      ? {
+                          objectPosition: `${artist.portraitFocus.x * 100}% ${artist.portraitFocus.y * 100}%`,
+                        }
+                      : undefined
+                  }
                 />
               </div>
             </Reveal>

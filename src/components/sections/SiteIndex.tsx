@@ -8,7 +8,7 @@ import { CurveDivider } from '@/components/primitives/CurveDivider';
 import { ContourField } from '@/components/primitives/ContourField';
 import { SectionHeading } from '@/components/primitives/SectionHeading';
 import { Reveal } from '@/components/primitives/Reveal';
-import { FULL_TRIM, type Trim } from '@/content/media';
+import { FULL_TRIM, type Focus, type Trim } from '@/content/media';
 import { exhibitions, totalArtworks } from '@/content/exhibitions';
 import { illustrations } from '@/content/illustrations';
 import { interviews } from '@/content/interviews';
@@ -31,7 +31,7 @@ type Room = {
   title: string;
   meta: string;
   body: string;
-  image?: { src: string; trim: Trim; alt: string };
+  image?: { src: string; trim: Trim; alt: string; focus?: Focus | null; ratio?: number };
   /** Column span on wide screens; the aspect ratio is derived from it so the
    *  two cards in a row end up exactly the same height. */
   span: 5 | 7 | 12;
@@ -47,7 +47,13 @@ const ROOMS: Room[] = [
     meta: `${exhibitions.length} galleries`,
     body: `Six solo shows at Safarkhan in Cairo, the Caravan festival, and a wider collection — ${totalArtworks} works, each with a page of its own.`,
     image: cover
-      ? { src: cover.src, trim: cover.trim, alt: `From ${exhibitions[0].title}` }
+      ? {
+          src: cover.src,
+          trim: cover.trim,
+          alt: `From ${exhibitions[0].title}`,
+          focus: cover.focus,
+          ratio: cover.width / cover.height,
+        }
       : undefined,
     span: 7,
   },
@@ -79,7 +85,13 @@ const ROOMS: Room[] = [
     title: 'About',
     meta: 'Biography and CV',
     body: 'Trained in graphics at the Faculty of Fine Arts in Minia; exhibiting in Cairo since 2001.',
-    image: { src: artist.portrait, trim: FULL_TRIM, alt: `${artist.name}, portrait` },
+    image: {
+      src: artist.portrait,
+      trim: FULL_TRIM,
+      alt: `${artist.name}, portrait`,
+      focus: artist.portraitFocus,
+      ratio: artist.portraitRatio,
+    },
     span: 7,
   },
 ];
@@ -123,6 +135,8 @@ function RoomCard({ room, priority }: { room: Room; priority: boolean }) {
               src={room.image.src}
               alt=""
               trim={room.image.trim}
+              focus={room.image.focus}
+              ratio={room.image.ratio}
               priority={priority}
               sizes="(max-width: 1024px) 92vw, 48vw"
               imgClassName="transition-transform duration-[1100ms] ease-[var(--ease-out-expo)] group-hover:scale-[1.04]"

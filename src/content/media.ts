@@ -1,5 +1,6 @@
 import dimensions from '@data/image-dimensions.json';
 import trims from '@data/image-trim.json';
+import focal from '@data/focal-points.json';
 
 /**
  * Intrinsic size and content box for any media file in the export.
@@ -20,6 +21,12 @@ export type Size = { width: number; height: number };
 export type Trim = { x: number; y: number; w: number; h: number };
 
 export const FULL_TRIM: Trim = { x: 0, y: 0, w: 1, h: 1 };
+
+/** Where the subject sits in a picture, as fractions of the artwork: 0,0 is
+ *  its top-left corner, 1,1 its bottom-right. */
+export type Focus = { x: number; y: number };
+
+const focusTable = focal.points as unknown as Record<string, [number, number]>;
 const FULL = FULL_TRIM;
 
 const key = (localPath: string) => localPath.replace(/^\/+/, '');
@@ -45,6 +52,16 @@ export function displaySizeOf(localPath: string): Size {
   const { width, height } = sizeOf(localPath);
   const t = trimOf(localPath);
   return { width: Math.round(width * t.w), height: Math.round(height * t.h) };
+}
+
+/**
+ * The point a crop should keep in view, from data/focal-points.json. Null for
+ * anything without an entry, which keeps the centre — right for almost every
+ * picture, and wrong for a portrait whose face sits near the top.
+ */
+export function focusOf(localPath: string): Focus | null {
+  const f = focusTable[key(localPath)];
+  return f ? { x: f[0], y: f[1] } : null;
 }
 
 export const measuredCount = Object.keys(sizeTable).length;
