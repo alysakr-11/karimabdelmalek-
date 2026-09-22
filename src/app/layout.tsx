@@ -3,10 +3,8 @@ import './globals.css';
 import { Header } from '@/components/chrome/Header';
 import { Footer } from '@/components/chrome/Footer';
 import { SmoothScroll } from '@/components/chrome/SmoothScroll';
-import { SITE_NAME, socials, mediaUrl } from '@/content/site';
+import { SITE_NAME, SITE_URL, socials, mediaUrl } from '@/content/site';
 import { artist } from '@/content/artist';
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.karimabdelmalak.com';
 
 const description =
   'Karim Abd Elmalak is an Egyptian painter, illustrator and sculptor based in Cairo. Six solo exhibitions at Safarkhan Art Gallery, work held at the Egyptian Presidential Palace and the Modern Art Museum.';
@@ -80,7 +78,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <PersonJsonLd />
         <SmoothScroll />
         <Header />
-        <main id="main">{children}</main>
+        {/* tabIndex -1: the skip link's target has to be able to take focus, or
+            jumping to it moves the view but leaves keyboard focus behind. */}
+        <main id="main" tabIndex={-1}>
+          {children}
+        </main>
         <Footer />
       </body>
     </html>

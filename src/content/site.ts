@@ -34,6 +34,31 @@ export const redirects = siteJson.redirects;
  * has to be applied here, or every picture 404s on Pages and nowhere else.
  * Empty for a normal deploy, which is served from the root.
  */
+/**
+ * The address this site is served from — for canonical URLs, the sitemap,
+ * robots.txt and link previews. Server-side only; nothing in the browser
+ * needs it.
+ *
+ * In order of precedence:
+ *   1. NEXT_PUBLIC_SITE_URL, when a host sets one explicitly;
+ *   2. VERCEL_PROJECT_PRODUCTION_URL, which Vercel sets on every build to the
+ *      project's production domain — the .vercel.app address today, and the
+ *      artist's own domain automatically once one is attached;
+ *   3. the artist's own domain, for any other host.
+ *
+ * It used to be (1) or (3) only. On Vercel that meant every canonical URL and
+ * every share image pointed at www.karimabdelmalak.com — still the old Wix
+ * site — so a shared link previewed with no picture, and search engines were
+ * told the real pages lived on Wix.
+ */
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ||
+  (process.env.VERCEL_PROJECT_PRODUCTION_URL
+    ? `https://${process.env.VERCEL_PROJECT_PRODUCTION_URL}`
+    : '') ||
+  'https://www.karimabdelmalak.com'
+).replace(/\/+$/, '');
+
 export const BASE_PATH = process.env.NEXT_PUBLIC_BASE_PATH ?? '';
 
 /** Web path for a media file recorded in the export as `media/...`. */

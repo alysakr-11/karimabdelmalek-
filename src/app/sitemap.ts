@@ -1,7 +1,6 @@
 import type { MetadataRoute } from 'next';
+import { SITE_URL } from '@/content/site';
 import { exhibitions } from '@/content/exhibitions';
-
-const SITE_URL = process.env.NEXT_PUBLIC_SITE_URL ?? 'https://www.karimabdelmalak.com';
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const now = new Date();

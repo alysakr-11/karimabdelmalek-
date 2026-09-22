@@ -70,10 +70,14 @@ export type Exhibition = {
   year: number | null;
   type: string;
   venue: string | null;
-  description: string | null;
+  /** The show's own text, one string per paragraph. Empty when there is none,
+   *  which is every show but Caravan. */
+  description: string[];
   pageHeading: string | null;
   artworks: Artwork[];
   cover: Artwork;
+  /** How many of the works carry a real title, from the gallery catalogue. */
+  captioned: number;
 };
 
 type RawExhibition = {
@@ -82,10 +86,20 @@ type RawExhibition = {
   year?: number | null;
   type?: string;
   venue?: string | null;
-  description?: string | null;
+  /** The export stores this as a list of paragraphs — empty for seven of the
+   *  eight shows. It was once typed as a string, which the cast below let
+   *  through: an empty list is truthy, so the header rendered an empty box
+   *  instead of its fallback, and the meta description came out blank. */
+  description?: string[] | string | null;
   page_heading?: string | null;
   images: RawImage[];
 };
+
+/** Paragraphs, trimmed, blanks dropped — whatever shape the export used. */
+function paragraphs(value: RawExhibition['description']): string[] {
+  const list = Array.isArray(value) ? value : value ? [value] : [];
+  return list.map((p) => p.trim()).filter(Boolean);
+}
 
 const FILES: RawExhibition[] = [
   wsal, zat, thirdEye, sakan, horra, soul, caravan, collection,
@@ -138,10 +152,11 @@ export const exhibitions: Exhibition[] = FILES.map((file) => {
     year: file.year ?? null,
     type: file.type ?? 'solo',
     venue: file.venue ?? null,
-    description: file.description ?? null,
+    description: paragraphs(file.description),
     pageHeading: file.page_heading ?? null,
     artworks,
     cover: artworks[0],
+    captioned: artworks.filter((a) => a.title).length,
   };
 }).sort((a, b) => order.indexOf(a.slug) - order.indexOf(b.slug));
 
