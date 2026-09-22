@@ -59,12 +59,21 @@ src/
   components/
     chrome/      Header, MenuOverlay, Footer, SmoothScroll
     primitives/  NotchedFrame, ArtworkCard, MasonryColumns, Reveal, …
-    sections/    Hero, Statement, ArcStrip, SelectedWorks, CollectionsRail, …
+    sections/    Hero, SiteIndex, PageHeader, ContactCta, EnquiryForm
   app/           routes, global stylesheet, sitemap, robots
 ```
 
 **All text and data live in `src/content/`.** No component hard-codes a fact
 about the artist. Editing those three files changes the whole site.
+
+**One subject per page, and only one page per subject.** The exhibitions live
+under `/exhibitions`, the illustrations under `/illustrations`, the interviews
+under `/interviews`, the biography and CV under `/about` — and nowhere else.
+The home page is a way in rather than a summary: the hero, then `SiteIndex`,
+which is five cards that open the five other pages. It deliberately previews
+none of them. An earlier version stacked a copy of every page onto the home
+route — a works grid, an exhibitions rail, the CV — so the whole site could be
+read by scrolling and every page was then met a second time.
 
 Notable choices:
 

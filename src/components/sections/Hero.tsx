@@ -123,10 +123,10 @@ export function Hero() {
         <div className="mt-14 flex items-center gap-3 sm:mt-20">
           <span aria-hidden className="h-px flex-1 bg-ink/12" />
           <a
-            href="#statement"
+            href="#explore"
             className="t-eyebrow flex items-center gap-2 text-ink-muted transition-colors hover:text-ochre"
           >
-            Scroll
+            Explore
             <svg aria-hidden viewBox="0 0 10 14" className="h-3.5 w-2.5" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
               <path d="M5 1v12M1 9l4 4 4-4" />
             </svg>
