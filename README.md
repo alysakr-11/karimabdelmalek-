@@ -204,6 +204,7 @@ shapes:
 | `a11y` | one `main`, one `h1`, one `header`, one `footer` per route, and no skipped heading levels; the skip link is the first tab stop **and moves focus into `main`**; every artwork card is a real link with alt text; keyboard focus lights the notched outline exactly as hover does |
 | `reduced-motion` | under `prefers-reduced-motion: reduce`, every reveal is at its final state without scrolling, Lenis is not installed, and native scrolling still works |
 | `navigation` | the old Wix paths return a permanent redirect; an in-page anchor updates the hash without a full document load |
+| `axe` | every route is clean on WCAG 2.0/2.1 A and AA apart from colour contrast, and no contrast pair fails beyond the three listed as awaiting a palette decision |
 
 Only Chromium runs by default, because that is the only engine this has ever
 been verified against. `PW_ALL_BROWSERS=1` adds Firefox and WebKit projects —
@@ -216,7 +217,9 @@ Chromium you already have: `PW_CHROMIUM_PATH=/path/to/chromium npm test`.
 
 - **Real devices.** iOS and Android are emulated by viewport only. Lenis,
   `inert` and AVIF fallback all need a real Safari.
-- **Colour contrast.** Reported failing by axe; there is no automated check
-  here yet.
+- **Colour contrast.** Three pairs still fail AA and are listed in
+  `tests/e2e/axe.spec.ts` pending a palette decision (issue #4). The check is
+  automated and ratcheted, so nothing new can slip in, but those three are
+  knowingly held.
 - **Real load.** The suite runs against local files on a fast disk, not 133 MB
   of media over a mobile connection.
