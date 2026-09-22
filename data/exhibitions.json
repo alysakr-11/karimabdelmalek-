@@ -1,0 +1,85 @@
+{
+  "note": "Order = newest first. The live site's grid order differs; see docs/SITE_MAP.md.",
+  "exhibitions": [
+    {
+      "order": 1,
+      "slug": "wsal-2025",
+      "title": "Wsal",
+      "year": 2025,
+      "type": "solo",
+      "image_count": 15,
+      "file": "data/exhibitions/wsal-2025.json",
+      "old_url": "https://www.karimabdelmalak.com/copy-of-zat"
+    },
+    {
+      "order": 2,
+      "slug": "zat-2023",
+      "title": "Zat",
+      "year": 2023,
+      "type": "solo",
+      "image_count": 23,
+      "file": "data/exhibitions/zat-2023.json",
+      "old_url": "https://www.karimabdelmalak.com/copy-of-the-third-eye"
+    },
+    {
+      "order": 3,
+      "slug": "the-third-eye-2021",
+      "title": "The Third Eye",
+      "year": 2021,
+      "type": "solo",
+      "image_count": 13,
+      "file": "data/exhibitions/the-third-eye-2021.json",
+      "old_url": "https://www.karimabdelmalak.com/copy-of-sakan-1"
+    },
+    {
+      "order": 4,
+      "slug": "sakan-2019",
+      "title": "Sakan",
+      "year": 2019,
+      "type": "solo",
+      "image_count": 11,
+      "file": "data/exhibitions/sakan-2019.json",
+      "old_url": "https://www.karimabdelmalak.com/copy-of-soul"
+    },
+    {
+      "order": 5,
+      "slug": "horra-2017",
+      "title": "Horra",
+      "year": 2017,
+      "type": "solo",
+      "image_count": 19,
+      "file": "data/exhibitions/horra-2017.json",
+      "old_url": "https://www.karimabdelmalak.com/1st-gallery"
+    },
+    {
+      "order": 6,
+      "slug": "soul-2016",
+      "title": "Soul",
+      "year": 2016,
+      "type": "solo",
+      "image_count": 18,
+      "file": "data/exhibitions/soul-2016.json",
+      "old_url": "https://www.karimabdelmalak.com/2nd-gallery"
+    },
+    {
+      "order": 7,
+      "slug": "caravan-arts",
+      "title": "Caravan Arts",
+      "year": null,
+      "type": "group / festival",
+      "image_count": 4,
+      "file": "data/exhibitions/caravan-arts.json",
+      "old_url": "https://www.karimabdelmalak.com/3rd-gallery"
+    },
+    {
+      "order": 8,
+      "slug": "collection",
+      "title": "Collection",
+      "year": null,
+      "type": "collection",
+      "image_count": 25,
+      "file": "data/exhibitions/collection.json",
+      "old_url": "https://www.karimabdelmalak.com/4th-gallery"
+    }
+  ]
+}

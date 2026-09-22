@@ -1,0 +1,59 @@
+{
+  "title": "Interviews",
+  "old_url": "https://www.karimabdelmalak.com/events",
+  "note": "Videos are Wix-hosted players loaded by JavaScript; only poster frames are in the page HTML. video_url must be filled in manually (see docs/DATA_GAPS.md).",
+  "interviews": [
+    {
+      "order": 1,
+      "channel": "Al Nahar TV",
+      "presenters": [
+        "Doaa Farouk"
+      ],
+      "poster_image": "https://static.wixstatic.com/media/fdc35e_01220efec416450e85ec44f345ec342af001.jpg",
+      "local_poster": "media/interviews/interview-01-poster.jpg",
+      "video_url": null,
+      "date": null
+    },
+    {
+      "order": 2,
+      "channel": "DMC TV",
+      "presenters": [
+        "Sally Shahin",
+        "Sherin Efat"
+      ],
+      "poster_image": "https://static.wixstatic.com/media/fdc35e_4e8be8670658458d9a7706f7ac5db64ff000.jpg",
+      "local_poster": "media/interviews/interview-02-poster.jpg",
+      "video_url": null,
+      "date": null
+    },
+    {
+      "order": 3,
+      "channel": "Channel 1 – Egyptian TV",
+      "presenters": [
+        "Dina Kandeel"
+      ],
+      "poster_image": "https://static.wixstatic.com/media/fdc35e_a316902c932142649d25037cb9e6eeb5f001.jpg",
+      "local_poster": "media/interviews/interview-03-poster.jpg",
+      "video_url": null,
+      "date": null
+    },
+    {
+      "order": 4,
+      "channel": "DMC TV",
+      "presenters": [],
+      "poster_image": "https://static.wixstatic.com/media/fdc35e_d034e48a0a3b4319ac05ef0e43a5d806f001.jpg",
+      "local_poster": "media/interviews/interview-04-poster.jpg",
+      "video_url": null,
+      "date": null
+    },
+    {
+      "order": 5,
+      "channel": "ON TV",
+      "presenters": [],
+      "poster_image": "https://static.wixstatic.com/media/fdc35e_7467d6aed63140e2b50843e36790c812f002.jpg",
+      "local_poster": "media/interviews/interview-05-poster.jpg",
+      "video_url": null,
+      "date": null
+    }
+  ]
+}

@@ -1,0 +1,111 @@
+{
+  "site_name": "Karim Abd Elmalak",
+  "domain": "https://www.karimabdelmalak.com",
+  "platform": "Wix",
+  "scraped_on": "2026-09-22",
+  "tagline_on_home": "KARIM ABD ELMALAK — ARTWORKS",
+  "seo": {
+    "title_pattern": "<Page> | -karimabdelmalak",
+    "og_site_name": "-karimabdelmalak-",
+    "og_image": "https://static.wixstatic.com/media/fdc35e_0c4db4e4a2c04d68ac8f1fadc12b132c~mv2.jpg",
+    "og_image_size": "2500x1330",
+    "twitter_card": "summary_large_image"
+  },
+  "navigation": [
+    {
+      "label": "Home",
+      "old_path": "/",
+      "new_path": "/"
+    },
+    {
+      "label": "Exhibitions",
+      "old_path": "/exhibitions",
+      "new_path": "/exhibitions"
+    },
+    {
+      "label": "Illustrations",
+      "old_path": "/copy-of-1-st-gallery",
+      "new_path": "/illustrations"
+    },
+    {
+      "label": "About",
+      "old_path": "/about",
+      "new_path": "/about"
+    },
+    {
+      "label": "Interviews",
+      "old_path": "/events",
+      "new_path": "/interviews"
+    },
+    {
+      "label": "Contact",
+      "old_path": "/contact",
+      "new_path": "/contact"
+    }
+  ],
+  "redirects": [
+    {
+      "old": "/copy-of-zat",
+      "new": "/exhibitions/wsal-2025"
+    },
+    {
+      "old": "/copy-of-the-third-eye",
+      "new": "/exhibitions/zat-2023"
+    },
+    {
+      "old": "/copy-of-sakan-1",
+      "new": "/exhibitions/the-third-eye-2021"
+    },
+    {
+      "old": "/copy-of-soul",
+      "new": "/exhibitions/sakan-2019"
+    },
+    {
+      "old": "/1st-gallery",
+      "new": "/exhibitions/horra-2017"
+    },
+    {
+      "old": "/2nd-gallery",
+      "new": "/exhibitions/soul-2016"
+    },
+    {
+      "old": "/3rd-gallery",
+      "new": "/exhibitions/caravan-arts"
+    },
+    {
+      "old": "/4th-gallery",
+      "new": "/exhibitions/collection"
+    },
+    {
+      "old": "/copy-of-1-st-gallery",
+      "new": "/illustrations"
+    },
+    {
+      "old": "/events",
+      "new": "/interviews"
+    }
+  ],
+  "socials": [
+    {
+      "platform": "Instagram",
+      "handle": "@karimabdelmalak",
+      "url": "https://www.instagram.com/karimabdelmalak/"
+    },
+    {
+      "platform": "Facebook",
+      "handle": "Group 248401451888273",
+      "url": "https://www.facebook.com/groups/248401451888273/"
+    },
+    {
+      "platform": "YouTube",
+      "handle": "UCd4YBZAFoPRqx8nQaRQO0_w",
+      "url": "https://www.youtube.com/channel/UCd4YBZAFoPRqx8nQaRQO0_w"
+    },
+    {
+      "platform": "X / Twitter",
+      "handle": "@karimabdelmalak",
+      "url": "https://twitter.com/karimabdelmalak"
+    }
+  ],
+  "footer": "Social icons only (Facebook, Instagram, YouTube, Twitter)"
+}
