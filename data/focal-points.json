@@ -1,0 +1,7 @@
+{
+  "note": "Where the subject sits in each picture, as fractions of the artwork itself (after any white canvas is trimmed off): [x, y], 0,0 top-left to 1,1 bottom-right. When a frame is a different shape from the picture, the crop is anchored here instead of on the centre — which cut Karim's head off his portrait, and the eyes out of the Wsal cover, everywhere either was shown in a landscape frame. Only pictures that are actually cropped need an entry; anything absent keeps the centre.",
+  "points": {
+    "media/site/about-portrait.jpg": [0.66, 0.14],
+    "media/exhibitions/wsal-2025/wsal-2025-01.jpg": [0.5, 0.26]
+  }
+}

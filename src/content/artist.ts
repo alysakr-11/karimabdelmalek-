@@ -1,5 +1,6 @@
 import data from '@data/artist.json';
 import { mediaUrl } from './site';
+import { focusOf, sizeOf } from './media';
 
 /**
  * Biography, read from the archive export.
@@ -22,6 +23,13 @@ export const artist = {
   nameVariants: data.name_variants,
   roles: data.roles as string[],
   portrait: mediaUrl(data.portrait.local_path),
+  /** His face sits near the top of a tall photograph; every landscape frame
+   *  that shows it has to anchor there, or the crop keeps his chest instead. */
+  portraitFocus: focusOf(data.portrait.local_path),
+  portraitRatio: (() => {
+    const s = sizeOf(data.portrait.local_path);
+    return s.width / s.height;
+  })(),
   education: data.education,
   career: data.career as string[],
   awards: data.awards,

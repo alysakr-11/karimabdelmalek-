@@ -7,7 +7,7 @@ import horra from '@data/exhibitions/horra-2017.json';
 import soul from '@data/exhibitions/soul-2016.json';
 import caravan from '@data/exhibitions/caravan-arts.json';
 import collection from '@data/exhibitions/collection.json';
-import { displaySizeOf, trimOf, type Trim } from './media';
+import { displaySizeOf, trimOf, focusOf, type Focus, type Trim } from './media';
 import { mediaUrl } from './site';
 import { catalogueFor } from './catalogue';
 
@@ -47,6 +47,8 @@ export type Artwork = {
   height: number;
   /** Content box within the file, for the CSS crop. */
   trim: Trim;
+  /** Where the subject sits, for crops into a frame of another shape. */
+  focus: Focus | null;
   title: string | null;
   /** Script of the title, so it can be marked up and rendered correctly.
    *  Null when there is no title at all. */
@@ -124,6 +126,7 @@ function toArtwork(raw: RawImage, ex: RawExhibition): Artwork {
     width,
     height,
     trim,
+    focus: focusOf(raw.local_path),
     title,
     titleLang,
     medium: raw.medium ?? cat?.medium ?? null,
