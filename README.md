@@ -114,7 +114,7 @@ Worth stating plainly, since the brief asked for honesty about this:
 
 Everything comes from `data/` — a structured export of the artist's previous
 site, committed in full: 8 exhibitions holding 128 works, 7 illustrations, 5
-interviews, the biography and CV, and 152 media files at original resolution —
+interviews, the biography and CV, and 152 media files —
 plus `karim-media/`, the recovered archive and the gallery catalogue that names
 31 of those works. No component hard-codes a fact or an image path.
 
@@ -157,6 +157,30 @@ them, marked `lang="ar" dir="rtl"` so they render and read correctly, and set
 in a self-hosted Noto Naskh Arabic — added to every font stack, where its
 unicode-range means it is reached for an Arabic codepoint and never for a Latin
 one. No English renderings were invented.
+
+### Media weight
+
+The export committed the stored originals straight from the old site's CDN.
+That was right for an archive and wrong for `public/`: they had never been
+through an encoder, and the two images on the home and about pages were 9 MB
+each.
+
+`scripts/optimise-media.mjs` caps width at 2560 — the largest entry in
+`deviceSizes`, so nothing above it can ever be served — and re-encodes at
+quality 82. It reports the mean per-channel difference for every file it
+rewrites, and only writes when it saves at least 15%, which makes a second run
+a no-op rather than another round of lossy encoding.
+
+`public/media/site/` has been through it: **31 MB to 5 MB**, largest mean
+difference 1.8/255. `public/media/exhibitions/` has not — those files may be
+replaced wholesale if the gallery's own photography is cleared, so optimising
+them now would likely be wasted. Originals are not duplicated anywhere: they
+are blobs in git history, recoverable with
+`git show <commit>:public/media/<path>`.
+
+Re-run `node scripts/measure-media.mjs` after any change here — the masonry
+reserves each box from `data/image-dimensions.json` before the image loads, and
+stale numbers mean the grid jumps as it fills.
 
 See **[docs/UPDATING_CONTENT.md](./docs/UPDATING_CONTENT.md)** to change any of
 it, and **[docs/CONTENT_ARCHIVE.md](./docs/CONTENT_ARCHIVE.md)** for how the
