@@ -39,10 +39,19 @@ export function SmoothScroll() {
       if (!(target instanceof HTMLAnchorElement)) return;
       const id = target.getAttribute('href');
       if (!id || id === '#') return;
-      const el = document.querySelector(id);
+      const el = document.querySelector<HTMLElement>(id);
       if (!el) return;
       event.preventDefault();
-      lenis.scrollTo(el as HTMLElement, { offset: -88 });
+      lenis.scrollTo(el, { offset: -88 });
+
+      // Preventing the default jump also cancels everything the browser would
+      // otherwise do for a fragment link: the hash is not written, and focus
+      // stays on the anchor. For the skip link that is the whole feature — a
+      // keyboard user would activate it and find their next Tab back in the
+      // header. So do both by hand.
+      history.pushState(null, '', id);
+      if (!el.hasAttribute('tabindex')) el.setAttribute('tabindex', '-1');
+      el.focus({ preventScroll: true });
     };
 
     document.addEventListener('click', onAnchorClick);

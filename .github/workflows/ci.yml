@@ -21,7 +21,7 @@ jobs:
   check:
     name: Typecheck, lint, build
     runs-on: ubuntu-latest
-    timeout-minutes: 20
+    timeout-minutes: 30
 
     steps:
       - name: Check out
@@ -63,4 +63,20 @@ jobs:
       - name: Build
         run: npm run build
 
-      # TODO: add `npm test` once the Playwright suite lands (issue #19).
+      # Only Chromium: it is the one engine the project is verified against.
+      # WebKit and Firefox are a config flag away when #22 is picked up.
+      - name: Install Chromium for Playwright
+        run: npx playwright install --with-deps chromium
+
+      # Runs against `next start` on the build above, which the Playwright
+      # config starts and stops itself.
+      - name: Test
+        run: npm test
+
+      - name: Upload the report when tests fail
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7
