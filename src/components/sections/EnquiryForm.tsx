@@ -7,11 +7,10 @@ import { contact } from '@/content/contact';
 /**
  * Enquiry form.
  *
- * The form posts to whatever endpoint is configured in
- * NEXT_PUBLIC_ENQUIRY_ENDPOINT — a form service such as Formspree, or an API
- * route. When that variable is unset the form disables itself rather than
- * silently discarding what someone types, and points at the published email
- * address instead, which needs no configuration and cannot break.
+ * The form posts to Formspree, at the endpoint in `data/contact.json`;
+ * NEXT_PUBLIC_ENQUIRY_ENDPOINT overrides it when a host sets one. With neither,
+ * the form disables itself rather than silently discarding what someone types,
+ * and points at the published email address instead.
  *
  * The visitor is not told to set an environment variable. That instruction is
  * for whoever runs the site, and it lives here and in docs/DATA_GAPS.md.
@@ -21,7 +20,9 @@ import { contact } from '@/content/contact';
  * received.", all held in `data/contact.json`. Hardcoding a friendlier
  * wording here meant the site said something the artist never did.
  */
-const ENDPOINT = process.env.NEXT_PUBLIC_ENQUIRY_ENDPOINT ?? '';
+// The host's setting wins when there is one; otherwise the committed endpoint,
+// so the form works on any deploy without a dashboard step.
+const ENDPOINT = process.env.NEXT_PUBLIC_ENQUIRY_ENDPOINT || contact.formEndpoint || '';
 
 type Status = 'idle' | 'sending' | 'sent' | 'error';
 
@@ -36,18 +37,31 @@ export function EnquiryForm() {
     event.preventDefault();
     if (!configured) return;
 
+    // Held before the await. React clears `event.currentTarget` once the
+    // handler yields, so reading it afterwards gave null, reset() threw, and
+    // the catch below reported a message that HAD been delivered as failed.
+    const form = event.currentTarget;
+
     setStatus('sending');
+    let response: Response;
     try {
-      const response = await fetch(ENDPOINT, {
+      response = await fetch(ENDPOINT, {
         method: 'POST',
         headers: { Accept: 'application/json' },
-        body: new FormData(event.currentTarget),
+        body: new FormData(form),
       });
-      setStatus(response.ok ? 'sent' : 'error');
-      if (response.ok) event.currentTarget.reset();
     } catch {
       setStatus('error');
+      return;
     }
+    // Only a failed request is an error. Anything after this point is local
+    // tidying and must not be able to turn a sent message into a failure.
+    if (!response.ok) {
+      setStatus('error');
+      return;
+    }
+    setStatus('sent');
+    form.reset();
   }
 
   return (
@@ -151,7 +165,23 @@ export function EnquiryForm() {
             <span className="text-ochre">{contact.formSuccessMessage}</span>
           ) : status === 'error' ? (
             <span className="text-clay">
-              That didn&rsquo;t send. Please try Instagram or the gallery instead.
+              That didn&rsquo;t send.{' '}
+              {/* Point at a route that works, not at "the gallery", which is
+                  not linked from this page. */}
+              {contact.emailHref ? (
+                <>
+                  Please write to{' '}
+                  <a
+                    href={contact.emailHref}
+                    className="whitespace-nowrap underline underline-offset-4"
+                  >
+                    {contact.email}
+                  </a>{' '}
+                  instead.
+                </>
+              ) : (
+                'Please try the phone number or Instagram instead.'
+              )}
             </span>
           ) : null}
         </p>

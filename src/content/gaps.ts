@@ -10,7 +10,6 @@ export const MISSING_CONTENT = [
   'Confirmation of the two sculptures in Wesāl and the two Zāt highchairs, which the gallery catalogue lists but which could not be matched to a plate with certainty.',
   'Exhibition statements for the six solo shows (only Caravan Arts has text).',
   'Air dates for the interviews, and a presenter name for the ON TV appearance.',
-  'Somewhere for the contact form to deliver to — the published email works, but the form itself is still switched off.',
   'A year and description for the “Collection” gallery.',
   'Confirmation of the transliterations: Wsal, Rosalyoussef, Shankar’s.',
 ] as const;
