@@ -38,7 +38,18 @@ test.describe('console', () => {
   for (const route of ROUTES) {
     test(`${route} logs no errors and fails no requests`, async ({ page }) => {
       const watcher = watchForErrors(page);
-      await page.goto(route, { waitUntil: 'networkidle' });
+
+      // Deliberately not `networkidle`. Playwright discourages it, and on a
+      // gallery route it is unreachable in any bounded time on a slow runner:
+      // next/image optimises each plate on first request, and Wesal alone is
+      // 24 MB of source JPEG (issue #18). Waiting for the network to fall
+      // quiet means waiting for an image encoder, which is not what this test
+      // is about. `load` plus a fixed settle window is deterministic, and the
+      // listeners below were attached before navigating, so anything that
+      // errored or 404'd in that window is still caught.
+      await page.goto(route);
+      await page.waitForLoadState('domcontentloaded');
+      await page.waitForTimeout(1200);
 
       expect(watcher.pageErrors, `uncaught exceptions on ${route}`).toEqual([]);
       expect(watcher.consoleErrors, `console errors on ${route}`).toEqual([]);

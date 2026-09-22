@@ -36,7 +36,11 @@ export default defineConfig({
   retries: process.env.CI ? 1 : 0,
   workers: process.env.CI ? 2 : undefined,
   forbidOnly: !!process.env.CI,
-  reporter: process.env.CI ? [['github'], ['list']] : [['list']],
+  // CI needs the HTML reporter too, or the failure artifact the workflow
+  // uploads has nothing to collect.
+  reporter: process.env.CI
+    ? ([['github'], ['list'], ['html', { open: 'never' }]] as const)
+    : [['list'], ['html', { open: 'never' }]],
 
   use: {
     baseURL: BASE_URL,
