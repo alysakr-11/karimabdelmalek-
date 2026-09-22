@@ -30,10 +30,10 @@ The live site is image-heavy with almost no metadata. Before launch, these need 
    currently attached to the unnamed entry (04), not the one naming Sally Shahin and Sherin
    Efat (02), because the video itself does not say.
 
-   Two more recordings were recovered and are **not yet shown anywhere**: the *Sakan* trailer
-   (`R7znWIDnDlc`) and its opening night (`WGaaSBDu9Ow`). They belong to the Sakan 2019
-   exhibition rather than to any interview; they sit in `data/videos.json` waiting for a place
-   on that exhibition's page.
+   Two further recordings — the *Sakan* trailer (`R7znWIDnDlc`) and its opening night
+   (`WGaaSBDu9Ow`) — belong to the Sakan 2019 exhibition rather than to any interview, and
+   now play on that show's page under *On film*. They are the only moving footage of any
+   exhibition; if any of the other seven were filmed, those links are worth having too.
 4. **Contact form** — fields aren't visible without JavaScript. Also: no email address is published.
    Decide where form submissions should go.
 5. **"Collection" gallery** — no year or description; unclear if it's a show or a general portfolio.

@@ -1,4 +1,5 @@
 import videos from '@data/videos.json';
+import { mediaUrl } from './site';
 
 /**
  * The recordings that could be found again.
@@ -31,10 +32,15 @@ export type ExhibitionVideo = {
   slug: string;
   youtubeId: string;
   title: string;
+  /** Web path to the still frame, already prefixed for the deploy. */
+  poster: string;
 };
 
 const interviewVideos = videos.interviews as unknown as InterviewVideo[];
-const exhibitionVideos = videos.exhibitions as unknown as ExhibitionVideo[];
+const exhibitionVideos = (videos.exhibitions as unknown as ExhibitionVideo[]).map((v) => ({
+  ...v,
+  poster: mediaUrl(v.poster),
+}));
 
 export const interviewVideoFor = (order: number): InterviewVideo | null =>
   interviewVideos.find((v) => v.order === order) ?? null;
