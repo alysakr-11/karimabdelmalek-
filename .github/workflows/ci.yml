@@ -1,0 +1,82 @@
+# Typecheck, lint and build on every push and pull request.
+#
+# The checkout is large — public/ alone is ~133 MB of media (see issue #18) —
+# so this fetches a single commit and cancels superseded runs rather than
+# letting two full builds race on the same branch.
+name: CI
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+concurrency:
+  group: ci-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Typecheck, lint, build
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Check out
+        uses: actions/checkout@v4
+        with:
+          # No history is needed; the media tree makes a deep clone expensive.
+          fetch-depth: 1
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          # Caches ~/.npm, keyed on package-lock.json.
+          cache: npm
+
+      - name: Install
+        run: npm ci
+
+      # Restored separately from ~/.npm: without it every run recompiles the
+      # whole app from scratch. Keyed on the lockfile plus the source, so a
+      # source-only change still reuses the dependency compilation.
+      - name: Restore Next.js build cache
+        uses: actions/cache@v4
+        with:
+          path: .next/cache
+          key: ${{ runner.os }}-next-${{ hashFiles('package-lock.json') }}-${{ hashFiles('src/**', 'data/**', '*.mjs', '*.json') }}
+          restore-keys: |
+            ${{ runner.os }}-next-${{ hashFiles('package-lock.json') }}-
+            ${{ runner.os }}-next-
+
+      - name: Typecheck
+        run: npm run typecheck
+
+      - name: Lint
+        run: npm run lint
+
+      # Also typechecks and prerenders all 148 routes, so a broken page fails
+      # here even if it typechecks in isolation.
+      - name: Build
+        run: npm run build
+
+      # Only Chromium: it is the one engine the project is verified against.
+      # WebKit and Firefox are a config flag away when #22 is picked up.
+      - name: Install Chromium for Playwright
+        run: npx playwright install --with-deps chromium
+
+      # Runs against `next start` on the build above, which the Playwright
+      # config starts and stops itself.
+      - name: Test
+        run: npm test
+
+      - name: Upload the report when tests fail
+        if: failure()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: playwright-report/
+          retention-days: 7

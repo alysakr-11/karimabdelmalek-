@@ -8,6 +8,8 @@ npm install
 npm run dev        # http://localhost:3000
 npm run build      # production build; typechecks and prerenders every route
 npm run typecheck
+npm run lint
+npm test           # Playwright, against a production build
 ```
 
 ---
@@ -27,7 +29,7 @@ reproduced here.
 | Reference pattern | What it became here |
 | --- | --- |
 | Acid-green accent on bone | Burnt ochre on warm linen — the artist's own palette is described as *wooden and earthen tones*, so the accent follows the work instead of fighting it |
-| Product grid captioned by name + year | Artwork grid captioned by title + year, filterable by exhibition |
+| Product grid captioned by name + year | Artwork grid captioned by title + year, one grid per exhibition |
 | Season-by-season timeline rail | The five solo exhibitions, 2017–2025, as a horizontal rail |
 | Merchandise call to action | Enquiry and gallery-visit routes |
 | Sponsor logo wall | Cut — there is no honest equivalent, and filler would have been worse |
@@ -95,8 +97,8 @@ Notable choices:
 Semantic landmarks and heading order throughout; a skip link; the menu is a
 focus-trapped `role="dialog"` that restores focus and locks background scroll;
 `inert` keeps the closed menu out of the tab order; visible focus rings that
-invert on dark grounds; `aria-pressed` on the gallery filters; and every card
-interaction is reachable by keyboard — focus does exactly what hover does.
+invert on dark grounds; and every card interaction is reachable by keyboard —
+focus does exactly what hover does.
 
 `prefers-reduced-motion` strips transforms and transitions, disables smooth
 scroll, and forces every reveal to its final state.
@@ -112,7 +114,7 @@ Worth stating plainly, since the brief asked for honesty about this:
   covers a bottom-to-top scroll pass and a hover demonstration on the grid.
   Section structure, the notched cards, the dividers, the arc strip, the
   staggered masonry, the timeline rail, the two-register headings and the
-  card hover-swap are all reproduced from what is visible there.
+  card hover treatment are all reproduced from what is visible there.
 - **The hero, the menu-open animation, page transitions and any cursor effects
   are not visible in the recording.** Those are original compositions built to
   match the rest of the language, not reproductions. `MenuOverlay.tsx` says so
@@ -197,20 +199,30 @@ export itself is organised.
 
 ## Testing
 
-Verified in Chromium at 1440 / 834 / 390 px across all six routes:
+```bash
+npm run build && npm test     # 104 tests, Chromium, against `next start`
+npm run test:ui               # the same, interactively
+```
 
-- every route returns its expected status; the 404 page correctly returns 404
-- no horizontal overflow at any width
-- no console errors and no failed requests
-- no content left stranded invisible by a reveal
-- no display heading clipped by its mask or broken mid-word
-- menu opens, traps focus, closes on Escape, restores focus, navigates, and
-  unlocks scrolling
-- gallery filters narrow the grid and set `aria-pressed`
-- in-page anchors scroll correctly through Lenis
-- the card hover-swap — verified against a temporary fixture, since reserved
-  slots are deliberately not interactive: the image swaps, the notched outline
-  lights in the accent colour, and keyboard focus does the same as hover
+`tests/e2e/` runs against a real production build, not `next dev` — reveals,
+the prerendered routes and the 404 status all behave differently under the dev
+server. CI (`.github/workflows/ci.yml`) runs typecheck, lint, build and the
+suite on every pull request and on `main`.
 
-Not tested: real browsers other than Chromium, iOS/Android devices, and
-behaviour with actual artwork files at real load.
+| Spec | Asserts |
+| --- | --- |
+| `smoke` | every route returns 200 and renders an `h1`; unknown paths return a real 404; robots.txt and the sitemap serve; no console errors or failed requests |
+| `layout` | no horizontal overflow at 1440 / 834 / 390 px after scrolling each page; display headings not collapsed |
+| `reveals` | nothing left invisible after scrolling, and nothing hidden with JavaScript off |
+| `menu` | closed menu is inert; open menu traps focus both ways; Escape and Close restore focus and unlock scrolling |
+| `a11y` | one `main` and one `h1` per page, no skipped heading levels; the skip link moves focus into `main`; cards are real links with alt text; focus lights the card outline as hover does |
+| `axe` | zero WCAG 2.0/2.1 A and AA violations on every route, contrast included |
+| `reduced-motion` | reveals at their final state, smooth scroll off, native scroll working |
+| `navigation` | old Wix paths redirect permanently; in-page anchors scroll without reloading; the footer shows no internal to-do list |
+
+If Playwright's own browser download is unavailable, point it at an installed
+Chromium: `PW_CHROMIUM_PATH=/path/to/chromium npm test`. `PW_ALL_BROWSERS=1`
+adds Firefox and WebKit.
+
+Not covered: real iOS and Android devices, and behaviour over a slow mobile
+connection.

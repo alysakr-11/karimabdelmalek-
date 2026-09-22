@@ -42,9 +42,8 @@ export function VideoEmbed({
 
   if (playing && file) {
     return (
-      /* eslint-disable-next-line jsx-a11y/media-has-caption --
-         no transcript or subtitle track exists for these broadcasts; adding an
-         empty <track> would claim captions that are not there. */
+      /* No <track>: no transcript or subtitle track exists for these
+         broadcasts, and an empty one would claim captions that are not there. */
       <video
         className="h-full w-full bg-umber-deep"
         src={file}
