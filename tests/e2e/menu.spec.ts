@@ -119,3 +119,50 @@ test('a menu link navigates and leaves the menu closed', async ({ page }) => {
   // Scrolling must work on the page we landed on.
   expect(await page.evaluate(() => document.body.style.overflow)).not.toBe('hidden');
 });
+
+test.describe('the exhibitions list', () => {
+  const toggle = (page: import('@playwright/test').Page) =>
+    dialog(page).getByRole('button', { name: 'Exhibitions' });
+
+  test('is folded away when the menu opens, and its links cannot be tabbed to', async ({ page }) => {
+    await trigger(page).click();
+    await expect(toggle(page)).toHaveAttribute('aria-expanded', 'false');
+
+    for (let i = 0; i < 20; i += 1) {
+      await page.keyboard.press('Tab');
+      const href = await page.evaluate(() => document.activeElement?.getAttribute('href') ?? '');
+      expect(href, 'focus reached a folded exhibition link').not.toMatch(/^\/exhibitions\//);
+    }
+  });
+
+  for (const { name, width } of [
+    { name: 'phone', width: 390 },
+    { name: 'desktop', width: 1440 },
+  ]) {
+    test(`opens to every show and the index of them all on ${name}`, async ({ page }) => {
+      await page.setViewportSize({ width, height: 900 });
+      await trigger(page).click();
+      await toggle(page).click();
+      await expect(toggle(page)).toHaveAttribute('aria-expanded', 'true');
+
+      const shows = dialog(page).locator('a[href^="/exhibitions/"]:visible');
+      await expect(shows).toHaveCount(8);
+      await dialog(page).getByRole('link', { name: 'All exhibitions', exact: true }).and(page.locator(':visible')).click();
+      await expect(page).toHaveURL(/\/exhibitions$/);
+      await expect(dialog(page)).toHaveAttribute('aria-hidden', 'true');
+    });
+  }
+
+  test('a single show opens its own page', async ({ page }) => {
+    await trigger(page).click();
+    await toggle(page).click();
+    await dialog(page).locator('a[href="/exhibitions/sakan-2019"]:visible').click();
+    await expect(page).toHaveURL(/\/exhibitions\/sakan-2019$/);
+  });
+});
+
+test('the menu links carry no running numbers', async ({ page }) => {
+  await trigger(page).click();
+  const text = await dialog(page).locator('nav').innerText();
+  expect(text).not.toMatch(/\b0[1-5]\b/);
+});
