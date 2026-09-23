@@ -181,6 +181,17 @@
     font-size: 0.75rem;
     letter-spacing: 0.02em;
   }
+
+  /* The About page, set in the faces of the artist's own Wix About page:
+     Cinzel for headings, and Nunito Sans standing in for Wix's licensed
+     Avenir Light (see fonts.css). Only the families change — every size,
+     colour and spacing is the site's own. Re-pointing the tokens reaches the
+     t-* classes and the font-* utilities alike. */
+  .type-about {
+    --font-display: 'Cinzel', 'Noto Naskh Arabic', Georgia, serif;
+    --font-serif: 'Cinzel', 'Noto Naskh Arabic', Georgia, serif;
+    --font-sans: 'Nunito Sans', 'Noto Naskh Arabic', 'Helvetica Neue', Arial, sans-serif;
+  }
 }
 
 @layer utilities {
