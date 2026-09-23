@@ -23,9 +23,6 @@ export function Hero() {
     if (reduced) return;
     const el = panelRef.current;
     if (!el) return;
-    // Only beside the name (lg and up). On a phone the painting sits above
-    // the name, and drifting it would open a gap between them.
-    if (!window.matchMedia('(min-width: 1024px)').matches) return;
 
     let frame = 0;
     const update = () => {
@@ -98,10 +95,7 @@ export function Hero() {
             </Reveal>
           </div>
 
-          {/* On a phone the painting comes first, so the opening screen shows
-              the work rather than a wall of type; from lg up it sits beside
-              the name. */}
-          <div ref={panelRef} className="order-first lg:order-none lg:col-span-5 will-change-transform">
+          <div ref={panelRef} className="lg:col-span-5 will-change-transform">
             <Reveal delay={120}>
               <div className="relative aspect-[4/5] w-full overflow-hidden rounded-2xl bg-paper-deep">
                 <HeroShowcase slides={showcase} sizes="(max-width: 1024px) 92vw, 40vw" />
