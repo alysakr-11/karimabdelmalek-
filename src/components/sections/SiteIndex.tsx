@@ -27,7 +27,6 @@ import { contact } from '@/content/contact';
 
 type Room = {
   href: string;
-  index: string;
   title: string;
   meta: string;
   body: string;
@@ -42,7 +41,6 @@ const cover = exhibitions[0]?.cover;
 const ROOMS: Room[] = [
   {
     href: '/exhibitions',
-    index: '01',
     title: 'Exhibitions',
     meta: `${exhibitions.length} galleries`,
     body: 'Six solo shows at Safarkhan in Cairo, from Soul in 2016 to Wsal in 2025, plus the Caravan festival and a wider collection.',
@@ -59,7 +57,6 @@ const ROOMS: Room[] = [
   },
   {
     href: '/illustrations',
-    index: '02',
     title: 'Illustrations',
     meta: `${illustrations.length} works`,
     body: 'Illustrations for the Egyptian magazines Sabah El Kheir and Rosalyoussef.',
@@ -70,7 +67,6 @@ const ROOMS: Room[] = [
   },
   {
     href: '/interviews',
-    index: '03',
     title: 'Interviews',
     meta: `${interviews.length} appearances`,
     body: 'Television appearances on Al Nahar, DMC, ON and Channel 1.',
@@ -81,7 +77,6 @@ const ROOMS: Room[] = [
   },
   {
     href: '/about',
-    index: '04',
     title: 'About',
     meta: 'Biography and CV',
     body: 'Trained in graphics at the Faculty of Fine Arts in Minia; exhibiting in Cairo since 2001.',
@@ -154,7 +149,6 @@ function RoomCard({ room, priority }: { room: Room; priority: boolean }) {
           {/* Stops at the tab's top edge — running to inset-0 slid the
               "Open" line underneath the caption and clipped it. */}
           <div className="absolute inset-x-0 top-0 bottom-[38px] flex flex-col justify-end p-6 sm:p-8">
-            <p className="t-eyebrow mb-3 text-ochre-lift">{room.index}</p>
             <h3 className="t-display text-[clamp(1.75rem,1.1rem+2.4vw,3.25rem)] leading-[0.95] text-chalk">
               {room.title}
             </h3>
@@ -193,7 +187,6 @@ function ContactRoom() {
       <div className="relative overflow-hidden rounded-2xl border border-ochre/35 bg-ochre/10 p-8 transition-colors duration-500 group-hover:border-ochre-lift/70 sm:p-10">
         <div className="flex flex-col gap-6 md:flex-row md:items-end md:justify-between">
           <div>
-            <p className="t-eyebrow mb-3 text-ochre-lift">05</p>
             <h3 className="t-display text-[clamp(1.75rem,1.1rem+2.4vw,3.25rem)] leading-[0.95] text-chalk">
               Contact
             </h3>

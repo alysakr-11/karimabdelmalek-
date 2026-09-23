@@ -148,12 +148,9 @@ export default async function ExhibitionPage({ params }: Params) {
                       caption={
                         /* "Film", not the show's name: the grid above captions
                            every plate "<show> 08", and a video tab reading
-                           "Sakan 01" would look like plate one. */
-                        <span className="flex w-full items-baseline justify-end gap-2.5">
+                           "Sakan" would read as a plate. */
+                        <span className="flex w-full items-baseline justify-end">
                           <span className="t-caption truncate text-chalk">Film</span>
-                          <span className="t-caption shrink-0 text-ochre-lift">
-                            {String(i + 1).padStart(2, '0')}
-                          </span>
                         </span>
                       }
                     >
