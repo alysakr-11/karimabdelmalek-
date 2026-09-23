@@ -2,8 +2,9 @@
 
 import Link from 'next/link';
 import { useRouter } from 'next/navigation';
-import { useCallback, useEffect, useRef, type ReactNode } from 'react';
+import { useCallback, useEffect, useRef, useState, type ReactNode } from 'react';
 import { artworkOpenedFromSite } from '@/components/chrome/RouteMemory';
+import { Lightbox, type LightboxItem } from './Lightbox';
 
 /**
  * The controls that make a work's page behave like a viewer rather than a
@@ -131,5 +132,27 @@ export function ArtworkSwipe({
     >
       {children}
     </div>
+  );
+}
+
+/**
+ * The picture on a work's page: tapping or clicking it opens the work on its
+ * own, full screen, to zoom into and move around.
+ */
+export function ArtworkZoom({ item, children }: { item: LightboxItem; children: ReactNode }) {
+  const [open, setOpen] = useState(false);
+  const close = useCallback(() => setOpen(false), []);
+  return (
+    <>
+      <button
+        type="button"
+        onClick={() => setOpen(true)}
+        aria-label={`View ${item.alt} full screen`}
+        className="block w-full cursor-zoom-in rounded-2xl focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-ochre-lift"
+      >
+        {children}
+      </button>
+      {open ? <Lightbox items={[item]} index={0} onClose={close} /> : null}
+    </>
   );
 }

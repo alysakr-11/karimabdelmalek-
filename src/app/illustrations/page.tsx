@@ -1,7 +1,8 @@
 import type { Metadata } from 'next';
 import { illustrations, illustrationsContext } from '@/content/illustrations';
 import { PageHeader } from '@/components/sections/PageHeader';
-import { ArtworkGrid, type GridItem } from '@/components/primitives/ArtworkGrid';
+import { type GridItem } from '@/components/primitives/ArtworkGrid';
+import { IllustrationGallery } from '@/components/sections/IllustrationGallery';
 import { ContourField } from '@/components/primitives/ContourField';
 import { CurveDivider } from '@/components/primitives/CurveDivider';
 import { ContactCta } from '@/components/sections/ContactCta';
@@ -14,7 +15,7 @@ export const metadata: Metadata = {
 };
 
 export default function IllustrationsPage() {
-  // Illustrations have no individual pages; the grid links to the full file.
+  // Illustrations have no pages of their own: a tap opens one full screen.
   const items: GridItem[] = illustrations.map((ill) => ({
     key: ill.slug,
     href: ill.src,
@@ -44,7 +45,7 @@ export default function IllustrationsPage() {
       >
         <ContourField seed={71} opacity={0.32} stroke="var(--color-ochre-lift)" />
         <div className="shell relative">
-          <ArtworkGrid items={items} dark surface="light" />
+          <IllustrationGallery items={items} />
         </div>
       </section>
 

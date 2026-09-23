@@ -26,8 +26,11 @@ export function ArtworkGrid({
   dark = true,
   surface = 'dark',
   priorityCount = 4,
+  onOpen,
 }: {
   items: GridItem[];
+  /** Open item `i` in place rather than following its link. */
+  onOpen?: (i: number) => void;
   dark?: boolean;
   surface?: 'dark' | 'light';
   priorityCount?: number;
@@ -58,6 +61,7 @@ export function ArtworkGrid({
             dark={dark}
             surface={surface}
             priority={i < priorityCount}
+            onOpen={onOpen ? () => onOpen(i) : undefined}
           />
         ),
       }))}
