@@ -139,7 +139,7 @@ test.describe('the exhibitions list', () => {
     { name: 'phone', width: 390 },
     { name: 'desktop', width: 1440 },
   ]) {
-    test(`opens to every show and the full index on ${name}`, async ({ page }) => {
+    test(`opens to every show and the index of them all on ${name}`, async ({ page }) => {
       await page.setViewportSize({ width, height: 900 });
       await trigger(page).click();
       await toggle(page).click();
@@ -147,7 +147,7 @@ test.describe('the exhibitions list', () => {
 
       const shows = dialog(page).locator('a[href^="/exhibitions/"]:visible');
       await expect(shows).toHaveCount(8);
-      await dialog(page).getByRole('link', { name: 'View all exhibitions' }).and(page.locator(':visible')).click();
+      await dialog(page).getByRole('link', { name: 'All exhibitions', exact: true }).and(page.locator(':visible')).click();
       await expect(page).toHaveURL(/\/exhibitions$/);
       await expect(dialog(page)).toHaveAttribute('aria-hidden', 'true');
     });

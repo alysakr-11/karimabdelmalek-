@@ -226,7 +226,7 @@ export function MenuOverlay({ open, onClose }: { open: boolean; onClose: () => v
   );
 }
 
-/** Every exhibition with its year, then the way to the full index. */
+/** Every exhibition with its year, then the index of them all. */
 function ShowsList({
   onNavigate,
   className = '',
@@ -255,17 +255,31 @@ function ShowsList({
             </Link>
           </li>
         ))}
+        {/* The index of every gallery, as the last row of the list rather
+            than a separate button. Not the same as "Collection", which is one
+            gallery of its own. */}
+        <li className="border-b border-chalk/10">
+          <Link
+            href="/exhibitions"
+            onClick={onNavigate}
+            className="group/show flex items-baseline justify-between gap-4 py-3 text-chalk transition-colors duration-300 hover:text-ochre-lift"
+          >
+            <span className="t-serif text-xl italic sm:text-2xl">All exhibitions</span>
+            <svg
+              aria-hidden
+              viewBox="0 0 16 16"
+              className="h-3.5 w-3.5 self-center text-ochre-lift transition-transform duration-300 group-hover/show:translate-x-1"
+              fill="none"
+              stroke="currentColor"
+              strokeWidth={1.6}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            >
+              <path d="M3 8h10M9 4l4 4-4 4" />
+            </svg>
+          </Link>
+        </li>
       </ul>
-      <Link
-        href="/exhibitions"
-        onClick={onNavigate}
-        className="t-eyebrow mt-6 inline-flex items-center gap-3 rounded-full border border-chalk/25 px-5 py-3 text-chalk transition-colors duration-300 hover:border-ochre-lift hover:bg-ochre-lift hover:text-umber-deep"
-      >
-        View all exhibitions
-        <svg aria-hidden viewBox="0 0 16 16" className="h-3 w-3" fill="none" stroke="currentColor" strokeWidth={1.8} strokeLinecap="round" strokeLinejoin="round">
-          <path d="M3 8h10M9 4l4 4-4 4" />
-        </svg>
-      </Link>
     </div>
   );
 }
