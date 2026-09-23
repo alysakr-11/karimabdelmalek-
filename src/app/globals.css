@@ -260,3 +260,13 @@
     transform: none;
   }
 }
+
+/* A page that already ends on a dark section runs straight into the footer:
+   no curve, which would leave a strip of cream between two dark grounds, but
+   a hairline where one ends and the other begins. */
+main:has(> [data-nav-theme='dark']:last-child) + footer [data-footer-curve] {
+  display: none;
+}
+main:has(> [data-nav-theme='dark']:last-child) + footer [data-footer-body] {
+  border-top: 1px solid rgb(245 241 233 / 0.1);
+}

@@ -167,8 +167,6 @@ export default async function ExhibitionPage({ params }: Params) {
           </Reveal>
         </div>
       </section>
-
-      <CurveDivider fill="var(--color-umber-deep)" flip className="-mt-px" height={72} />
     </>
   );
 }

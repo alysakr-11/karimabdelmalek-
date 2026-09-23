@@ -8,13 +8,19 @@ import { CurveDivider } from '@/components/primitives/CurveDivider';
  * One compact band: the name, the ways to get in touch, where to follow, and
  * the small print. The pages and the exhibitions are one tap away in the menu,
  * so the footer does not repeat them.
+ *
+ * It rises out of a light page on a curve. Where the page already ends dark,
+ * globals.css drops the curve and the footer simply carries on below a
+ * hairline, rather than leaving a strip of cream between two dark grounds.
  */
 export function Footer() {
   return (
     <footer data-nav-theme="dark" className="on-dark relative">
-      <CurveDivider fill="var(--color-umber-deep)" className="-mb-px" height={72} />
+      <div data-footer-curve>
+        <CurveDivider fill="var(--color-umber-deep)" className="-mb-px" height={72} />
+      </div>
 
-      <div className="relative overflow-hidden bg-umber-deep pb-8 text-chalk">
+      <div data-footer-body className="relative overflow-hidden bg-umber-deep pb-8 text-chalk">
         <ContourField seed={13} opacity={0.45} stroke="var(--color-ochre-lift)" />
 
         <div className="shell relative">
