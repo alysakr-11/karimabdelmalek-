@@ -2,8 +2,8 @@ import Link from 'next/link';
 import { LOGOTYPE, SITE_NAME, socials, nav } from '@/content/site';
 import { artist } from '@/content/artist';
 import { contact } from '@/content/contact';
+import { PhoneActions } from '@/components/primitives/PhoneActions';
 import { exhibitions } from '@/content/exhibitions';
-import { MISSING_CONTENT } from '@/content/gaps';
 import { ContourField } from '@/components/primitives/ContourField';
 import { CurveDivider } from '@/components/primitives/CurveDivider';
 
@@ -26,12 +26,11 @@ export function Footer() {
               <p className="t-serif mt-4 max-w-[26ch] text-xl text-ochre-lift italic">
                 {artist.tagline}
               </p>
-              <a
-                href={contact.phoneHref}
-                className="t-caption mt-6 block font-normal text-chalk/75 transition-colors hover:text-ochre-lift"
-              >
-                {contact.phoneDisplay}
-              </a>
+              <PhoneActions
+                tone="dark"
+                className="mt-6"
+                numberClassName="t-caption block font-normal text-chalk/75 hover:text-ochre-lift"
+              />
               {contact.emailHref ? (
                 <a
                   href={contact.emailHref}
@@ -95,18 +94,6 @@ export function Footer() {
               </ul>
             </div>
           </div>
-
-          {/* The site says what it is still missing rather than looking finished. */}
-          <details className="border-t border-chalk/12 py-6">
-            <summary className="t-eyebrow cursor-pointer text-chalk/45 transition-colors hover:text-ochre-lift">
-              Content status — {MISSING_CONTENT.length} items outstanding
-            </summary>
-            <ul className="mt-4 grid gap-1.5 md:grid-cols-2">
-              {MISSING_CONTENT.map((item) => (
-                <li key={item} className="t-caption font-normal text-chalk/55">— {item}</li>
-              ))}
-            </ul>
-          </details>
 
           <div className="flex flex-col gap-2 border-t border-chalk/12 pt-6 sm:flex-row sm:items-center sm:justify-between">
             <p className="t-caption font-normal text-chalk/40">

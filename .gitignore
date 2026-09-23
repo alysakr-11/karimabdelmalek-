@@ -9,3 +9,7 @@ build/
 npm-debug.log*
 # Local QA / snapshot scripts, not part of the site
 *.local.mjs
+
+# Playwright
+test-results/
+playwright-report/

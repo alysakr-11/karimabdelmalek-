@@ -248,3 +248,25 @@
     transform: none !important;
   }
 }
+
+/* Hero showcase: the progress segment fills over each work's hold, and the
+   caption rises in as each new work arrives. */
+@keyframes showcase-progress {
+  from {
+    width: 0%;
+  }
+  to {
+    width: 100%;
+  }
+}
+
+@keyframes showcase-caption {
+  from {
+    opacity: 0;
+    transform: translateY(6px);
+  }
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}

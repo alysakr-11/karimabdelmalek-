@@ -12,6 +12,10 @@ import { LOGOTYPE, SITE_NAME } from '@/content/site';
  * The logotype and menu button invert as the page passes over a dark section.
  * Sections opt in by setting `data-nav-theme="dark"`; a rAF-throttled scroll
  * listener checks which one sits under the header line.
+ *
+ * At the top of a page the header is bare. Once the page scrolls, a frosted
+ * bar in the section's own tone fades in behind it, so the logotype never sits
+ * on top of a heading, a painting or a button scrolling underneath.
  */
 export function Header() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -64,8 +68,19 @@ export function Header() {
         Skip to content
       </a>
 
-      <header className="pointer-events-none fixed inset-x-0 top-0 z-40">
-        <div className="shell flex items-start justify-between py-4 sm:py-5">
+      {/* While bare, the header lets taps through to the page around its
+          controls; once the bar is showing, the bar itself takes them, so a tap
+          on it never lands on something hidden underneath. */}
+      <header
+        className={`fixed inset-x-0 top-0 z-40 ${lifted && !menuOpen ? '' : 'pointer-events-none'}`}
+      >
+        <div
+          aria-hidden
+          className={`absolute inset-0 border-b backdrop-blur-md transition-[opacity,background-color,border-color] duration-500 ${
+            lifted && !menuOpen ? 'opacity-100' : 'opacity-0'
+          } ${inverted ? 'border-chalk/10 bg-umber-deep/90' : 'border-ink/10 bg-paper/92'}`}
+        />
+        <div className="shell relative flex items-start justify-between py-4 sm:py-5">
           <Link
             href="/"
             aria-label={`${SITE_NAME} — home`}

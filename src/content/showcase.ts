@@ -1,0 +1,78 @@
+import { exhibitionBySlug, type Artwork } from './exhibitions';
+import { FULL_TRIM, type Focus, type Trim } from './media';
+import { mediaUrl } from './site';
+import { SITE_NAME } from './site';
+
+/**
+ * The works the home page's hero cycles through.
+ *
+ * Chosen by eye from a contact sheet of every candidate cropped to the hero's
+ * 4:5 frame, for three things: the face sits well inside that frame, the
+ * sequence alternates warm and cool so each change reads, and the source is
+ * sharp enough for the frame. That last rule limits this to Wesāl and Zāt,
+ * whose files are 1326 px tall after trimming; the earlier shows' are about
+ * 650 px, which goes soft in a frame this size on a phone or a retina screen.
+ *
+ * The first slide is the painting the hero has always opened on, so the page
+ * paints exactly as it did before the showcase existed.
+ */
+const PICKS: Array<[slug: string, plate: number]> = [
+  ['wsal-2025', 1],
+  ['zat-2023', 5],
+  ['wsal-2025', 3],
+  ['zat-2023', 7],
+  ['zat-2023', 15],
+  ['wsal-2025', 8],
+  ['zat-2023', 10],
+];
+
+export type ShowcaseSlide = {
+  key: string;
+  src: string;
+  alt: string;
+  trim: Trim;
+  focus: Focus | null;
+  /** Width over height of the picture after trimming. */
+  ratio?: number;
+  /** Where the caption links; null for the opening painting. */
+  href: string | null;
+  /** The work's title, or its plate label when it has none. */
+  label: string | null;
+  labelLang: 'ar' | 'en' | null;
+  /** Exhibition and year, e.g. "Zat · 2023". */
+  meta: string | null;
+};
+
+function fromArtwork(a: Artwork, year: number | string | null): ShowcaseSlide {
+  return {
+    key: `${a.exhibitionSlug}-${a.plate}`,
+    src: a.src,
+    alt: a.alt,
+    trim: a.trim,
+    focus: a.focus,
+    ratio: a.width / a.height,
+    href: `/exhibitions/${a.exhibitionSlug}/${a.slug}`,
+    label: a.title ?? a.label,
+    labelLang: a.titleLang,
+    meta: [a.exhibitionTitle, year].filter(Boolean).join(' · ') || null,
+  };
+}
+
+export const showcase: ShowcaseSlide[] = [
+  {
+    key: 'hero',
+    src: mediaUrl('media/site/home-hero.jpg'),
+    alt: `Artwork by ${SITE_NAME}`,
+    trim: FULL_TRIM,
+    focus: null,
+    href: null,
+    label: null,
+    labelLang: null,
+    meta: null,
+  },
+  ...PICKS.flatMap(([slug, plate]) => {
+    const ex = exhibitionBySlug(slug);
+    const art = ex?.artworks.find((a) => a.plate === plate);
+    return art ? [fromArtwork(art, ex?.year ?? null)] : [];
+  }),
+];

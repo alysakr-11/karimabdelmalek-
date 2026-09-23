@@ -1,4 +1,5 @@
 import { contact } from '@/content/contact';
+import { PhoneActions } from '@/components/primitives/PhoneActions';
 import { socials } from '@/content/site';
 import { PillLink } from '@/components/primitives/PillButton';
 import { Reveal } from '@/components/primitives/Reveal';
@@ -17,12 +18,10 @@ export function ContactCta() {
           </h2>
         </Reveal>
         <Reveal delay={130}>
-          <a
-            href={contact.phoneHref}
-            className="t-display inline-block text-[clamp(1.5rem,1rem+2vw,2.5rem)] text-clay transition-colors hover:text-ochre"
-          >
-            {contact.phoneDisplay}
-          </a>
+          <PhoneActions
+            align="center"
+            numberClassName="t-display inline-block text-[clamp(1.5rem,1rem+2vw,2.5rem)] text-clay hover:text-ochre"
+          />
           {contact.emailHref ? (
             <a
               href={contact.emailHref}

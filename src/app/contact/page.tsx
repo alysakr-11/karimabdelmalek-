@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import Image from 'next/image';
 import { contact } from '@/content/contact';
+import { PhoneActions } from '@/components/primitives/PhoneActions';
 import { socials } from '@/content/site';
 import { PageHeader } from '@/components/sections/PageHeader';
 import { EnquiryForm } from '@/components/sections/EnquiryForm';
@@ -44,12 +45,7 @@ export default function ContactPage() {
 
             <Reveal delay={140}>
               <h2 className="t-eyebrow mb-4 text-ochre">By phone</h2>
-              <a
-                href={contact.phoneHref}
-                className="t-serif block text-2xl text-ink transition-colors hover:text-ochre"
-              >
-                {contact.phoneDisplay}
-              </a>
+              <PhoneActions numberClassName="t-serif block text-2xl text-ink hover:text-ochre" />
 
               {/* Only when there is an address to link to — a heading over
                   nothing is worse than no heading. */}
