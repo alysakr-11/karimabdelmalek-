@@ -35,7 +35,10 @@ test('content is visible with JavaScript disabled', async ({ browser }) => {
   const context = await browser.newContext({ javaScriptEnabled: false });
   const page = await context.newPage();
 
-  await page.goto('/');
+  // Wait for the document, not for every image: what is under test is whether
+  // the content shows, and on a cold CI runner one image being optimised for
+  // the first time once held the "load" event past the test timeout.
+  await page.goto('/', { waitUntil: 'domcontentloaded' });
   await expect(page.locator('main')).toBeVisible();
   await expect(page.locator('h1').first()).toBeVisible();
 

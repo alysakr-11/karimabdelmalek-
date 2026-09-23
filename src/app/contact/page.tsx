@@ -45,7 +45,7 @@ export default function ContactPage() {
 
             <Reveal delay={140}>
               <h2 className="t-eyebrow mb-4 text-ochre">By phone</h2>
-              <PhoneActions numberClassName="t-serif block text-2xl text-ink hover:text-ochre" />
+              <PhoneActions />
 
               {/* Only when there is an address to link to — a heading over
                   nothing is worse than no heading. */}

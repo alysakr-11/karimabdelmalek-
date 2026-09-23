@@ -29,15 +29,11 @@ export default function InterviewsPage() {
         lead="Interviews"
         seed={47}
         body={
-          /* Three states, because "the rest" was still being written when
-             there was no rest left. */
           playable === interviews.length
-            ? `${interviews.length} television appearances, recovered from the broadcasts themselves. Press one to watch it.`
-            : playable
-              ? `${interviews.length} television appearances. ${playable} of them ${
-                  playable === 1 ? 'plays' : 'play'
-                } here; the ${interviews.length - playable} others were embedded with a player that did not survive the move, so for now those are the programme stills.`
-              : `${interviews.length} television appearances. The original broadcasts were embedded with a player that did not survive the move, so these are the programme stills.`
+            ? 'Conversations with Karim on Egyptian television: Al Nahar, DMC, ON and Channel 1.'
+            : `Conversations with Karim on Egyptian television: Al Nahar, DMC, ON and Channel 1. ${
+                playable ? `${playable} of the ${interviews.length} recordings play here; the others` : 'The recordings'
+              } are shown as programme stills for now.`
         }
       />
 
@@ -61,11 +57,8 @@ export default function InterviewsPage() {
                     stroke="rgba(245,241,233,0.14)"
                     className="aspect-[16/10] w-full"
                     caption={
-                      <span className="flex w-full items-baseline justify-end gap-2.5">
+                      <span className="flex w-full items-baseline justify-end">
                         <span className="t-caption truncate text-chalk">{interview.channel}</span>
-                        <span className="t-caption shrink-0 text-ochre-lift">
-                          {String(interview.order).padStart(2, '0')}
-                        </span>
                       </span>
                     }
                   >
@@ -103,12 +96,11 @@ export default function InterviewsPage() {
                       </p>
                     ) : null}
 
-                    <p className="t-caption mt-2 font-normal text-chalk/40">
-                      {interview.file
-                        ? [interview.date, interview.quality].filter(Boolean).join(' · ') ||
-                          'Watch'
-                        : interview.date ?? 'Recording not yet linked'}
-                    </p>
+                    {interview.date || !interview.file ? (
+                      <p className="t-caption mt-2 font-normal text-chalk/40">
+                        {interview.date ?? 'Recording not yet linked'}
+                      </p>
+                    ) : null}
                   </div>
                 </Reveal>
               );
