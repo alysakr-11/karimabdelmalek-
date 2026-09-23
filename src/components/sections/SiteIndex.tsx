@@ -203,9 +203,6 @@ function ContactRoom() {
           </div>
 
           <div className="md:text-right">
-            <p className="t-display text-[clamp(1.25rem,0.9rem+1.4vw,2rem)] text-ochre-lift">
-              {contact.phoneDisplay}
-            </p>
             {contact.email ? (
               <p className="t-body mt-1 break-all text-sm text-chalk/60">{contact.email}</p>
             ) : null}

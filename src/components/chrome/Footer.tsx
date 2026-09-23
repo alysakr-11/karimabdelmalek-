@@ -26,11 +26,7 @@ export function Footer() {
               <p className="t-serif mt-4 max-w-[26ch] text-xl text-ochre-lift italic">
                 {artist.tagline}
               </p>
-              <PhoneActions
-                tone="dark"
-                className="mt-6"
-                numberClassName="t-caption block font-normal text-chalk/75 hover:text-ochre-lift"
-              />
+              <PhoneActions tone="dark" className="mt-6" />
               {contact.emailHref ? (
                 <a
                   href={contact.emailHref}

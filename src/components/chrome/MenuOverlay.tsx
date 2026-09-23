@@ -201,7 +201,7 @@ export function MenuOverlay({ open, onClose }: { open: boolean; onClose: () => v
         <div className="grid gap-6 border-t border-chalk/12 pt-6 sm:grid-cols-2">
           <div>
             <p className="t-eyebrow mb-3 text-chalk/40">Get in touch</p>
-            <PhoneActions tone="dark" showNumber={false} />
+            <PhoneActions tone="dark" />
           </div>
           <div>
             <p className="t-eyebrow mb-3 text-chalk/40">Elsewhere</p>
