@@ -18,15 +18,7 @@ export function ContactCta() {
           </h2>
         </Reveal>
         <Reveal delay={130}>
-          <PhoneActions align="center" />
-          {contact.emailHref ? (
-            <a
-              href={contact.emailHref}
-              className="t-body mt-3 block break-all text-ink-soft transition-colors hover:text-ochre"
-            >
-              {contact.email}
-            </a>
-          ) : null}
+          <PhoneActions align="center" withEmail />
           <div className="mb-8" />
         </Reveal>
         <Reveal delay={190}>

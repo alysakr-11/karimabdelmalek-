@@ -3,6 +3,7 @@ import './globals.css';
 import { Header } from '@/components/chrome/Header';
 import { Footer } from '@/components/chrome/Footer';
 import { SmoothScroll } from '@/components/chrome/SmoothScroll';
+import { RouteMemory } from '@/components/chrome/RouteMemory';
 import { SITE_NAME, SITE_URL, socials, mediaUrl } from '@/content/site';
 import { artist } from '@/content/artist';
 
@@ -77,6 +78,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       <body>
         <PersonJsonLd />
         <SmoothScroll />
+        <RouteMemory />
         <Header />
         {/* tabIndex -1: the skip link's target has to be able to take focus, or
             jumping to it moves the view but leaves keyboard focus behind. */}

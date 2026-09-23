@@ -1,7 +1,6 @@
 import Link from 'next/link';
 import { LOGOTYPE, SITE_NAME, socials, nav } from '@/content/site';
 import { artist } from '@/content/artist';
-import { contact } from '@/content/contact';
 import { PhoneActions } from '@/components/primitives/PhoneActions';
 import { exhibitions } from '@/content/exhibitions';
 import { ContourField } from '@/components/primitives/ContourField';
@@ -26,15 +25,7 @@ export function Footer() {
               <p className="t-serif mt-4 max-w-[26ch] text-xl text-ochre-lift italic">
                 {artist.tagline}
               </p>
-              <PhoneActions tone="dark" className="mt-6" />
-              {contact.emailHref ? (
-                <a
-                  href={contact.emailHref}
-                  className="t-caption mt-1.5 block break-all font-normal text-chalk/75 transition-colors hover:text-ochre-lift"
-                >
-                  {contact.email}
-                </a>
-              ) : null}
+              <PhoneActions tone="dark" withEmail className="mt-6" />
             </div>
 
             <nav aria-label="Footer" className="md:col-span-3 lg:col-span-2">
