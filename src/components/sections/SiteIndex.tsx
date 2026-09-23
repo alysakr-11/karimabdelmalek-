@@ -62,7 +62,7 @@ const ROOMS: Room[] = [
     index: '02',
     title: 'Illustrations',
     meta: `${illustrations.length} works`,
-    body: 'Watercolours made for the press, printed rather than hung.',
+    body: 'Illustrations for the Egyptian magazines Sabah El Kheir and Rosalyoussef.',
     image: illustrations[0]
       ? { src: illustrations[0].src, trim: FULL_TRIM, alt: 'An illustration' }
       : undefined,
