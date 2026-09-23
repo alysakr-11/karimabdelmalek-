@@ -40,15 +40,16 @@ export default function ExhibitionsPage() {
               <Reveal as="li" key={ex.slug} delay={(i % 3) * 70}>
                 <Link href={`/exhibitions/${ex.slug}`} className="group block">
                   <NotchedFrame
-                    tabWidth={180}
+                    tabWidth={120}
                     stroke="rgba(245,241,233,0.14)"
                     strokeActive="var(--color-ochre-lift)"
                     className="aspect-[4/5] w-full"
                     caption={
-                      <span className="flex w-full items-baseline justify-end gap-2.5">
-                        <span className="t-caption truncate text-chalk">{ex.title}</span>
+                      /* The card carries the title, year and venue; the tab
+                         only says how much is inside. */
+                      <span className="flex w-full items-baseline justify-end">
                         <span className="t-caption shrink-0 text-ochre-lift">
-                          {ex.year ?? ex.type}
+                          {ex.artworks.length} works
                         </span>
                       </span>
                     }
@@ -67,10 +68,11 @@ export default function ExhibitionsPage() {
                           <span className="t-serif block text-2xl text-chalk transition-colors duration-500 group-hover:text-ochre-lift">
                             {ex.title}
                           </span>
-                          <span className="t-caption mt-1 block font-normal text-chalk/60">
-                            {ex.artworks.length} works
-                            {ex.venue ? ` · ${ex.venue}` : ''}
-                          </span>
+                          {ex.year || ex.venue ? (
+                            <span className="t-caption mt-1 block font-normal text-chalk/60">
+                              {[ex.year, ex.venue].filter(Boolean).join(' · ')}
+                            </span>
+                          ) : null}
                         </span>
                       </div>
                     </div>

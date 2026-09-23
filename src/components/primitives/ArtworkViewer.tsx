@@ -38,12 +38,15 @@ export function ArtworkClose({ closeHref, label }: { closeHref: string; label: s
 }
 
 export function ArtworkPager({
+  selfHref,
   prevHref,
   nextHref,
   closeHref,
   position,
   total,
 }: {
+  /** This work's own path, to tell when a move to another is still loading. */
+  selfHref: string;
   prevHref: string | null;
   nextHref: string | null;
   closeHref: string;
@@ -60,6 +63,10 @@ export function ArtworkPager({
       if (document.querySelector('[role="dialog"][aria-hidden="false"]')) return;
       const target = e.target as HTMLElement | null;
       if (target?.closest('input, textarea, select, [contenteditable="true"]')) return;
+      // The address changes as soon as a move starts, but this work stays on
+      // screen until the next has loaded. A key pressed in between must not
+      // be read against this work's neighbours, or a quick ← after → skips.
+      if (!window.location.pathname.replace(/\/$/, '').endsWith(selfHref)) return;
 
       if (e.key === 'Escape') close();
       else if (e.key === 'ArrowLeft' && prevHref) router.replace(prevHref);
@@ -67,7 +74,7 @@ export function ArtworkPager({
     };
     document.addEventListener('keydown', onKey);
     return () => document.removeEventListener('keydown', onKey);
-  }, [router, close, prevHref, nextHref]);
+  }, [router, close, prevHref, nextHref, selfHref]);
 
   if (!prevHref || !nextHref) return null;
 

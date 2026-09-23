@@ -48,7 +48,7 @@ export function SectionHeading({
             </span>
             {trail ? (
               <span
-                className={`t-serif mt-1 block [overflow-wrap:anywhere] text-[clamp(2rem,1.2rem+4vw,4.75rem)] italic ${
+                className={`t-serif mt-1 block [overflow-wrap:anywhere] text-[clamp(2rem,1.2rem+4vw,4.75rem)] ${
                   dark ? 'text-ochre-lift' : 'text-ochre'
                 }`}
                 style={{ '--reveal-delay': '110ms' } as React.CSSProperties}

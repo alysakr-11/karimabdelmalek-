@@ -13,3 +13,15 @@ for (const route of ['/', '/contact', '/about']) {
     await expect(page.locator('a[href^="https://wa.me/"]').first()).toBeAttached();
   });
 }
+
+// The email address is reached through an Email button that opens a new
+// message; it is not written out on the page either.
+for (const route of ['/', '/contact', '/about', '/exhibitions']) {
+  test(`${route} offers an Email button but does not write the address out`, async ({ page }) => {
+    await page.goto(route);
+    expect(await page.locator('body').innerText()).not.toMatch(/@yahoo|malak9910/i);
+    const email = page.locator('main a[href^="mailto:"], footer a[href^="mailto:"]').first();
+    await expect(email).toHaveText(/Email/);
+    await expect(email).toHaveAttribute('href', /^mailto:[^?]+\?subject=/);
+  });
+}

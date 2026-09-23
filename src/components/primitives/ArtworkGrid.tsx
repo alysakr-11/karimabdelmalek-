@@ -9,8 +9,9 @@ export type GridItem = {
   href: string;
   src: string;
   alt: string;
-  label: string;
-  /** Script of `label`, when it is a real title rather than a plate number. */
+  /** The work's title; null when it has none. */
+  label: string | null;
+  /** Script of `label`. */
   labelLang?: 'ar' | 'en' | null;
   meta?: string | null;
   width: number;

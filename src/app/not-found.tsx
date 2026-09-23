@@ -16,7 +16,7 @@ export default function NotFound() {
         <h1 className="t-display mb-4 text-[clamp(3rem,1.5rem+9vw,8rem)] text-ink">
           Not here
         </h1>
-        <p className="t-serif mx-auto mb-10 max-w-[26ch] text-[clamp(1.25rem,1rem+1.4vw,2rem)] text-clay italic">
+        <p className="t-serif mx-auto mb-10 max-w-[26ch] text-[clamp(1.25rem,1rem+1.4vw,2rem)] text-clay">
           This page has no work on its walls.
         </p>
 

@@ -4,7 +4,6 @@ import { interviews, playableInterviews } from '@/content/interviews';
 import { socials } from '@/content/site';
 import { PageHeader } from '@/components/sections/PageHeader';
 import { Reveal } from '@/components/primitives/Reveal';
-import { NotchedFrame } from '@/components/primitives/NotchedFrame';
 import { ContourField } from '@/components/primitives/ContourField';
 import { CurveDivider } from '@/components/primitives/CurveDivider';
 import { VideoEmbed } from '@/components/primitives/VideoEmbed';
@@ -52,41 +51,28 @@ export default function InterviewsPage() {
 
               return (
                 <Reveal as="li" key={interview.order} delay={(i % 3) * 70}>
-                  <NotchedFrame
-                    tabWidth={150}
-                    stroke="rgba(245,241,233,0.14)"
-                    className="aspect-[16/10] w-full"
-                    caption={
-                      <span className="flex w-full items-baseline justify-end">
-                        <span className="t-caption truncate text-chalk">{interview.channel}</span>
-                      </span>
-                    }
-                  >
-                    <div className="relative h-full w-full bg-umber" style={{ paddingBottom: 38 }}>
-                      <div className="relative h-full w-full overflow-hidden">
-                        {interview.file ? (
-                          <VideoEmbed
-                            file={interview.file}
-                            title={label}
-                            poster={interview.poster}
-                            posterAlt={`${interview.channel} — still from the recording`}
-                            priority={i < 3}
-                          />
-                        ) : (
-                          /* No play affordance where there is nothing to play:
-                             a dead play button is worse than none. */
-                          <Image
-                            src={interview.poster}
-                            alt={`${interview.channel} interview still`}
-                            fill
-                            priority={i < 3}
-                            sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 31vw"
-                            className="object-cover object-center"
-                          />
-                        )}
-                      </div>
-                    </div>
-                  </NotchedFrame>
+                  <div className="relative aspect-[16/10] w-full overflow-hidden rounded-2xl bg-umber ring-1 ring-chalk/10">
+                    {interview.file ? (
+                      <VideoEmbed
+                        file={interview.file}
+                        title={label}
+                        poster={interview.poster}
+                        posterAlt={`${interview.channel} — still from the recording`}
+                        priority={i < 3}
+                      />
+                    ) : (
+                      /* No play affordance where there is nothing to play:
+                         a dead play button is worse than none. */
+                      <Image
+                        src={interview.poster}
+                        alt={`${interview.channel} interview still`}
+                        fill
+                        priority={i < 3}
+                        sizes="(max-width: 640px) 92vw, (max-width: 1024px) 46vw, 31vw"
+                        className="object-cover object-center"
+                      />
+                    )}
+                  </div>
 
                   <div className="mt-4">
                     <p className="t-serif text-xl text-chalk">{interview.channel}</p>

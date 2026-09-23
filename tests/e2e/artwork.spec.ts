@@ -25,12 +25,17 @@ test('closing a work landed on directly opens its exhibition', async ({ page }) 
 });
 
 test('Escape closes, and the arrow keys move between works', async ({ page }) => {
+  // Each step waits for the work to be on screen (its counter), as a person
+  // would before pressing again.
+  const counter = (n: number) => page.getByLabel(`Work ${n} of 13`);
   await page.goto('/exhibitions/the-third-eye-2021/1');
+  await expect(counter(1)).toBeVisible();
   await page.keyboard.press('ArrowRight');
-  await expect(page).toHaveURL(/\/the-third-eye-2021\/2$/);
+  await expect(counter(2)).toBeVisible();
   await page.keyboard.press('ArrowLeft');
-  await expect(page).toHaveURL(/\/the-third-eye-2021\/1$/);
+  await expect(counter(1)).toBeVisible();
   await page.keyboard.press('ArrowLeft');
+  await expect(counter(13)).toBeVisible();
   await expect(page).toHaveURL(/\/the-third-eye-2021\/13$/);
 
   await page.keyboard.press('Escape');

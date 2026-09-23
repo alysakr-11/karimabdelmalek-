@@ -161,6 +161,7 @@ export default async function ArtworkPage({ params }: Params) {
 
             <div className="mt-8 flex flex-wrap items-center justify-between gap-4 border-t border-chalk/12 pt-6">
               <ArtworkPager
+                selfHref={`${exHref}/${art.slug}`}
                 prevHref={prevHref}
                 nextHref={nextHref}
                 closeHref={exHref}

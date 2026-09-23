@@ -36,7 +36,7 @@ export function PageHeader({
                 </span>
               </span>
               {trail ? (
-                <span className="t-serif mt-1 block [overflow-wrap:anywhere] text-[clamp(1.875rem,1.1rem+3.9vw,4.5rem)] text-ochre italic">
+                <span className="t-serif mt-1 block [overflow-wrap:anywhere] text-[clamp(1.875rem,1.1rem+3.9vw,4.5rem)] text-ochre">
                   <span className="line-mask">
                     <span>{trail}</span>
                   </span>

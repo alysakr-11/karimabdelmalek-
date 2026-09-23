@@ -8,7 +8,6 @@ import { Reveal } from '@/components/primitives/Reveal';
 import { PillLink } from '@/components/primitives/PillButton';
 import { ContourField } from '@/components/primitives/ContourField';
 import { CurveDivider } from '@/components/primitives/CurveDivider';
-import { NotchedFrame } from '@/components/primitives/NotchedFrame';
 import { VideoEmbed, WatchOnYouTube } from '@/components/primitives/VideoEmbed';
 import { SectionHeading } from '@/components/primitives/SectionHeading';
 import { exhibitionVideosFor } from '@/content/videos';
@@ -56,12 +55,13 @@ export default async function ExhibitionPage({ params }: Params) {
     href: `/exhibitions/${ex.slug}/${a.slug}`,
     src: a.src,
     alt: a.alt,
-    label: a.title ?? ex.title,
+    // Only a real title is shown on the grid; an untitled work is shown bare
+    // until its title is known, rather than under a plate number.
+    label: a.title,
     labelLang: a.titleLang,
     // A named work shows its own year — Wesal hung work made in 2021 and 2024
-    // alongside each other, so the show's year is not the work's. An unnamed
-    // one shows its plate number, which is all anyone can honestly call it.
-    meta: a.title ? (a.year ? String(a.year) : null) : String(a.plate).padStart(2, '0'),
+    // alongside each other, so the show's year is not the work's.
+    meta: a.title && a.year ? String(a.year) : null,
     width: a.width,
     height: a.height,
     trim: a.trim,
@@ -85,16 +85,13 @@ export default async function ExhibitionPage({ params }: Params) {
             </div>
           ) : (
             <>
-              {ex.artworks.length} works.{' '}
-              <span className="text-ink-muted">
-                {/* Three cases: said plainly "published without captions"
-                    even where the gallery catalogue now names most of them. */}
-                {ex.captioned === ex.artworks.length
-                  ? 'Titles, media and sizes from the Safarkhan Art Gallery catalogue.'
-                  : ex.captioned > 0
-                    ? `${ex.captioned} carry their titles, media and sizes from the Safarkhan Art Gallery catalogue; the rest are identified by plate number.`
-                    : 'The artist publishes these without captions, so each piece is identified by its plate number.'}
-              </span>
+              {ex.artworks.length} works
+              {ex.captioned > 0 ? (
+                <span className="text-ink-muted">
+                  {' '}· titles, media and sizes from the Safarkhan Art Gallery catalogue
+                </span>
+              ) : null}
+              .
             </>
           )
         }
@@ -133,38 +130,20 @@ export default async function ExhibitionPage({ params }: Params) {
                 lead="The show"
                 trail="in the room"
                 dark
-                body={`Recovered from the artist's own channel. ${
-                  videos.length === 1 ? 'One recording' : `${videos.length} recordings`
-                } of ${ex.title} — the only moving footage of any of the exhibitions.`}
+                body={`Footage from ${ex.title}, from the artist's own channel.`}
               />
 
               <ul className="mt-10 grid gap-6 sm:mt-12 sm:grid-cols-2">
                 {videos.map((video, i) => (
                   <Reveal as="li" key={video.youtubeId} delay={i * 70}>
-                    <NotchedFrame
-                      tabWidth={150}
-                      stroke="rgba(245,241,233,0.14)"
-                      className="aspect-video w-full"
-                      caption={
-                        /* "Film", not the show's name: the grid above captions
-                           every plate "<show> 08", and a video tab reading
-                           "Sakan" would read as a plate. */
-                        <span className="flex w-full items-baseline justify-end">
-                          <span className="t-caption truncate text-chalk">Film</span>
-                        </span>
-                      }
-                    >
-                      <div className="relative h-full w-full bg-umber" style={{ paddingBottom: 38 }}>
-                        <div className="relative h-full w-full overflow-hidden">
-                          <VideoEmbed
-                            youtubeId={video.youtubeId}
-                            title={video.title}
-                            poster={video.poster}
-                            posterAlt={`${video.title} — still from the recording`}
-                          />
-                        </div>
-                      </div>
-                    </NotchedFrame>
+                    <div className="relative aspect-video w-full overflow-hidden rounded-2xl bg-umber ring-1 ring-chalk/10">
+                      <VideoEmbed
+                        youtubeId={video.youtubeId}
+                        title={video.title}
+                        poster={video.poster}
+                        posterAlt={`${video.title} — still from the recording`}
+                      />
+                    </div>
 
                     <div className="mt-4">
                       <p className="t-serif text-xl text-chalk">{video.title}</p>
