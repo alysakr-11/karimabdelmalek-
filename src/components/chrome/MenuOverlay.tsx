@@ -264,7 +264,7 @@ function ShowsList({
             onClick={onNavigate}
             className="group/show flex items-baseline justify-between gap-4 py-3 text-chalk transition-colors duration-300 hover:text-ochre-lift"
           >
-            <span className="t-serif text-xl italic sm:text-2xl">All exhibitions</span>
+            <span className="t-serif text-xl sm:text-2xl">All exhibitions</span>
             <svg
               aria-hidden
               viewBox="0 0 16 16"
