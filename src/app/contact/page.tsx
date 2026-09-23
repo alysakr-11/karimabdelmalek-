@@ -44,22 +44,8 @@ export default function ContactPage() {
             </Reveal>
 
             <Reveal delay={140}>
-              <h2 className="t-eyebrow mb-4 text-ochre">By phone</h2>
-              <PhoneActions />
-
-              {/* Only when there is an address to link to — a heading over
-                  nothing is worse than no heading. */}
-              {contact.emailHref ? (
-                <>
-                  <h2 className="t-eyebrow mt-8 mb-4 text-ochre">By email</h2>
-                  <a
-                    href={contact.emailHref}
-                    className="t-serif block break-all text-2xl text-ink transition-colors hover:text-ochre"
-                  >
-                    {contact.email}
-                  </a>
-                </>
-              ) : null}
+              <h2 className="t-eyebrow mb-4 text-ochre">Call, WhatsApp or email</h2>
+              <PhoneActions withEmail />
             </Reveal>
 
             <div className="mb-8" />

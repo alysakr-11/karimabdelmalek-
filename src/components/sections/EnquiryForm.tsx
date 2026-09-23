@@ -94,16 +94,13 @@ export function EnquiryForm() {
           a message it could not send.{' '}
           {contact.emailHref ? (
             <>
-              Write to{' '}
               <a
                 href={contact.emailHref}
-                /* Not break-all: mid-sentence it split as "mal / ak9910@…".
-                   Kept whole, it wraps to the next line instead. */
-                className="font-medium whitespace-nowrap text-ochre underline decoration-ochre/40 underline-offset-4 transition-colors hover:decoration-ochre"
+                className="font-medium text-ochre underline decoration-ochre/40 underline-offset-4 transition-colors hover:decoration-ochre"
               >
-                {contact.email}
+                Email him directly
               </a>{' '}
-              instead — it reaches him directly.
+              instead.
             </>
           ) : (
             <>The phone number and the social links beside it work now.</>
@@ -189,12 +186,9 @@ export function EnquiryForm() {
                   not linked from this page. */}
               {contact.emailHref ? (
                 <>
-                  Please write to{' '}
-                  <a
-                    href={contact.emailHref}
-                    className="whitespace-nowrap underline underline-offset-4"
-                  >
-                    {contact.email}
+                  Please{' '}
+                  <a href={contact.emailHref} className="underline underline-offset-4">
+                    email him directly
                   </a>{' '}
                   instead.
                 </>

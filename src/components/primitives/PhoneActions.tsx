@@ -13,11 +13,15 @@ import { contact } from '@/content/contact';
 export function PhoneActions({
   tone = 'light',
   align = 'start',
+  withEmail = false,
   className = '',
 }: {
   /** `dark` for chalk-on-umber sections, `light` for ink-on-paper. */
   tone?: 'light' | 'dark';
   align?: 'start' | 'center';
+  /** Add Email as a third button in the same row, where the address would
+      otherwise sit loose under the buttons. */
+  withEmail?: boolean;
   className?: string;
 }) {
   const pill =
@@ -48,6 +52,15 @@ export function PhoneActions({
               <path d="M2.2 13.8 3 11a6 6 0 1 1 2.1 2.1l-2.9.7Z" />
             </svg>
             WhatsApp
+          </a>
+        ) : null}
+        {withEmail && contact.emailHref ? (
+          <a href={contact.emailHref} className={base} aria-label={`Email ${contact.email}`}>
+            <svg aria-hidden viewBox="0 0 16 16" className="h-3.5 w-3.5" fill="none" stroke="currentColor" strokeWidth={1.6} strokeLinecap="round" strokeLinejoin="round">
+              <rect x="1.8" y="3.2" width="12.4" height="9.6" rx="1.6" />
+              <path d="m2.4 4.2 5.6 4.3 5.6-4.3" />
+            </svg>
+            Email
           </a>
         ) : null}
       </div>

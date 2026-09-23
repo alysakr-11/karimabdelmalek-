@@ -25,8 +25,12 @@ export const contact = {
     ? `https://wa.me/${(data as { whatsapp_e164: string }).whatsapp_e164.replace(/\D/g, '')}`
     : null,
   email: (data.email as string | null) || null,
-  /** `mailto:` for the address, or null when there is none to link to. */
-  emailHref: data.email ? `mailto:${data.email as string}` : null,
+  /** `mailto:` for the address, or null when there is none to link to. It
+   *  opens a new message with the subject already filled in, so the visitor
+   *  only has to write. */
+  emailHref: data.email
+    ? `mailto:${data.email as string}?subject=${encodeURIComponent('Enquiry from the website')}`
+    : null,
   image: mediaUrl(data.image.local_path),
   formSuccessMessage: data.contact_form.success_message as string,
   submitLabel: data.contact_form.submit_label as string,

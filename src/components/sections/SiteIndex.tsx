@@ -13,7 +13,6 @@ import { exhibitions } from '@/content/exhibitions';
 import { illustrations } from '@/content/illustrations';
 import { interviews } from '@/content/interviews';
 import { artist } from '@/content/artist';
-import { contact } from '@/content/contact';
 
 /**
  * The way into the site.
@@ -113,13 +112,13 @@ function RoomCard({ room, priority }: { room: Room; priority: boolean }) {
     >
       <NotchedFrame
         active={active}
-        tabWidth={250}
+        tabWidth={170}
         stroke="rgba(245,241,233,0.16)"
         strokeActive="var(--color-ochre-lift)"
         className="h-full w-full"
         caption={
-          <span className="flex w-full items-baseline justify-end gap-2.5 truncate">
-            <span className="t-caption truncate text-chalk">{room.title}</span>
+          /* The card's own heading already names the section. */
+          <span className="flex w-full items-baseline justify-end truncate">
             <span className="t-caption shrink-0 text-ochre-lift">{room.meta}</span>
           </span>
         }
@@ -196,10 +195,7 @@ function ContactRoom() {
           </div>
 
           <div className="md:text-right">
-            {contact.email ? (
-              <p className="t-body mt-1 break-all text-sm text-chalk/60">{contact.email}</p>
-            ) : null}
-            <span className="t-eyebrow mt-3 inline-flex items-center gap-2 text-chalk/55 transition-colors group-hover:text-ochre-lift">
+            <span className="t-eyebrow inline-flex items-center gap-2 text-chalk/55 transition-colors group-hover:text-ochre-lift">
               Send a message
               <svg
                 aria-hidden

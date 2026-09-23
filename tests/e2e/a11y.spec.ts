@@ -88,29 +88,28 @@ test.describe('artwork cards', () => {
     }
   });
 
-  test('keyboard focus lights the notched outline exactly as hover does', async ({ page }) => {
+  test('keyboard focus rings a card exactly as hover does', async ({ page }) => {
     await page.goto('/exhibitions/wsal-2025');
 
     const card = page.locator('main a[href^="/exhibitions/wsal-2025/"]').first();
-    // The outline path is the one that carries a stroke; the other svg in the
-    // card is the clip geometry.
-    const outline = card.locator('svg path[stroke]').first();
+    // The ring is a box-shadow on the frame inside the link.
+    const frame = card.locator('> div');
+    const ring = () => frame.evaluate((el) => getComputedStyle(el).boxShadow);
 
-    const resting = await outline.getAttribute('stroke');
+    await page.mouse.move(0, 0);
+    const resting = await ring();
 
     await card.hover();
-    await page.waitForTimeout(120);
-    const hovered = await outline.getAttribute('stroke');
-    expect(hovered, 'hover should change the outline colour').not.toBe(resting);
+    await page.waitForTimeout(600);
+    const hovered = await ring();
+    expect(hovered, 'hover should change the ring').not.toBe(resting);
 
     // Move the pointer away, then arrive by keyboard instead.
     await page.mouse.move(0, 0);
-    await page.waitForTimeout(120);
+    await page.waitForTimeout(600);
     await card.focus();
-    await page.waitForTimeout(120);
-    const focused = await outline.getAttribute('stroke');
-
-    expect(focused, 'focus must do what hover does').toBe(hovered);
+    await page.waitForTimeout(600);
+    expect(await ring(), 'focus must do what hover does').toBe(hovered);
   });
 });
 
