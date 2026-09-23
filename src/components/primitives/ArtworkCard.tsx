@@ -20,6 +20,9 @@ type Props = {
   dark?: boolean;
   /** Backdrop behind the image. Light suits work painted on white paper. */
   surface?: 'dark' | 'light';
+  /** Open the work in place (full screen) instead of following `href`. The
+   *  link stays real, so without JavaScript it still opens the picture. */
+  onOpen?: () => void;
 };
 
 /**
@@ -39,6 +42,7 @@ export function ArtworkCard({
   priority = false,
   dark = true,
   surface = 'dark',
+  onOpen,
 }: Props) {
   const ground = surface === 'light' ? 'bg-white' : dark ? 'bg-umber-deep' : 'bg-paper-deep';
   const ring = dark
@@ -46,7 +50,18 @@ export function ArtworkCard({
     : 'ring-ink/10 group-hover:ring-ochre group-focus-visible:ring-ochre';
 
   return (
-    <Link href={href} className="group block h-full w-full rounded-xl focus-visible:outline-none">
+    <Link
+      href={href}
+      className={`group block h-full w-full rounded-xl focus-visible:outline-none ${onOpen ? 'cursor-zoom-in' : ''}`}
+      onClick={
+        onOpen
+          ? (e) => {
+              e.preventDefault();
+              onOpen();
+            }
+          : undefined
+      }
+    >
       <div
         className={`relative h-full w-full overflow-hidden rounded-xl ring-1 transition-shadow duration-500 ${ground} ${ring}`}
       >

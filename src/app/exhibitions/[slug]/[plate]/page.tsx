@@ -4,7 +4,7 @@ import Link from 'next/link';
 import { notFound } from 'next/navigation';
 import { exhibitions, exhibitionBySlug, artworkAt } from '@/content/exhibitions';
 import { PillLink } from '@/components/primitives/PillButton';
-import { ArtworkClose, ArtworkPager, ArtworkSwipe } from '@/components/primitives/ArtworkViewer';
+import { ArtworkClose, ArtworkPager, ArtworkSwipe, ArtworkZoom } from '@/components/primitives/ArtworkViewer';
 import { ContourField } from '@/components/primitives/ContourField';
 import { artist } from '@/content/artist';
 
@@ -76,23 +76,27 @@ export default async function ArtworkPage({ params }: Params) {
                 The frame takes the artwork's own proportions and the image is
                 cropped to its content box, so no white margin ever shows. */}
             <ArtworkSwipe prevHref={prevHref} nextHref={nextHref}>
-              <div
-                className="relative mx-auto w-full overflow-hidden rounded-2xl bg-umber shadow-[0_24px_60px_-32px_rgba(0,0,0,0.75)]"
-                style={{
-                  aspectRatio: `${art.width} / ${art.height}`,
-                  // A very tall work would otherwise run off the screen.
-                  maxHeight: '78vh',
-                  maxWidth: `min(100%, calc(78vh * ${art.width} / ${art.height}))`,
-                }}
+              <ArtworkZoom
+                item={{ src: art.src, alt: art.alt, trim: art.trim, ratio: art.width / art.height }}
               >
-                <CroppedImage
-                  src={art.src}
-                  alt={art.alt}
-                  trim={art.trim}
-                  priority
-                  sizes="(max-width: 1024px) 94vw, 64vw"
-                />
-              </div>
+                <div
+                  className="relative mx-auto w-full overflow-hidden rounded-2xl bg-umber shadow-[0_24px_60px_-32px_rgba(0,0,0,0.75)]"
+                  style={{
+                    aspectRatio: `${art.width} / ${art.height}`,
+                    // A very tall work would otherwise run off the screen.
+                    maxHeight: '78vh',
+                    maxWidth: `min(100%, calc(78vh * ${art.width} / ${art.height}))`,
+                  }}
+                >
+                  <CroppedImage
+                    src={art.src}
+                    alt={art.alt}
+                    trim={art.trim}
+                    priority
+                    sizes="(max-width: 1024px) 94vw, 64vw"
+                  />
+                </div>
+              </ArtworkZoom>
             </ArtworkSwipe>
           </div>
 
