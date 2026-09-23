@@ -27,7 +27,7 @@ function CvRow({ entry }: { entry: (typeof cvDated)[number] }) {
 
 export default function AboutPage() {
   return (
-    <div className="type-about">
+    <>
       <PageHeader
         eyebrow="Biography"
         lead="About"
@@ -130,6 +130,6 @@ export default function AboutPage() {
       </section>
 
       <ContactCta />
-    </div>
+    </>
   );
 }

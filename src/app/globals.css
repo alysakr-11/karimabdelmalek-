@@ -34,14 +34,18 @@
   --color-clay: #8a5535;
 
   /* ---- Type ------------------------------------------------------------ */
-  /* 'Noto Naskh Arabic' sits in every stack on purpose. Its @font-face covers
-     only the Arabic range, and Archivo's and Fraunces' cover only theirs, so
+  /* The faces of the artist's own Wix site: Cinzel for headings, and Nunito
+     Sans for text, standing in for Wix's licensed Avenir Light (see
+     fonts.css). Display and serif both resolve to Cinzel, as the Wix site
+     sets every heading in it.
+     'Noto Naskh Arabic' sits in every stack on purpose. Its @font-face covers
+     only the Arabic range, and Cinzel's and Nunito Sans' cover only theirs, so
      the browser reaches it for an Arabic codepoint and never for a Latin one.
      A title set in Arabic therefore renders in the self-hosted face wherever
      it appears, with no per-element font switching. */
-  --font-display: 'Archivo', 'Noto Naskh Arabic', 'Helvetica Neue', Arial, sans-serif;
-  --font-serif: 'Fraunces', 'Noto Naskh Arabic', 'Iowan Old Style', Georgia, serif;
-  --font-sans: 'Archivo', 'Noto Naskh Arabic', 'Helvetica Neue', Arial, sans-serif;
+  --font-display: 'Cinzel', 'Noto Naskh Arabic', Georgia, serif;
+  --font-serif: 'Cinzel', 'Noto Naskh Arabic', Georgia, serif;
+  --font-sans: 'Nunito Sans', 'Noto Naskh Arabic', 'Helvetica Neue', Arial, sans-serif;
 
   /* ---- Motion ---------------------------------------------------------- */
   --ease-out-expo: cubic-bezier(0.16, 1, 0.3, 1);
@@ -180,17 +184,6 @@
     font-weight: 600;
     font-size: 0.75rem;
     letter-spacing: 0.02em;
-  }
-
-  /* The About page, set in the faces of the artist's own Wix About page:
-     Cinzel for headings, and Nunito Sans standing in for Wix's licensed
-     Avenir Light (see fonts.css). Only the families change — every size,
-     colour and spacing is the site's own. Re-pointing the tokens reaches the
-     t-* classes and the font-* utilities alike. */
-  .type-about {
-    --font-display: 'Cinzel', 'Noto Naskh Arabic', Georgia, serif;
-    --font-serif: 'Cinzel', 'Noto Naskh Arabic', Georgia, serif;
-    --font-sans: 'Nunito Sans', 'Noto Naskh Arabic', 'Helvetica Neue', Arial, sans-serif;
   }
 }
 
